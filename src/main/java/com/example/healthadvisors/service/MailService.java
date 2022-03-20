@@ -3,6 +3,7 @@ package com.example.healthadvisors.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,6 +12,7 @@ public class MailService {
 
     private final MailSender mailSender;
 
+    @Async
     public void sendEmail(String toEmail,String subject, String message ){
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(toEmail);

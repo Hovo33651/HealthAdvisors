@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html class="wide wow-animation smoothscroll scrollTo" lang="en"  xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Site Title-->
+    <title>Home</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="keywords" content="SANA design multipurpose template">
+    <meta name="date" content="Dec 26">
+    <script src="/cdn-cgi/apps/head/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script><link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+		<!--[if lt IE 10]>
+      <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
+          <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
+                  src="../static/images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+                  alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+      </div>
+      <script src="../static/js/html5shiv.min.js"></script>
+      <![endif]-->
+  </head>
+  <body>
+    <!-- Page-->
+    <div class="page text-center">
+      <!-- Page Head-->
+      <header class="page-head">
+        <!-- RD Navbar minimal-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar rd-navbar-minimal rd-navbar-light" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-md-stick-up-offset="120px" data-lg-stick-up-offset="120px">
+            <div class="rd-navbar-inner">
+              <div class="rd-navbar-top-panel">
+                <div>
+                  <address class="contact-info d-md-inline-block text-left offset-none">
+                    <div class="p unit unit-spacing-xs flex-row">
+                      <div class="unit-left"><span class="icon icon-xs icon-circle icon-gray-light mdi mdi-phone text-primary"></span></div>
+                      <div class="unit-body"><a class="link-inherit font-weight-medium" href="tel:#">(+374)98-97-96-17</a><br/><a class="link-inherit font-weight-medium" href="tel:#">(+374)93-77-66-94</a></div>
+                    </div>
+                  </address>
+                </div>
+                <!--Navbar Brand-->
+                <div ><a href="index.html" style="color: #0E7EB5; font-family: 'Dela Gothic One';font-size: 22px;">HEALTH ADVISORS</a></div>
+                <div>
+                  <address class="contact-info d-md-inline-block text-left">
+                    <div class="p unit flex-row unit-spacing-xs">
+                      <div class="unit-left"><span class="icon icon-xs icon-circle icon-gray-light mdi mdi-map-marker text-primary"></span></div>
+                      <div class="unit-body"><a class="link-inherit font-weight-medium white-space-wrap" href="#">2130 Fulton Street San Diego<br/>CA 94117-1080 USA</a></div>
+                    </div>
+                  </address>
+                </div>
+              </div>
+              <!-- RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!-- RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap"><span></span></button>
+                <!--Navbar Brand-->
+                <div class="rd-navbar-brand d-xl-none"><a href="index.html"><img src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
+                <button class="rd-navbar-top-panel-toggle" data-rd-navbar-toggle=".rd-navbar, .rd-navbar-top-panel"><span></span></button>
+              </div>
+              <div class="rd-navbar-menu-wrap">
+                <div class="rd-navbar-nav-wrap">
+                  <div class="rd-navbar-mobile-scroll">
+                    <!--Navbar Brand Mobile-->
+                    <div class="rd-navbar-mobile-brand"><a href="index.html"><img src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
+                    <div class="form-search-wrap">
+                      <!-- RD Search Form-->
+                      <form class="form-search rd-search" action="search-results.html" method="GET">
+                        <div class="form-wrap">
+                          <label class="form-label form-search-label form-label-sm" for="rd-navbar-form-search-widget">Search</label>
+                          <input class="form-search-input form-control form-control-gray-lightest input-sm" id="rd-navbar-form-search-widget" type="text" name="s" autocomplete="off"/>
+                        </div>
+                        <button class="form-search-submit" type="submit"><span class="fa fa-search"></span></button>
+                      </form>
+                    </div>
+                    <!-- RD Navbar Nav-->
+                    <ul class="rd-navbar-nav">
+                      <li class="active"><a href="index.html"><span>Գլխավոր</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      </li>
+                      <li><a href="about.html"><span>Մեր մասին</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      </li>
+                      <li><a href="our-team.html"><span>Մեր Թիմը</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      </li>
+                      <li><a href="#"><span>Էջեր</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                        <div class="rd-navbar-megamenu">
+                          <div class="row">
+                            <div class="col-xl-4">
+                              <h6>Էլեմենտներ</h6>
+                              <hr class="text-subline"/>
+                              <ul class="list-unstyled offset-lg-top-25">
+
+                                <li><a href="forms.html">Ձևաթղթեր</a></li>
+
+                                <li><a href="faq.html">Հաճախ Տրվող Հարցեր </a></li>
+                              </ul>
+                            </div>
+                            <div class="col-xl-4">
+                              <h6>Էջեր 1</h6>
+                              <hr class="text-subline"/>
+                              <ul class="list-unstyled offset-lg-top-25">
+
+                                <li><a href="coming-soon.html">Շուտով</a></li>
+                                <li><a href="team-member.html">Թիմի անդամի պրոֆիլը</a></li>
+                                <li><a href="careers.html">
+                                  Կարիերա</a></li>
+                              </ul>
+                            </div>
+                            <div class="col-xl-4">
+                              <h6>Էջեր 2</h6>
+                              <hr class="text-subline"/>
+                              <ul class="list-unstyled offset-lg-top-25">
+
+                                <li><a href="search-results.html">Որոնում</a></li>
+                                <li><a href="make-an-appointment.html">Հերթագրվել</a></li>
+                                <li><a href="pricing.html">Գնացուցակ</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                      <li><a href="services.html"><span>Ծառայություններ</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      </li>
+
+                      </li>
+                      <li><a href="timetable.html"><span>Ժամատախտակ</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      </li>
+
+
+                      <li><a href="contacts.html"><span>Կոնտակտներ</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--RD Navbar Search-->
+                <div class="rd-navbar-search"><a class="rd-navbar-search-toggle mdi" data-rd-navbar-toggle=".rd-navbar-menu-wrap,.rd-navbar-search" href="#"><span></span></a>
+                  <form class="rd-navbar-search-form search-form-icon-right rd-search" action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                    <div class="form-wrap">
+                      <label class="form-label" for="rd-navbar-search-form-control">Type and hit enter...</label>
+                      <input class="rd-navbar-search-form-control form-control form-control-gray-lightest" id="rd-navbar-search-form-control" type="text" name="s" autocomplete="off"/>
+                    </div>
+                    <div class="rd-search-results-live" id="rd-search-results-live"></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!--Swiper-->
+      <section class="swiper-container swiper-slider" data-loop="true" data-height="" data-slide-effect="fade" data-dragable="false" data-min-height="400px" data-autoplay="true">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" id="page-loader" data-slide-bg="images/intros/slide-01.jpg">
+            <div class="swiper-slide-caption">
+              <div class="container section-41 section-bottom-85 section-sm-98 section-md-bottom-124 text-xl-left">
+                <div class="row align-items-sm-center">
+                  <div class="col-xxl-6">
+                    <h2>ԷՔՍՊԵՐՏՆԵՐԻ ԲԱՐՁՐ <br class="d-none d-lg-block"> ՈՐԱԿԱՎՈՐՄԱՄԲ ԹԻՄ
+                    </h2>
+                    <p class="big d-none d-lg-block">ՏԱՐԱԾԱՇՐՋԱՆԻ ԼԱՎԱԳՈՒՅՆ ՄԱՍՆԱԳԵՏՆԵՐԸ ՄԵԶ ՄՈՏ ԵՆ
+                    </p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html">Հերթագրվել</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide" data-slide-bg="images/intros/slide-02.jpg">
+            <div class="swiper-slide-caption">
+              <div class="container section-41 section-bottom-85 section-sm-98 section-md-bottom-124">
+                <div class="row align-items-sm-center justify-content-sm-center">
+                  <div class="col-lg-10 col-xxl-9">
+                    <h2>Բոլոր տեսակի հետազոտություններ</h2>
+                    <p class="big d-none d-lg-block">Առաջարկում ենք հետազոտությունների ամենալայն սպեկտրը</p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html">Հերթագրվել</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide" data-slide-bg="images/intros/slide-03.jpg">
+            <div class="swiper-slide-caption">
+              <div class="container section-41 section-bottom-85 section-sm-98 section-md-bottom-124 text-xl-left">
+                <div class="row align-items-sm-center justify-content-xl-end">
+                  <div class="col-xl-8">
+                    <h2>ՔԱՂԱՔԻ ԼԱՎԱԳՈՒՅՆ ՄԱՍՆԱԳԵՏՆԵՐԸ <br class="d-none d-lg-block"> ՍՊԱՍՒՄ ԵՆ ՁԵԶ
+                    </h2>
+                    <p class="big d-none d-lg-block">ՄԵՆՔ ՄԻՇՏ ՊԱՏՐԱՍՏ ԵՆՔ ՕԳՆԵԼ ՁԵՐ ԱՌՈՂՋՈՒԹՅԱՆ ՀԱՐՑՈՒՄ
+                    </p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html">Հերթագրվել</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </section>
+      <!-- Page Contents-->
+      <!-- What makes us different-->
+      <!--What makes us different-->
+      <section class="section-60 section-sm-110 novi-background bg-cover">
+        <div class="container">
+          <h3>Ինչով ենք մենք տարբերվում</h3>
+          <hr class="divider divider-lg bg-accent">
+          <div class="row row-30 justify-content-sm-center offset-top-40 offset-sm-top-60 offset-lg-top-80">
+            <div class="col-md-4"><img class="icon-img" src="images/icons/icon-medic-53x94.png" alt="" width="53" height="94"/>
+              <h5>Որակավորված մասնագետներ</h5>
+              <p>Մենք վարձում ենք լավագույն մասնագետներին՝ ձեզ համար բարձրակարգ ախտորոշիչ ծառայություններ մատուցելու համար:</p>
+            </div>
+            <div class="col-md-4"><img class="icon-img" src="images/icons/icon-bed-94x94.png" alt="" width="94" height="94"/>
+              <h5>Ժամանակակից սարքավորումներ</h5>
+              <p>Մենք օգտագործում ենք առաջնակարգ բժշկական սարքավորումներ տարբեր հիվանդությունները ժամանակին ախտորոշելու համար։</p>
+            </div>
+            <div class="col-md-4"><img class="icon-img" src="images/icons/icon-hospital-94x94.png" alt="" width="94" height="94"/>
+              <h5>24-ժամյա սպասարկում</h5>
+              <p>Ամեն անգամ, երբ օգնության կարիք ունեք, կարող եք կապվել մեզ հետ, և մեր ընդունարանի աշխատակիցը ձեզ կհերթագրի:</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Call to action-->
+      <section class="parallax-container" data-parallax-img="images/backgrounds/background-03-1920x537.jpg">
+        <div class="parallax-content section-60 section-sm-110 bg-mask-light">
+          <div class="container">
+            <div class="row">
+              <div class="col-xl-8 text-xl-left">
+                <h2>Բուժման նորարարական մոտեցմամբ կլինիկա</h2>
+                <p>Մենք տրամադրում ենք բժշկական ծառայությունների լայն շրջանակ, որպեսզի յուրաքանչյուր մարդ հնարավորություն ունենա ստանալ որակյալ բժշկական օգնություն:</p>
+                <div class="offset-top-24 offset-lg-top-41"><a class="btn btn-ellipse btn-primary" href="make-an-appointment.html">Անվճար կոնսուլտացիա </a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Main services-->
+      <section class="section-60 section-sm-110 novi-background bg-cover">
+        <div class="container">
+          <h3>Հիմնական բաժիններ</h3>
+          <hr class="divider divider-lg bg-accent">
+          <div class="offset-top-25 offset-md-top-60">
+            <p class="font-weight-normal">
+              Մենք ցուցաբերում ենք օգնություն տարբեր ոլորտներում։</p>
+          </div>
+          <div class="row row-30 row-lg-50 offset-top-30 offset-sm-top-60 text-lg-left">
+            <div class="col-md-6 col-lg-4">
+              <div class="service"><img src="images/icons/icon-stethoscope-80x80.png" alt="" width="80" height="80"/>
+                <h5 class="service-title"><a href="#">Մանկաբուժություն</a></h5>
+                <div class="service-desc">
+                  Մեր մանկաբուժական բաժանմունքն օգտագործում է ժամանակակից տեխնոլոգիաներ և աշխատում է իսկական փորձագետների թիմով:</div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="service"><img src="images/icons/icon-brain-80x80.png" alt="" width="80" height="80"/>
+                <h5 class="service-title"><a href="#">Նյարդաբանություն</a></h5>
+                <div class="service-desc">Լավագույն արդյունքներ ապահովելու համար մենք օգտագործում ենք նյարդաբանական բուժման վերջին ձեռքբերումները:</div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="service"><img src="images/icons/icon-kidneys-80x80.png" alt="" width="80" height="80"/>
+                <h5 class="service-title"><a href="#">ՈԻրոլոգիա</a></h5>
+                <div class="service-desc">Մենք ունենք փորձ սեռական բժշկության, տղամարդկանց և կանանց միզուղիների անմիզապահության, էրեկտիլ դիսֆունկցիայի ոլորտում:</div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="service"><img src="images/icons/icon-heartbeat-80x80.png" alt="" width="80" height="80"/>
+                <h5 class="service-title"><a href="#">Կարդիոլոգիա</a></h5>
+                <div class="service-desc">Ձեր սիրտը լավագույն ձեռքերում է մեր ժամանակակից սրտանոթային ինստիտուտում</div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="service"><img src="images/icons/icon-tooth-80x80.png" alt="" width="80" height="80"/>
+                <h5 class="service-title"><a href="#">Ատամնաբուժություն</a></h5>
+                <div class="service-desc"> Health Advisors-ն առաջարկում է հիանալի ատամնաբուժական ծառայություններ, ներառյալ կոսմետիկ ատամնաբուժական իմպլանտներ և շտապ օգնություն:</div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <div class="service"><img src="images/icons/icon-lungs-80x80.png" alt="" width="80" height="80"/>
+                <h5 class="service-title"><a href="#">Թոքաբանություն</a></h5>
+                <div class="service-desc">
+                  Մեր թոքային պրոցեդուրաները ներառում են բրոնխոսկոպիա, թորասենտեզ և կրծքավանդակի խողովակի տեղադրում:</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Our Team-->
+      <section>
+        <div class="thumbnail-josip-wrap-big">
+          <!-- Thumbnail Josip-->
+          <figure class="thumbnail-josip thumbnail-big odd"><a href="team-member.html"><img width="384" height="410" src="images/pages/our-team-05-384x410.jpg" alt=""/></a>
+            <div class="thumbnail-desc">
+              <h5 class="thumbnail-josip-title">Dr. Scott Riley</h5>
+              <p class="d-none d-lg-block offset-top-0">Chief Medical Officer, Pathologist</p>
+            </div>
+            <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="team-member.html">view full profile</a></figcaption>
+          </figure>
+          <!-- Thumbnail Josip-->
+          <figure class="thumbnail-josip thumbnail-big"><a href="team-member.html"><img width="384" height="410" src="images/pages/our-team-06-384x410.jpg" alt=""/></a>
+            <div class="thumbnail-desc">
+              <h5 class="thumbnail-josip-title">Dr. Johnny Fowler</h5>
+              <p class="d-none d-lg-block offset-top-0">Clinical Laboratory Technologist</p>
+            </div>
+            <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="team-member.html">view full profile</a></figcaption>
+          </figure>
+          <!-- Thumbnail Josip-->
+          <figure class="thumbnail-josip thumbnail-big odd"><a href="team-member.html"><img width="384" height="410" src="images/pages/our-team-07-384x410.jpg" alt=""/></a>
+            <div class="thumbnail-desc">
+              <h5 class="thumbnail-josip-title">Dr. Eric Snyder</h5>
+              <p class="d-none d-lg-block offset-top-0">MRI Technologist</p>
+            </div>
+            <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="team-member.html">view full profile</a></figcaption>
+          </figure>
+          <!-- Thumbnail Josip-->
+          <figure class="thumbnail-josip thumbnail-big"><a href="team-member.html"><img width="384" height="410" src="images/pages/our-team-08-384x410.jpg" alt=""/></a>
+            <div class="thumbnail-desc">
+              <h5 class="thumbnail-josip-title">Dr. Martha Schmidt</h5>
+              <p class="d-none d-lg-block offset-top-0">EKG Technician</p>
+            </div>
+            <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="team-member.html">view full profile</a></figcaption>
+          </figure>
+          <!-- Thumbnail Josip-->
+          <figure class="thumbnail-josip thumbnail-big odd"><a href="team-member.html"><img width="384" height="410" src="images/pages/our-team-09-384x410.jpg" alt=""/></a>
+            <div class="thumbnail-desc">
+              <h5 class="thumbnail-josip-title">Dr. Katherine Wong</h5>
+              <p class="d-none d-lg-block offset-top-0">Radiology Technician</p>
+            </div>
+            <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="team-member.html">view full profile</a></figcaption>
+          </figure>
+        </div>
+      </section>
+      <!-- Testimonials-->
+      <section class="section-60 section-sm-110 novi-background bg-cover">
+        <div class="container">
+          <h3>Արձագանքներ</h3>
+          <hr class="divider divider-lg bg-accent">
+          <div class="offset-top-40 offset-md-top-66">
+            <div class="owl-carousel owl-carousel-default" data-autoplay="true" data-items="1" data-dots="true" data-lg-items="2" data-nav="false">
+              <div class="owl-item">
+                <blockquote class="quote quote-classic">
+                  <div class="quote-body">
+                    <p class="font-italic text-gray-dark">
+                      <q>Absolutely the most personable staff I have ever dealt with. Dr. Riley and his team are thorough and knowledgeable, not to mention they treat you like family. Clinia is the #1 place for medical advice.</q>
+                    </p>
+                    <div class="quote-meta unit flex-row unit-spacing-sm align-items-center">
+                      <div class="unit-left unit-item-narrow"><img class="rounded-circle quote-img" width="60" height="60" src="images/users/user-betty-wade-60x60.jpg" alt=""/></div>
+                      <div class="unit-body unit-item-wide">
+                        <h5 class="quote-author text-capitalize font-weight-bold">
+                          <cite class="text-normal">Emily Johnson</cite>
+                        </h5>
+                        <p class="quote-desc">Patient</p>
+                      </div>
+                    </div>
+                  </div>
+                </blockquote>
+              </div>
+              <div class="owl-item">
+                <blockquote class="quote quote-classic">
+                  <div class="quote-body">
+                    <p class="font-italic text-gray-dark">
+                      <q>Been coming here for 5 years, since 2015. As long as you call a week ahead of when you need in, its normally no issue to get an appointment. And they offer many walk in services as well.</q>
+                    </p>
+                    <div class="quote-meta unit flex-row unit-spacing-sm align-items-center">
+                      <div class="unit-left unit-item-narrow"><img class="rounded-circle quote-img" width="60" height="60" src="images/users/user-bryan-green-60x60.jpg" alt=""/></div>
+                      <div class="unit-body unit-item-wide">
+                        <h5 class="quote-author text-capitalize font-weight-bold">
+                          <cite class="text-normal">Andrew Diaz</cite>
+                        </h5>
+                        <p class="quote-desc">Patient</p>
+                      </div>
+                    </div>
+                  </div>
+                </blockquote>
+              </div>
+              <div class="owl-item">
+                <blockquote class="quote quote-classic">
+                  <div class="quote-body">
+                    <p class="font-italic text-gray-dark">
+                      <q>I had a colonoscopy at Clinia. From the moment I entered the center, I was greeted and treated warmly and respectfully and it was the best experience. One of the best clinics I’ve ever been to.</q>
+                    </p>
+                    <div class="quote-meta unit flex-row unit-spacing-sm align-items-center">
+                      <div class="unit-left unit-item-narrow"><img class="rounded-circle quote-img" width="60" height="60" src="images/users/user-02-60x60.jpg" alt=""/></div>
+                      <div class="unit-body unit-item-wide">
+                        <h5 class="quote-author text-capitalize font-weight-bold">
+                          <cite class="text-normal">Betty Wade</cite>
+                        </h5>
+                        <p class="quote-desc">Patient</p>
+                      </div>
+                    </div>
+                  </div>
+                </blockquote>
+              </div>
+              <div class="owl-item">
+                <blockquote class="quote quote-classic">
+                  <div class="quote-body">
+                    <p class="font-italic text-gray-dark">
+                      <q>Dr. Snyder is a wonderful Doctor, who makes you feel important and who takes time to listen, which most doctors don’t do. Loved him from the first visit! Very professional assistance.</q>
+                    </p>
+                    <div class="quote-meta unit flex-row unit-spacing-sm align-items-center">
+                      <div class="unit-left unit-item-narrow"><img class="rounded-circle quote-img" width="60" height="60" src="images/users/user-01-60x60.jpg" alt=""/></div>
+                      <div class="unit-body unit-item-wide">
+                        <h5 class="quote-author text-capitalize font-weight-bold">
+                          <cite class="text-normal">Bryan Green</cite>
+                        </h5>
+                        <p class="quote-desc">Patient</p>
+                      </div>
+                    </div>
+                  </div>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Call to action-->
+      <section class="novi-background bg-cover bg-secondary">
+        <div class="container text-xl-left">
+          <div class="row align-items-end">
+            <div class="col-xl-9 col-xxl-10">
+              <div class="section-98 section-sm-110">
+                <h2>Բարձրակարգ մասնագետները պատրաստ են օգնել ձեզ ցանկացած պահի.</h2>
+                <p>
+                  Կապվեք մեզ հետ ցանկացած հարմար եղանակով և պայմանավորվեք բժշկի հետ, ում օգնության կարիքն ունեք: Այցելեք մեզ նախատեսված ժամին և ստացեք ձեր բուժումը.</p>
+                <div class="offset-top-24 offset-lg-top-41"><a class="btn btn-ellipse btn-primary" href="make-an-appointment.html">Անվճար կոնսուլտացիա</a></div>
+              </div>
+            </div>
+            <div class="col-xl-2 col-xxl-2 d-none d-xl-block"><img class="img-custom" src="images/users/user-03-329x551.png" alt="" width="329" height="551"/>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Latest blog posts-->
+      <section class="section-60 section-sm-110 novi-background bg-cover">
+        <div class="container">
+          <h3>Բլոգի վերջին գրառումները</h3>
+          <hr class="divider divider-lg bg-accent">
+          <div class="row row-30 row-lg-50 justify-content-sm-center offset-top-40 offset-md-top-60">
+            <div class="col-sm-8 col-lg-4">
+              <!-- Post Modern-->
+              <article class="post post-modern post-modern-classic">
+                <!-- Post media-->
+                <div class="post-media"><a class="post-media-link" href="single-post.html"><img class="img-responsive img-cover" width="370" height="250" src="images/blog/post-13-370x250.jpg" alt=""/></a>
+                </div>
+                <!-- Post content-->
+                <div class="post-content text-left">
+                  <!-- Post Title-->
+                  <div class="post-title offset-top-8">
+                    <h4 class="font-weight-bold"><a href="single-post.html">Ասպիրին կանխարգելման համար</a></h4>
+                  </div>
+                  <ul class="list-inline list-inline-dashed post-meta">
+                    <li>Հունվարի 21, 2022թ </li>
+                    <li><a href="blog-grid.html">Նորություններ</a></li>
+                  </ul>
+                  <!-- Post Body-->
+                  <div class="post-body">
+                    <p>«Ասպիրինը կանխարգելման համար» այս բաժնում բժիշկը խորհուրդներ է տալիս սրտի կաթվածը կանխարգելելու համար…</p>
+                  </div>
+                  <div class="tags group group-sm">
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-8 col-lg-4">
+              <!-- Post Modern-->
+              <article class="post post-modern post-modern-classic">
+                <!-- Post media-->
+                <div class="post-media"><a class="post-media-link" href="single-post.html"><img class="img-responsive img-cover" width="370" height="250" src="images/blog/post-14-370x250.jpg" alt=""/></a>
+                </div>
+                <!-- Post content-->
+                <div class="post-content text-left">
+                  <!-- Post Title-->
+                  <div class="post-title offset-top-8">
+                    <h4 class="font-weight-bold"><a href="single-post.html">New operating suites</a></h4>
+                  </div>
+                  <ul class="list-inline list-inline-dashed post-meta">
+                    <li>June 21, 2020 at 8:12pm</li>
+                    <li><a href="blog-grid.html">News</a></li>
+                  </ul>
+                  <!-- Post Body-->
+                  <div class="post-body">
+                    <p>With the opening of the new hospital and the Children’s surgical and imaging centers, Clinia will be redesigning…</p>
+                  </div>
+                  <div class="tags group group-sm">
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-8 col-lg-4">
+              <!-- Post Modern-->
+              <article class="post post-modern post-modern-classic">
+                <!-- Post media-->
+                <div class="post-media"><a class="post-media-link" href="single-post.html"><img class="img-responsive img-cover" width="370" height="250" src="images/blog/post-15-370x250.jpg" alt=""/></a>
+                </div>
+                <!-- Post content-->
+                <div class="post-content text-left">
+                  <!-- Post Title-->
+                  <div class="post-title offset-top-8">
+                    <h4 class="font-weight-bold"><a href="single-post.html">Epidurals increase in popularity</a></h4>
+                  </div>
+                  <ul class="list-inline list-inline-dashed post-meta">
+                    <li>June 21, 2020 at 8:12pm</li>
+                    <li><a href="blog-grid.html">News</a></li>
+                  </ul>
+                  <!-- Post Body-->
+                  <div class="post-body">
+                    <p>The percentage of pregnant women getting epidurals or other spinal analgesia has climbed to a high of 71…</p>
+                  </div>
+                  <div class="tags group group-sm">
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="offset-top-24 offset-lg-top-41"><a class="btn btn-ellipse btn-primary" href="blog-grid.html">View all blog posts</a></div>
+        </div>
+      </section>
+      <!-- Google map-->
+      <section>
+        <!--Please, add the data attribute data-key="YOUR_API_KEY" in order to insert your own API key for the Google map.-->
+        <!--Please note that YOUR_API_KEY should replaced with your key.-->
+        <!--Example: <div class="google-map-container" data-key="YOUR_API_KEY">-->
+        <div class="google-map-container" data-center="9870 St Vincent Place, Glasgow, DC 45 Fr 45." data-zoom="5" data-icon="images/gmap_marker.png" data-icon-active="images/gmap_marker_active.png" data-styles="[{&quot;featureType&quot;:&quot;landscape&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;lightness&quot;:60}]},{&quot;featureType&quot;:&quot;road.local&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;lightness&quot;:40},{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;transit&quot;,&quot;stylers&quot;:[{&quot;saturation&quot;:-100},{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;administrative.province&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;on&quot;},{&quot;lightness&quot;:30}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#ef8c25&quot;},{&quot;lightness&quot;:40}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;geometry.stroke&quot;,&quot;stylers&quot;:[{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;poi.park&quot;,&quot;elementType&quot;:&quot;geometry.fill&quot;,&quot;stylers&quot;:[{&quot;color&quot;:&quot;#b6c54c&quot;},{&quot;lightness&quot;:40},{&quot;saturation&quot;:-40}]},{}]">
+          <div class="google-map"></div>
+          <ul class="google-map-markers">
+            <li data-location="9870 St Vincent Place, Glasgow, DC 45 Fr 45." data-description="9870 St Vincent Place, Glasgow"></li>
+          </ul>
+        </div>
+      </section>
+      <!-- Contacts-->
+      <section class="section-60 section-sm-110 text-center novi-background bg-cover">
+        <div class="container">
+          <div class="row justify-content-sm-center row-30">
+            <div class="col-sm-6 col-md-4">
+              <div class="icon icon-lg-1 icon-circle icon-secondary-filled mdi mdi-phone novi-icon"></div>
+              <h5><a href="tel:#">1-800-1234-567</a></h5>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="icon icon-lg-1 icon-circle icon-secondary-filled mdi mdi-map-marker novi-icon"></div>
+              <h5><a href="#">2130 Fulton Street San Diego,<br class="d-none d-lg-block"> CA 94117-1080 USA</a></h5>
+            </div>
+            <div class="col-md-4">
+              <div class="icon icon-lg-1 icon-circle icon-secondary-filled mdi mdi-email-outline novi-icon"></div>
+              <h5><a href="mailto:#">info@demolink.org</a></h5>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Page Footer-->
+      <!-- Default footer-->
+      <footer class="section-relative section-50 section-md-66 page-footer bg-secondary context-light novi-background bg-cover">
+        <div class="container container-wide">
+          <div class="inset-xxl-left-30">
+            <div class="row justify-content-md-center row-fix">
+              <div class="col-md-8 col-lg-12">
+                <div class="row row-30 justify-content-lg-between align-items-lg-center">
+                  <div class="col-lg-4 order-lg-1 text-lg-left">
+                    <!-- Footer brand-->
+                    <div class="footer-brand d-inline-block"><a href="index.html"><img src="images/logo-inverse-404x92.png" alt="" width="202" height="46"/></a></div>
+                  </div>
+                  <div class="col-lg-4 order-lg-3 text-lg-right">
+                          <ul class="list-inline">
+                            <li><a class="icon novi-icon fa fa-facebook icon-xxs icon-circle icon-gray-light-2" href="#"></a></li>
+                            <li><a class="icon novi-icon fa fa-twitter icon-xxs icon-circle icon-gray-light-2" href="#"></a></li>
+                            <li><a class="icon novi-icon fa fa-google-plus icon-xxs icon-circle icon-gray-light-2" href="#"></a></li>
+                            <li><a class="icon novi-icon fa fa-rss icon-xxs icon-circle icon-gray-light-2" href="#"></a></li>
+                          </ul>
+                  </div>
+                  <div class="col-lg-4 order-lg-2">
+                    <p class="text-primary">&copy; <span class="copyright-year"></span> All Rights Reserved. <a class="text-gray" href="privacy-policy.html">Privacy Policy</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <!-- Preloader-->
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="preloader-inner">
+          <div class="preloader-item"><span></span><span></span><span></span></div>
+          <div class="preloader-item"><span></span><span></span><span></span></div>
+          <div class="preloader-item"><span></span><span></span><span></span></div>
+          <div class="preloader-item"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </div>
+    <!-- Global Mailform Output-->
+    <div class="snackbars" id="form-output-global"></div>
+    <!-- Java script-->
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>

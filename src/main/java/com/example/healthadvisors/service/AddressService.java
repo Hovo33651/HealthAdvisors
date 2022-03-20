@@ -11,8 +11,8 @@ public class AddressService {
 
     private final AddressRepository addressRepository;
 
-    public void save(Address address){
-        addressRepository.save(address);
+    public Address save(Address address){
+       return addressRepository.save(address);
     }
 
     public void delete(Address address){

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="wide wow-animation smoothscroll scrollTo" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Site Title-->
+    <title>Forms</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="keywords" content="SANA design multipurpose template">
+    <meta name="date" content="Dec 26">
+    <script src="/cdn-cgi/apps/head/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
+        <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
+                src="../static/images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+                alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+    </div>
+    <script src="../static/js/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- Page-->
+<div class="page text-center">
+    <!-- Page Header-->
+    <header class="page-head">
+        <!-- RD Navbar minimal-->
+        <div class="rd-navbar-wrap">
+            <nav class="rd-navbar rd-navbar-minimal rd-navbar-light" data-md-device-layout="rd-navbar-fixed"
+                 data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static"
+                 data-xxl-device-layout="rd-navbar-static" data-sm-layout="rd-navbar-fixed"
+                 data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
+                 data-xxl-layout="rd-navbar-static" data-md-stick-up-offset="120px" data-lg-stick-up-offset="120px">
+                <div class="rd-navbar-inner">
+                    <div class="rd-navbar-top-panel">
+                        <div>
+                            <address class="contact-info d-md-inline-block text-left offset-none">
+                                <div class="p unit unit-spacing-xs flex-row">
+                                    <div class="unit-left"><span
+                                            class="icon icon-xs icon-circle icon-gray-light mdi mdi-phone text-primary"></span>
+                                    </div>
+                                    <div class="unit-body"><a class="link-inherit font-weight-medium" href="tel:#">(+374)98-97-96-17</a><br/><a
+                                            class="link-inherit font-weight-medium" href="tel:#">(+374)93-77-66-94</a>
+                                    </div>
+                                </div>
+                            </address>
+                        </div>
+                        <!--Navbar Brand-->
+                        <div><a href="index.html"
+                                style="color: #0E7EB5; font-family: 'Dela Gothic One';font-size: 22px;">HEALTH
+                            ADVISORS</a></div>
+                        <div>
+                            <address class="contact-info d-md-inline-block text-left">
+                                <div class="p unit flex-row unit-spacing-xs">
+                                    <div class="unit-left"><span
+                                            class="icon icon-xs icon-circle icon-gray-light mdi mdi-map-marker text-primary"></span>
+                                    </div>
+                                    <div class="unit-body"><a class="link-inherit font-weight-medium white-space-wrap"
+                                                              href="#">2130 Fulton Street San Diego<br/>CA 94117-1080
+                                        USA</a></div>
+                                </div>
+                            </address>
+                        </div>
+                    </div>
+                    <!-- RD Navbar Panel-->
+                    <div class="rd-navbar-panel">
+                        <!-- RD Navbar Toggle-->
+                        <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap">
+                            <span></span></button>
+                        <!--Navbar Brand-->
+                        <div class="rd-navbar-brand d-xl-none"><a href="index.html"><img
+                                src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
+                        <button class="rd-navbar-top-panel-toggle"
+                                data-rd-navbar-toggle=".rd-navbar, .rd-navbar-top-panel"><span></span></button>
+                    </div>
+                    <div class="rd-navbar-menu-wrap">
+                        <div class="rd-navbar-nav-wrap">
+                            <div class="rd-navbar-mobile-scroll">
+                                <!--Navbar Brand Mobile-->
+                                <div class="rd-navbar-mobile-brand"><a href="index.html"><img
+                                        src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
+                                <div class="form-search-wrap">
+                                    <!-- RD Search Form-->
+                                    <form class="form-search rd-search" action="search-results.html" method="GET">
+                                        <div class="form-wrap">
+                                            <label class="form-label form-search-label form-label-sm"
+                                                   for="rd-navbar-form-search-widget">Search</label>
+                                            <input class="form-search-input form-control form-control-gray-lightest input-sm"
+                                                   id="rd-navbar-form-search-widget" type="text" name="s"
+                                                   autocomplete="off"/>
+                                        </div>
+                                        <button class="form-search-submit" type="submit"><span
+                                                class="fa fa-search"></span></button>
+                                    </form>
+                                </div>
+                                <!-- RD Navbar Nav-->
+                                <ul class="rd-navbar-nav">
+                                    <li class="active"><a href="index.html"><span>Գլխավոր</span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li><a href="about.html"><span>Մեր մասին</span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li><a href="our-team.html"><span>Մեր Թիմը</span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+
+
+                                        <div class="rd-navbar-megamenu">
+                                            <div class="row">
+                                                <div class="col-xl-4">
+                                                    <h6>Էլեմենտներ</h6>
+                                                    <hr class="text-subline"/>
+                                                    <ul class="list-unstyled offset-lg-top-25">
+
+                                                        <li><a href="forms.html">Ձևաթղթեր</a></li>
+
+                                                        <li><a href="faq.html">Հաճախ Տրվող Հարցեր </a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <h6>Էջեր 1</h6>
+                                                    <hr class="text-subline"/>
+                                                    <ul class="list-unstyled offset-lg-top-25">
+
+                                                        <li><a href="coming-soon.html">Շուտով</a></li>
+                                                        <li><a href="doctorPage.html">Թիմի անդամի պրոֆիլը</a></li>
+                                                        <li><a href="careers.html">
+                                                            Կարիերա</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-xl-4">
+                                                    <h6>Էջեր 2</h6>
+                                                    <hr class="text-subline"/>
+                                                    <ul class="list-unstyled offset-lg-top-25">
+
+                                                        <li><a href="search-results.html">Որոնում</a></li>
+                                                        <li><a href="make-an-appointment.html">Հերթագրվել</a></li>
+                                                        <li><a href="pricing.html">Գնացուցակ</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a href="services.html"><span>Ծառայություններ</span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+
+                                    </li>
+                                    <li><a href="timetable.html"><span>Ժամատախտակ</span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--RD Navbar Search-->
+                        <div class="rd-navbar-search"><a class="rd-navbar-search-toggle mdi"
+                                                         data-rd-navbar-toggle=".rd-navbar-menu-wrap,.rd-navbar-search"
+                                                         href="#"><span></span></a>
+                            <form class="rd-navbar-search-form search-form-icon-right rd-search"
+                                  action="search-results.html" data-search-live="rd-search-results-live" method="GET">
+                                <div class="form-wrap">
+                                    <label class="form-label" for="rd-navbar-search-form-control">Type and hit
+                                        enter...</label>
+                                    <input class="rd-navbar-search-form-control form-control form-control-gray-lightest"
+                                           id="rd-navbar-search-form-control" type="text" name="s" autocomplete="off"/>
+                                </div>
+                                <div class="rd-search-results-live" id="rd-search-results-live"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- Modern Breadcrumbs-->
+    <section class="breadcrumb-modern novi-background bg-cover text-lg-left">
+        <div class="container section-34 section-md-top-110 section-md-bottom-41">
+            <h1>Գրանցում</h1>
+            <ul class="list-inline list-inline-arrows p offset-top-14 offset-md-top-70">
+
+            </ul>
+        </div>
+    </section>
+    <!-- Page Content-->
+    <main class="page-content section-98 section-sm-110">
+
+
+        <!-- Contact us (with reCAPTCHA)-->
+
+        <form action="/register" method="post" enctype="multipart/form-data">
+            <label for="title">Name:</label><br>
+            <input type="text" name="name"  id="title"><br>
+            <label for="surname">Surname:</label><br>
+            <input type="text" name="surname" id="surname"><br>
+            <label >Birthday:</label><br>
+            <input type="date" name="birthDate">
+            <label for="email">email:</label><br>
+            <input type="text" name="email" id="email"><br>
+            <label for="password">password:</label><br>
+            <input type="text" name="password" id="password"><br>
+            <label for="password">phone:</label><br>
+            <input type="text" name="phone"><br>
+
+            <label for="picture">picture:</label><br>
+            <input type="file" name="pictures" id="picture" multiple><br>
+
+            blood:
+            <select name="bloodType">
+                <option value="I">I</option>
+                <option value="II">II</option>
+                <option value="III">III</option>
+                <option value="IV">IV</option>
+            </select><br>
+         gender:
+            <select name="gender">
+                <option value="MALE">MALE</option>
+                <option value="FEMALE">FEMALE</option>
+            </select><br>
+            RH
+            <select name="rhFactor">
+                <option value="POSITIVE">+</option>
+                <option value="NEGATIVE">-</option>
+            </select><br>
+            ADDRESS:
+            <label>Country</label><br>
+            <input type="text" name="country"> <br>
+            <label>City</label><br>
+            <input type="text" name="city"><br>
+            <label>Street</label><br>
+            <input type="text" name="street"><br>
+            <label>House</label><br>
+            <input type="text" name="house"><br>
+            <label>Flat</label><br>
+            <input type="text" name="flat"><br>
+
+            <input type="submit" value="SAVE Item">
+
+            <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
+                <div class="form-wrap form-validation-left">
+                    <!--Google captcha-->
+                    <div class="recaptcha" id="captcha1" data-sitekey="6LfZlSETAAAAAC5VW4R4tQP8Am_to4bM3dddxkEt"
+                         data-auto-size=""></div>
+                </div>
+            </div>
+            <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
+                <button class="btn btn-ellipse btn-primary" type="submit" style="min-width: 130px;"
+                        th:value="register"></button>
+            </div>
+        </form>
+    </main>
+
+        <!-- newsletter-->
+
+        <!-- MailChimp-->
+
+        <!-- Campaign Monitor-->
+
+    </main>
+    <!-- Page Footer-->
+    <!-- Default footer-->
+    <footer class="section-relative section-top-66 section-bottom-34 page-footer bg-secondary novi-background bg-cover">
+        <div class="container">
+            <div class="row justify-content-md-center text-xl-left">
+                <div class="col-md-8 col-lg-12">
+                    <div class="row justify-content-sm-center row-50">
+                        <div class="col-sm-10 col-lg-4 text-left order-lg-3 inset-lg-left-50">
+                            <h6>
+                                Տեղեկագիր</h6>
+                            <hr class="text-subline">
+                            <p>Մուտքագրեք ձեր էլ․ հասցեն՝ արդի նորություններ և հիվանդների նոր տեղեկություններ ստանալու
+                                համարn.</p>
+                            <form class="rd-mailform" data-form-output="form-output-global" data-form-type="subscribe"
+                                  method="post" action="bat/rd-mailform.php">
+                                <div class="form-wrap">
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control text-gray-darker" placeholder="Your e-mail..."
+                                               type="email" data-constraints="@Required @Email" name="email"><span
+                                            class="input-group-btn">
+                                <button class="btn btn-sm btn-primary" type="submit">Բաժանորդագրվել</button></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-10 text-sm-left col-lg-4 order-lg-2 text-left">
+                            <h6>
+                                կապ հաստատեք մեզ հետ</h6>
+                            <hr class="text-subline">
+                            <div class="text-center text-xl-left">
+                                <address class="contact-info d-md-inline-block text-left">
+                                    <div class="p unit unit-spacing-xxs flex-row">
+                                        <div class="unit-left"><span
+                                                class="icon icon-xxs mdi mdi-phone text-primary novi-icon"></span></div>
+                                        <div class="unit-body"><a class="text-gray-darker"
+                                                                  href="tel:#">1-800-1234-567</a><span
+                                                class="text-gray-darker">, </span><a class="text-gray-darker"
+                                                                                     href="tel:#">1-800-3214-321</a>
+                                        </div>
+                                    </div>
+                                    <div class="p unit flex-row unit-spacing-xxs">
+                                        <div class="unit-left"><span
+                                                class="icon icon-xxs mdi mdi-map-marker text-primary novi-icon"></span>
+                                        </div>
+                                        <div class="unit-body"><a class="text-gray-darker" href="#">2130 Fulton Street
+                                            San Diego, CA 94117-1080 USA</a></div>
+                                    </div>
+                                    <div class="p unit unit-spacing-xxs flex-row offset-top-16">
+                                        <div class="unit-left"><span
+                                                class="icon icon-xxs mdi mdi-email-outline text-primary novi-icon"></span>
+                                        </div>
+                                        <div class="unit-body"><a class="text-primary"
+                                                                  href="mailto:#">info@demolink.org</a></div>
+                                    </div>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-sm-10 col-lg-4 order-lg-1">
+                            <!-- Footer brand-->
+                            <div class="footer-brand"><a href="index.html"><img src="images/logo-inverse-404x92.png"
+                                                                                alt="" width="202" height="46"/></a>
+                            </div>
+                            <div class="offset-top-50 offset-lg-top-90">
+                                <ul class="list-inline">
+                                    <li><a class="icon novi-icon fa fa-facebook icon-xxs icon-circle icon-gray-light-2"
+                                           href="#"></a></li>
+                                    <li><a class="icon novi-icon fa fa-twitter icon-xxs icon-circle icon-gray-light-2"
+                                           href="#"></a></li>
+                                    <li>
+                                        <a class="icon novi-icon fa fa-google-plus icon-xxs icon-circle icon-gray-light-2"
+                                           href="#"></a></li>
+                                    <li><a class="icon novi-icon fa fa-rss icon-xxs icon-circle icon-gray-light-2"
+                                           href="#"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container offset-top-50 offset-md-top-60">
+            <p class="text-lg-left">&copy; <span class="copyright-year"></span>
+
+                Բոլոր իրավունքները պաշտպանված են. <a href="privacy-policy.html">
+                    Գաղտնիության քաղաքականություն</a>
+            </p>
+        </div>
+    </footer>
+</div>
+<!-- Preloader-->
+<div class="preloader">
+    <div class="preloader-body">
+        <div class="preloader-inner">
+            <div class="preloader-item"><span></span><span></span><span></span></div>
+            <div class="preloader-item"><span></span><span></span><span></span></div>
+            <div class="preloader-item"><span></span><span></span><span></span></div>
+            <div class="preloader-item"><span></span><span></span><span></span></div>
+        </div>
+    </div>
+</div>
+<!-- Global Mailform Output-->
+<div class="snackbars" id="form-output-global"></div>
+<!-- Java script-->
+<script src="js/core.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>

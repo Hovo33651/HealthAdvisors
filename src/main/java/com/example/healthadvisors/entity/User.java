@@ -23,10 +23,12 @@ public class User {
     private String password;
     private String phone;
     private String picUrl;
+    @JoinColumn(name = "type")
+    @Enumerated(EnumType.STRING)
     private UserType type;
     @ManyToOne
-    private Doctor doctor;
-    @ManyToOne
     private Patient patient;
+    @ManyToOne
+    private Doctor doctor;
 
 }

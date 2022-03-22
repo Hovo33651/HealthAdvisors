@@ -4,7 +4,10 @@ import com.example.healthadvisors.entity.Address;
 import com.example.healthadvisors.entity.Patient;
 import com.example.healthadvisors.entity.User;
 import com.example.healthadvisors.security.CurrentUser;
-import com.example.healthadvisors.service.*;
+import com.example.healthadvisors.service.AddressService;
+import com.example.healthadvisors.service.MedReportService;
+import com.example.healthadvisors.service.PatientService;
+import com.example.healthadvisors.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -22,45 +25,49 @@ public class PatientController {
     private final MedReportService medReportService;
 
     private final UserService userService;
-    private final DoctorService doctorService;
 
     @GetMapping("/loginPage")
     public String loginPage() {
         return "login";
     }
 
-
-    @GetMapping("/userPage")
+    @PostMapping("/loginPage")
     public String login(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
         map.addAttribute("currentUser", currentUser);
         map.addAttribute("medReport", medReportService.findMedReportByPatientId(currentUser.getUser().getId()));
-        return "patientPage";
+        return "userPage";
     }
 
     @GetMapping("/addUser")
     public String addPatientPage() {
+
         return "register";
     }
 
-
     @PostMapping("/register")
-    public String addUser(ModelMap map,
-                          @ModelAttribute User user,
+    public String addUser(@ModelAttribute User user,
                           @ModelAttribute Patient patient,
                           @ModelAttribute Address address,
-                          @AuthenticationPrincipal CurrentUser currentUser) {
+                          @AuthenticationPrincipal CurrentUser currentUser,
+                          ModelMap map) {
+
         User newUser = userService.save(user);
+
         Address newAddress = addressService.save(address);
+
         patient.setUser(newUser);
         patient.setAddress(newAddress);
-        map.addAttribute("user", user);
-        patientService.save(patient);
+
+        Patient newPatient = patientService.save(patient);
+
+        newUser.setPatient(newPatient);
+
         if (currentUser == null) {
             currentUser = new CurrentUser(newUser);
             map.addAttribute("currentUser", currentUser);
         }
+
         return "patientPage";
     }
-
 
 }

@@ -11,8 +11,9 @@ import org.springframework.stereotype.Service;
 public class PatientService {
     private final PatientRepository patientRepository;
 
-    public void save(Patient patient) {
+    public Patient save(Patient patient) {
          patientRepository.save(patient);
+         return patient;
     }
 
     public void deletePatientByID(int id) {

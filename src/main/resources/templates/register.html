@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="wide wow-animation smoothscroll scrollTo" lang="en" xmlns:th="http://www.thymeleaf.org">
+<html class="wide wow-animation smoothscroll scrollTo" lang="en">
 <head>
     <!-- Site Title-->
     <title>Forms</title>
@@ -112,8 +112,8 @@
                                     <li><a href="our-team.html"><span>Մեր Թիմը</span><span
                                             class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-
-
+                                    <li><a href="#"><span>Էջեր</span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                         <div class="rd-navbar-megamenu">
                                             <div class="row">
                                                 <div class="col-xl-4">
@@ -158,6 +158,11 @@
                                     <li><a href="timetable.html"><span>Ժամատախտակ</span><span
                                             class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
+
+
+                                    <li><a href="contacts.html"><span>Կոնտակտներ</span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -181,194 +186,89 @@
             </nav>
         </div>
     </header>
-    <!-- Modern Breadcrumbs-->
-    <section class="breadcrumb-modern novi-background bg-cover text-lg-left">
-        <div class="container section-34 section-md-top-110 section-md-bottom-41">
-            <h1>Գրանցում</h1>
-            <ul class="list-inline list-inline-arrows p offset-top-14 offset-md-top-70">
-
-            </ul>
-        </div>
-    </section>
-    <!-- Page Content-->
-    <main class="page-content section-98 section-sm-110">
 
 
-        <!-- Contact us (with reCAPTCHA)-->
-
-        <form action="/register" method="post" enctype="multipart/form-data">
-            <label for="title">Name:</label><br>
-            <input type="text" name="name"  id="title"><br>
-            <label for="surname">Surname:</label><br>
-            <input type="text" name="surname" id="surname"><br>
-            <label >Birthday:</label><br>
-            <input type="date" name="birthDate">
-            <label for="email">email:</label><br>
-            <input type="text" name="email" id="email"><br>
-            <label for="password">password:</label><br>
-            <input type="text" name="password" id="password"><br>
-            <label for="password">phone:</label><br>
-            <input type="text" name="phone"><br>
-
-            <label for="picture">picture:</label><br>
-            <input type="file" name="pictures" id="picture" multiple><br>
-
-            blood:
-            <select name="bloodType">
-                <option value="I">I</option>
-                <option value="II">II</option>
-                <option value="III">III</option>
-                <option value="IV">IV</option>
-            </select><br>
-         gender:
-            <select name="gender">
-                <option value="MALE">MALE</option>
-                <option value="FEMALE">FEMALE</option>
-            </select><br>
-            RH
-            <select name="rhFactor">
-                <option value="POSITIVE">+</option>
-                <option value="NEGATIVE">-</option>
-            </select><br>
-            ADDRESS:
-            <label>Country</label><br>
-            <input type="text" name="country"> <br>
-            <label>City</label><br>
-            <input type="text" name="city"><br>
-            <label>Street</label><br>
-            <input type="text" name="street"><br>
-            <label>House</label><br>
-            <input type="text" name="house"><br>
-            <label>Flat</label><br>
-            <input type="text" name="flat"><br>
-
-            <input type="submit" value="SAVE Item">
-
-            <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
-                <div class="form-wrap form-validation-left">
-                    <!--Google captcha-->
-                    <div class="recaptcha" id="captcha1" data-sitekey="6LfZlSETAAAAAC5VW4R4tQP8Am_to4bM3dddxkEt"
-                         data-auto-size=""></div>
-                </div>
-            </div>
-            <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
-                <button class="btn btn-ellipse btn-primary" type="submit" style="min-width: 130px;"
-                        th:value="register"></button>
-            </div>
-        </form>
-    </main>
-
-        <!-- newsletter-->
-
-        <!-- MailChimp-->
-
-        <!-- Campaign Monitor-->
-
-    </main>
-    <!-- Page Footer-->
-    <!-- Default footer-->
-    <footer class="section-relative section-top-66 section-bottom-34 page-footer bg-secondary novi-background bg-cover">
+    <section class="offset-top-90 offset-md-top-130">
         <div class="container">
-            <div class="row justify-content-md-center text-xl-left">
-                <div class="col-md-8 col-lg-12">
-                    <div class="row justify-content-sm-center row-50">
-                        <div class="col-sm-10 col-lg-4 text-left order-lg-3 inset-lg-left-50">
-                            <h6>
-                                Տեղեկագիր</h6>
-                            <hr class="text-subline">
-                            <p>Մուտքագրեք ձեր էլ․ հասցեն՝ արդի նորություններ և հիվանդների նոր տեղեկություններ ստանալու
-                                համարn.</p>
-                            <form class="rd-mailform" data-form-output="form-output-global" data-form-type="subscribe"
-                                  method="post" action="bat/rd-mailform.php">
-                                <div class="form-wrap">
-                                    <div class="input-group input-group-sm">
-                                        <input class="form-control text-gray-darker" placeholder="Your e-mail..."
-                                               type="email" data-constraints="@Required @Email" name="email"><span
-                                            class="input-group-btn">
-                                <button class="btn btn-sm btn-primary" type="submit">Բաժանորդագրվել</button></span>
+            <div class="row justify-content-center justify-content-lg-start">
+                <div class="col-sm-8">
+                    <h6 class="text-md-left">sign up</h6>
+                    <hr class="text-subline">
+                    <div class="offset-top-30">
+                        <form class="rd-mailform text-left" data-form-output="form-output-global"
+                              data-form-type="contact" method="post" action="/register"
+                              novalidate="novalidate">
+                            <div class="row">
+
+
+                                <div class="col-sm-6">
+                                    <!--input place name-->
+                                    <div class="form-group form-group-label-outside">
+                                        <label>Անուն*</label>
+                                        <input class="form-control form-control-last-child"
+                                               type="text" name="name" data-constraints="@Required">
+                                    </div>
+                                    <!--input place surname-->
+                                    <div class="form-group form-group-label-outside offset-top-20">
+                                        <label
+                                                for="contacts-2-email">Ազգանուն*</label>
+                                        <input class="form-control form-control-last-child" id="contacts-2-email"
+                                               type="text" name="surname" data-constraints="@Required">
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="col-sm-10 text-sm-left col-lg-4 order-lg-2 text-left">
-                            <h6>
-                                կապ հաստատեք մեզ հետ</h6>
-                            <hr class="text-subline">
-                            <div class="text-center text-xl-left">
-                                <address class="contact-info d-md-inline-block text-left">
-                                    <div class="p unit unit-spacing-xxs flex-row">
-                                        <div class="unit-left"><span
-                                                class="icon icon-xxs mdi mdi-phone text-primary novi-icon"></span></div>
-                                        <div class="unit-body"><a class="text-gray-darker"
-                                                                  href="tel:#">1-800-1234-567</a><span
-                                                class="text-gray-darker">, </span><a class="text-gray-darker"
-                                                                                     href="tel:#">1-800-3214-321</a>
-                                        </div>
+
+
+                                <div class="col-sm-6">
+                                    <!--input place email-->
+                                    <div class="form-group form-group-label-outside">
+                                        <label>Էլ․ հասցե*</label>
+                                        <input class="form-control form-control-last-child" id="contacts-2-first-name2"
+                                               type="email" name="email" data-constraints="@Email @Required">
                                     </div>
-                                    <div class="p unit flex-row unit-spacing-xxs">
-                                        <div class="unit-left"><span
-                                                class="icon icon-xxs mdi mdi-map-marker text-primary novi-icon"></span>
-                                        </div>
-                                        <div class="unit-body"><a class="text-gray-darker" href="#">2130 Fulton Street
-                                            San Diego, CA 94117-1080 USA</a></div>
+                                    <!--input place password-->
+                                    <div class="form-group form-group-label-outside offset-top-20">
+                                        <label for="contacts-2-email">Գաղտնաբառ*</label>
+                                        <input class="form-control form-control-last-child" id="contacts-2-email2"
+                                               type="password" name="password" data-constraints="@Password @Required">
                                     </div>
-                                    <div class="p unit unit-spacing-xxs flex-row offset-top-16">
-                                        <div class="unit-left"><span
-                                                class="icon icon-xxs mdi mdi-email-outline text-primary novi-icon"></span>
-                                        </div>
-                                        <div class="unit-body"><a class="text-primary"
-                                                                  href="mailto:#">info@demolink.org</a></div>
+                                </div>
+
+
+                                <!--input place phone number-->
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-label-outside">
+                                        <label>Բջջ․ հեռախոսահամար*</label>
+                                        <input class="form-control form-control-last-child"
+                                               type="text" name="phone" data-constraints="@Required">
                                     </div>
-                                </address>
+                                </div>
+
+
+                                <!--input place add picture-->
+                                <div class="col-sm-6">
+                                    <div class="form-group form-group-label-outside">
+                                        <label>Ընտրել նկար</label>
+                                        <input class="form-control form-control-last-child"
+                                               type="file" name="picUrl">
+                                    </div>
+                                </div>
+
+
+                                <!--input type submit-->
+                                <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
+                                    <input class="btn btn-ellipse btn-primary" type="submit"
+                                           style="min-width: 130px;" value="register">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-10 col-lg-4 order-lg-1">
-                            <!-- Footer brand-->
-                            <div class="footer-brand"><a href="index.html"><img src="images/logo-inverse-404x92.png"
-                                                                                alt="" width="202" height="46"/></a>
-                            </div>
-                            <div class="offset-top-50 offset-lg-top-90">
-                                <ul class="list-inline">
-                                    <li><a class="icon novi-icon fa fa-facebook icon-xxs icon-circle icon-gray-light-2"
-                                           href="#"></a></li>
-                                    <li><a class="icon novi-icon fa fa-twitter icon-xxs icon-circle icon-gray-light-2"
-                                           href="#"></a></li>
-                                    <li>
-                                        <a class="icon novi-icon fa fa-google-plus icon-xxs icon-circle icon-gray-light-2"
-                                           href="#"></a></li>
-                                    <li><a class="icon novi-icon fa fa-rss icon-xxs icon-circle icon-gray-light-2"
-                                           href="#"></a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container offset-top-50 offset-md-top-60">
-            <p class="text-lg-left">&copy; <span class="copyright-year"></span>
-
-                Բոլոր իրավունքները պաշտպանված են. <a href="privacy-policy.html">
-                    Գաղտնիության քաղաքականություն</a>
-            </p>
-        </div>
-    </footer>
+    </section>
+    <script src="js/core.min.js"></script>
+    <script src="js/script.js"></script>
 </div>
-<!-- Preloader-->
-<div class="preloader">
-    <div class="preloader-body">
-        <div class="preloader-inner">
-            <div class="preloader-item"><span></span><span></span><span></span></div>
-            <div class="preloader-item"><span></span><span></span><span></span></div>
-            <div class="preloader-item"><span></span><span></span><span></span></div>
-            <div class="preloader-item"><span></span><span></span><span></span></div>
-        </div>
-    </div>
-</div>
-<!-- Global Mailform Output-->
-<div class="snackbars" id="form-output-global"></div>
-<!-- Java script-->
-<script src="js/core.min.js"></script>
-<script src="js/script.js"></script>
 </body>
 </html>

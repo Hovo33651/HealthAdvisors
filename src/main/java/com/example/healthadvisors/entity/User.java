@@ -26,9 +26,9 @@ public class User {
     @JoinColumn(name = "type")
     @Enumerated(EnumType.STRING)
     private UserType type;
-    @ManyToOne
+    @Transient
     private Patient patient;
-    @ManyToOne
+    @Transient
     private Doctor doctor;
 
 }

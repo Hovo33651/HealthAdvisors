@@ -31,7 +31,7 @@ public class PatientController {
         return "login";
     }
 
-    @PostMapping("/loginPage")
+    @GetMapping("/userPage")
     public String login(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
         map.addAttribute("currentUser", currentUser);
         map.addAttribute("medReport", medReportService.findMedReportByPatientId(currentUser.getUser().getId()));
@@ -40,34 +40,21 @@ public class PatientController {
 
     @GetMapping("/addUser")
     public String addPatientPage() {
-
         return "register";
     }
 
     @PostMapping("/register")
     public String addUser(@ModelAttribute User user,
                           @ModelAttribute Patient patient,
-                          @ModelAttribute Address address,
-                          @AuthenticationPrincipal CurrentUser currentUser,
-                          ModelMap map) {
-
+                          @ModelAttribute Address address) {
         User newUser = userService.save(user);
-
         Address newAddress = addressService.save(address);
-
         patient.setUser(newUser);
         patient.setAddress(newAddress);
-
         Patient newPatient = patientService.save(patient);
-
         newUser.setPatient(newPatient);
 
-        if (currentUser == null) {
-            currentUser = new CurrentUser(newUser);
-            map.addAttribute("currentUser", currentUser);
-        }
-
-        return "patientPage";
+        return "redirect:/loginPage";
     }
 
 }

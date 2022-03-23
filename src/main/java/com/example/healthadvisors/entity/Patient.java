@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -28,6 +29,9 @@ public class Patient {
     private BloodType bloodType;
     @Enumerated(EnumType.STRING)
     private RhFactor rhFactor;
+    @Column(name = "is_in_treat", nullable = false, columnDefinition = "TINYINT", length = 1)
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    private boolean isInTreat;
     @ManyToOne
     @JoinColumn(name = "address_id")
     private Address address;

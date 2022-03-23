@@ -26,5 +26,6 @@ public class CreatePatientRequest {
     private RhFactor rhFactor;
     private int addressId;
     private int userId;
+    private boolean isInTreat;
 
 }

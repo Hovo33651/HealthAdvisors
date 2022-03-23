@@ -18,7 +18,7 @@ public class MedReportService {
     }
 
     public List<MedReport> findMedReportByDoctorId(int doctorId){
-        return medReportRepository.findAllByDoctorId(doctorId);
+        return medReportRepository.findAllByDoctorId(doctorId, pageable);
     }
 
     public List<MedReport> findMedReportByPatientId(int patientId){

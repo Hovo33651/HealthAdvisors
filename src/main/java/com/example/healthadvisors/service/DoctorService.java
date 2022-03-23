@@ -1,7 +1,9 @@
 package com.example.healthadvisors.service;
 
 import com.example.healthadvisors.entity.Doctor;
+import com.example.healthadvisors.entity.Patient;
 import com.example.healthadvisors.repository.DoctorRepository;
+import com.example.healthadvisors.repository.MedReportRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +15,9 @@ public class DoctorService {
 
     private final DoctorRepository doctorRepository;
 
-    public void save(Doctor doctor) {
+    public Doctor save(Doctor doctor) {
         doctorRepository.save(doctor);
+        return doctor;
     }
 
     public void delete(Doctor doctor) {

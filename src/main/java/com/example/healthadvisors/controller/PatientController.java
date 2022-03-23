@@ -1,5 +1,8 @@
 package com.example.healthadvisors.controller;
 
+import com.example.healthadvisors.dto.CreateAddressRequest;
+import com.example.healthadvisors.dto.CreatePatientRequest;
+import com.example.healthadvisors.dto.CreateUserRequest;
 import com.example.healthadvisors.entity.Address;
 import com.example.healthadvisors.entity.Patient;
 import com.example.healthadvisors.entity.User;
@@ -9,6 +12,7 @@ import com.example.healthadvisors.service.MedReportService;
 import com.example.healthadvisors.service.PatientService;
 import com.example.healthadvisors.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,8 +27,8 @@ public class PatientController {
     private final PatientService patientService;
     private final AddressService addressService;
     private final MedReportService medReportService;
-
     private final UserService userService;
+    private final ModelMapper modelMapper;
 
     @GetMapping("/loginPage")
     public String loginPage() {
@@ -44,9 +48,14 @@ public class PatientController {
     }
 
     @PostMapping("/register")
-    public String addUser(@ModelAttribute User user,
-                          @ModelAttribute Patient patient,
-                          @ModelAttribute Address address) {
+    public String addUser(@ModelAttribute CreateUserRequest createUserRequest,
+                          @ModelAttribute CreatePatientRequest createPatientRequest,
+                          @ModelAttribute CreateAddressRequest createAddressRequest) {
+
+        User user = modelMapper.map(createUserRequest, User.class);
+        Patient patient = modelMapper.map(createPatientRequest, Patient.class);
+        Address address = modelMapper.map(createAddressRequest, Address.class);
+
         User newUser = userService.save(user);
         Address newAddress = addressService.save(address);
         patient.setUser(newUser);

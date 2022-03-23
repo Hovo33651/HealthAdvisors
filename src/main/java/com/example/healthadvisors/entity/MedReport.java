@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -19,10 +20,16 @@ public class MedReport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int doctorId;
-    private int patientId;
+    @ManyToOne
+    @JoinColumn(name = "doctor_id")
+    private Doctor doctor;
+    @ManyToOne
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
     private String report;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date receiptDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dischargeDate;
 
 }

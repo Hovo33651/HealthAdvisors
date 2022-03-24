@@ -40,7 +40,7 @@ public class Patient {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    @OneToMany
+    @OneToMany(mappedBy = "patient")
     private List<MedReport> medReports;
 
 }

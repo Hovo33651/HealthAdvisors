@@ -17,7 +17,7 @@ public class CertificateService {
         certificateRepository.save(certificate);
     }
 
-    public List<Certificate> findCertificatesByDoctorId(int doctorId){
-      return certificateRepository.findCertificatesByDoctor_Id(doctorId);
+    public List<Certificate> findCertificatesByDoctorUserId(int doctorId){
+      return certificateRepository.findCertificatesByDoctor_User_Id(doctorId);
     }
 }

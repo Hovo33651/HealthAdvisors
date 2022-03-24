@@ -1,9 +1,8 @@
 package com.example.healthadvisors.service;
 
 import com.example.healthadvisors.entity.Doctor;
-import com.example.healthadvisors.entity.Patient;
+import com.example.healthadvisors.entity.MedReport;
 import com.example.healthadvisors.repository.DoctorRepository;
-import com.example.healthadvisors.repository.MedReportRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -32,8 +31,12 @@ public class DoctorService {
         return doctorRepository.findDoctorsBySpecialization_Id(specId);
     }
 
-    public Doctor findDoctorById(int docId){
-        return doctorRepository.getById(docId);
+    public Doctor findDoctorByUserId(int userId){
+        return doctorRepository.findDoctorByUser_Id(userId);
+    }
+
+    public List<Doctor> findDoctorsByMedReports(List<MedReport> medReports){
+        return doctorRepository.findDoctorsByMedReports(medReports);
     }
 
 }

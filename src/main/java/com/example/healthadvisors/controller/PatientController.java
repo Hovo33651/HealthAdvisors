@@ -36,17 +36,9 @@ public class PatientController {
     private final ModelMapper modelMapper;
     private final MailService mailService;
 
-    @GetMapping("/loginPage")
-    public String loginPage() {
-        return "login";
-    }
 
-    @GetMapping("/userPage")
-    public String login(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
-        map.addAttribute("currentUser", currentUser);
-        map.addAttribute("medReport", medReportService.findMedReportByPatientId(currentUser.getUser().getId()));
-        return "userPage";
-    }
+
+
 
     @GetMapping("/register")
     public String addUser() {

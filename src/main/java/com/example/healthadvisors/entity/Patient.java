@@ -7,9 +7,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Type;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.Mapping;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -38,5 +40,7 @@ public class Patient {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+    @OneToMany
+    private List<MedReport> medReports;
 
 }

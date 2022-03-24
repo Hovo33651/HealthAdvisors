@@ -16,19 +16,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PatientService {
     private final PatientRepository patientRepository;
- private final MedReportRepository medReportRepository;
+    private final MedReportRepository medReportRepository;
+
+
     public Patient save(Patient patient) {
         patientRepository.save(patient);
         return patient;
     }
 
-    public List<Patient> findPatientsByDoctorId(int id, Pageable pageable) {
-        List<MedReport> allByDoctorId = medReportRepository.findAllByDoctorId(id);
-        List<Patient> patients= new ArrayList<>();
-        for (MedReport medReport : allByDoctorId) {
-           patients.add( medReport.getPatient());
-        }
-        return patients;
+    public List<Patient> findPatientsByMedReports(List<MedReport> medReports) {
+        return patientRepository.findPatientsByMedReports(medReports);
     }
 
     public void deletePatientByID(int id) {

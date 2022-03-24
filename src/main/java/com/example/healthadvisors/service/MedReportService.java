@@ -17,11 +17,11 @@ public class MedReportService {
         medReportRepository.save(report);
     }
 
-    public List<MedReport> findMedReportByDoctorId(int doctorId){
-        return medReportRepository.findAllByDoctorId(doctorId, pageable);
+    public List<MedReport> findMedReportByDoctorUserId(int userId){
+        return medReportRepository.findAllByDoctor_User_Id(userId);
     }
 
-    public List<MedReport> findMedReportByPatientId(int patientId){
-        return medReportRepository.findAllByPatientId(patientId);
+    public List<MedReport> findMedReportByPatientId(int userId){
+        return medReportRepository.findAllByPatient_User_Id(userId);
     }
 }

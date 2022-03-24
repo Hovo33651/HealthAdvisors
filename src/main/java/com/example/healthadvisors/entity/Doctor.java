@@ -28,7 +28,7 @@ public class Doctor {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-    @OneToMany
+    @OneToMany(mappedBy = "doctor")
     private List<MedReport> medReports;
 
 

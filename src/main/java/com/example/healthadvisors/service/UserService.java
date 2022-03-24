@@ -17,9 +17,6 @@ public class UserService {
     public User save(User user){
         user.setType(UserType.PATIENT);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        if(user.getPicUrl().equals("")){
-            user.setPicUrl(null);
-        }
         userRepository.save(user);
         return user;
     }

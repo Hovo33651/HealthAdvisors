@@ -24,7 +24,5 @@ public class CreatePatientRequest {
     private BloodType bloodType;
     @Enumerated(EnumType.STRING)
     private RhFactor rhFactor;
-    private int addressId;
-    private int userId;
 
 }

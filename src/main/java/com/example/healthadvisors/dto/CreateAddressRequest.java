@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 public class CreateAddressRequest {
 
     private String country;
+    private String region;
     private String city;
     private String street;
-    private String house;
-    private String flat;
+    private String address;
+
 }

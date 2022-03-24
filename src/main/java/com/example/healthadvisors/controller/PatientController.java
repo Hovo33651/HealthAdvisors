@@ -6,19 +6,21 @@ import com.example.healthadvisors.dto.CreateUserRequest;
 import com.example.healthadvisors.entity.Address;
 import com.example.healthadvisors.entity.Patient;
 import com.example.healthadvisors.entity.User;
+import com.example.healthadvisors.entity.UserType;
 import com.example.healthadvisors.security.CurrentUser;
-import com.example.healthadvisors.service.AddressService;
-import com.example.healthadvisors.service.MedReportService;
-import com.example.healthadvisors.service.PatientService;
-import com.example.healthadvisors.service.UserService;
+import com.example.healthadvisors.service.*;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.mail.MailSender;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
@@ -29,6 +31,7 @@ public class PatientController {
     private final MedReportService medReportService;
     private final UserService userService;
     private final ModelMapper modelMapper;
+    private final MailService mailService;
 
     @GetMapping("/loginPage")
     public String loginPage() {
@@ -42,26 +45,32 @@ public class PatientController {
         return "userPage";
     }
 
-    @GetMapping("/addUser")
-    public String addPatientPage() {
+    @GetMapping("/register")
+    public String addUser() {
         return "register";
     }
 
     @PostMapping("/register")
-    public String addUser(@ModelAttribute CreateUserRequest createUserRequest,
+    public String addUser(@ModelAttribute @Valid CreateUserRequest createUserRequest,
+                          BindingResult bindingResult,
                           @ModelAttribute CreatePatientRequest createPatientRequest,
                           @ModelAttribute CreateAddressRequest createAddressRequest) {
 
-        User user = modelMapper.map(createUserRequest, User.class);
-        Patient patient = modelMapper.map(createPatientRequest, Patient.class);
-        Address address = modelMapper.map(createAddressRequest, Address.class);
+        User newUser = userService.save(modelMapper.map(createUserRequest, User.class));
 
-        User newUser = userService.save(user);
-        Address newAddress = addressService.save(address);
+        Address newAddress = addressService.save(modelMapper.map(createAddressRequest, Address.class));
+
+        Patient patient = modelMapper.map(createPatientRequest, Patient.class);
         patient.setUser(newUser);
         patient.setAddress(newAddress);
         Patient newPatient = patientService.save(patient);
+
         newUser.setPatient(newPatient);
+
+        String subject = "WELCOME TO OUR WEBSITE";
+        String message = "Dear "+ newUser.getName() +  ", you are successfully registered";
+
+        mailService.sendEmail(newUser.getEmail(),subject,message);
 
         return "redirect:/loginPage";
     }

@@ -33,7 +33,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .formLogin()
-                .loginPage("/loginPage")
+                .loginPage("/loginPage").permitAll()
                 .loginProcessingUrl("/perform_login")
                 .defaultSuccessUrl("/userPage",true).permitAll()
                 .usernameParameter("email")

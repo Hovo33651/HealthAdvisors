@@ -18,5 +18,7 @@ public class Specialization {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    String name;
+    private String name;
+    private String iconUrl;
+
 }

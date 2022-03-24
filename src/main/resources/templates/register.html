@@ -1,30 +1,23 @@
 <!DOCTYPE html>
-<html class="wide wow-animation smoothscroll scrollTo" lang="en">
+<html class="wide wow-animation smoothscroll scrollTo" lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Site Title-->
-    <title>Forms</title>
+    <title>Health Advisors</title>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
-    <meta name="viewport"
-          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="keywords" content="SANA design multipurpose template">
     <meta name="date" content="Dec 26">
-    <script src="/cdn-cgi/apps/head/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="/cdn-cgi/apps/head/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script><link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <!-- Stylesheets-->
-    <link rel="stylesheet" type="text/css"
-          href="//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
     <!--[if lt IE 10]>
-    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
-        <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
-                src="../static/images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
-                alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
-    </div>
-    <script src="../static/js/html5shiv.min.js"></script>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -34,152 +27,84 @@
     <header class="page-head">
         <!-- RD Navbar minimal-->
         <div class="rd-navbar-wrap">
-            <nav class="rd-navbar rd-navbar-minimal rd-navbar-light" data-md-device-layout="rd-navbar-fixed"
-                 data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static"
-                 data-xxl-device-layout="rd-navbar-static" data-sm-layout="rd-navbar-fixed"
-                 data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
-                 data-xxl-layout="rd-navbar-static" data-md-stick-up-offset="120px" data-lg-stick-up-offset="120px">
+            <nav class="rd-navbar rd-navbar-minimal rd-navbar-light" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-md-stick-up-offset="120px" data-lg-stick-up-offset="120px">
                 <div class="rd-navbar-inner">
                     <div class="rd-navbar-top-panel">
                         <div>
                             <address class="contact-info d-md-inline-block text-left offset-none">
                                 <div class="p unit unit-spacing-xs flex-row">
-                                    <div class="unit-left"><span
-                                            class="icon icon-xs icon-circle icon-gray-light mdi mdi-phone text-primary"></span>
-                                    </div>
-                                    <div class="unit-body"><a class="link-inherit font-weight-medium" href="tel:#">(+374)98-97-96-17</a><br/><a
-                                            class="link-inherit font-weight-medium" href="tel:#">(+374)93-77-66-94</a>
-                                    </div>
+                                    <div class="unit-left"><span class="icon icon-xs icon-circle icon-gray-light mdi mdi-phone text-primary"></span></div>
+                                    <div class="unit-body"><a class="link-inherit font-weight-medium" href="tel:#">+(374)98-97-96-17</a><br/><a class="link-inherit font-weight-medium" href="tel:#">+(374)93-77-66-94</a></div>
                                 </div>
                             </address>
                         </div>
+
+
                         <!--Navbar Brand-->
-                        <div><a href="index.html"
-                                style="color: #0E7EB5; font-family: 'Dela Gothic One';font-size: 22px;">HEALTH
-                            ADVISORS</a></div>
+                        <div class="rd-navbar-brand d-none d-xl-inline-block"><a href="/"><img src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
                         <div>
                             <address class="contact-info d-md-inline-block text-left">
                                 <div class="p unit flex-row unit-spacing-xs">
-                                    <div class="unit-left"><span
-                                            class="icon icon-xs icon-circle icon-gray-light mdi mdi-map-marker text-primary"></span>
-                                    </div>
-                                    <div class="unit-body"><a class="link-inherit font-weight-medium white-space-wrap"
-                                                              href="#">2130 Fulton Street San Diego<br/>CA 94117-1080
-                                        USA</a></div>
+                                    <div class="unit-body"><a class="link-inherit font-weight-medium white-space-wrap" href="#">2130 Fulton Street San Diego<br/>CA 94117-1080 USA</a></div>
                                 </div>
                             </address>
                         </div>
+                        <div style="float: right; margin-right: 15px">
+                            <a href="?lang=en" style="text-decoration: none"><img src="images/en.jpg" width="27px" height="20px"></a>
+                            <a href="?lang=ru" style="text-decoration: none"><img src="images/ru.jpg" width="27px" height="20px"></a>
+                            <a href="?lang=hy" style="text-decoration: none"><img src="images/hy.png" width="27px" height="20px"></a>
+                        </div>
                     </div>
+
+
+
                     <!-- RD Navbar Panel-->
                     <div class="rd-navbar-panel">
                         <!-- RD Navbar Toggle-->
-                        <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap">
-                            <span></span></button>
+                        <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap"><span></span></button>
                         <!--Navbar Brand-->
-                        <div class="rd-navbar-brand d-xl-none"><a href="index.html"><img
-                                src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
-                        <button class="rd-navbar-top-panel-toggle"
-                                data-rd-navbar-toggle=".rd-navbar, .rd-navbar-top-panel"><span></span></button>
+                        <div class="rd-navbar-brand d-xl-none"><a href="index.html"><img src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
+                        <button class="rd-navbar-top-panel-toggle" data-rd-navbar-toggle=".rd-navbar, .rd-navbar-top-panel"><span></span></button>
                     </div>
+
+
                     <div class="rd-navbar-menu-wrap">
                         <div class="rd-navbar-nav-wrap">
                             <div class="rd-navbar-mobile-scroll">
                                 <!--Navbar Brand Mobile-->
-                                <div class="rd-navbar-mobile-brand"><a href="index.html"><img
-                                        src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
-                                <div class="form-search-wrap">
-                                    <!-- RD Search Form-->
-                                    <form class="form-search rd-search" action="search-results.html" method="GET">
-                                        <div class="form-wrap">
-                                            <label class="form-label form-search-label form-label-sm"
-                                                   for="rd-navbar-form-search-widget">Search</label>
-                                            <input class="form-search-input form-control form-control-gray-lightest input-sm"
-                                                   id="rd-navbar-form-search-widget" type="text" name="s"
-                                                   autocomplete="off"/>
-                                        </div>
-                                        <button class="form-search-submit" type="submit"><span
-                                                class="fa fa-search"></span></button>
-                                    </form>
-                                </div>
+                                <div class="rd-navbar-mobile-brand"><a href="/"><img src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
+
+
                                 <!-- RD Navbar Nav-->
                                 <ul class="rd-navbar-nav">
-                                    <li class="active"><a href="index.html"><span>Գլխավոր</span><span
-                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li><a href="/" ><span th:text="#{home}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="about.html"><span>Մեր մասին</span><span
-                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li><a href="/about"><span th:text="#{about}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="our-team.html"><span>Մեր Թիմը</span><span
-                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li><a href="/ourTeam" ><span th:text="#{team}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="#"><span>Էջեր</span><span
-                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                                        <div class="rd-navbar-megamenu">
-                                            <div class="row">
-                                                <div class="col-xl-4">
-                                                    <h6>Էլեմենտներ</h6>
-                                                    <hr class="text-subline"/>
-                                                    <ul class="list-unstyled offset-lg-top-25">
-
-                                                        <li><a href="forms.html">Ձևաթղթեր</a></li>
-
-                                                        <li><a href="faq.html">Հաճախ Տրվող Հարցեր </a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-xl-4">
-                                                    <h6>Էջեր 1</h6>
-                                                    <hr class="text-subline"/>
-                                                    <ul class="list-unstyled offset-lg-top-25">
-
-                                                        <li><a href="coming-soon.html">Շուտով</a></li>
-                                                        <li><a href="doctorPage.html">Թիմի անդամի պրոֆիլը</a></li>
-                                                        <li><a href="careers.html">
-                                                            Կարիերա</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-xl-4">
-                                                    <h6>Էջեր 2</h6>
-                                                    <hr class="text-subline"/>
-                                                    <ul class="list-unstyled offset-lg-top-25">
-
-                                                        <li><a href="search-results.html">Որոնում</a></li>
-                                                        <li><a href="make-an-appointment.html">Հերթագրվել</a></li>
-                                                        <li><a href="pricing.html">Գնացուցակ</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <li><a href="/services"><span th:text="#{services}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="services.html"><span>Ծառայություններ</span><span
-                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li><a href="/timetable"><span th:text="#{timetable}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
 
+                                    <!-- Գալերեայի պահը պտի քննարկենք հասկնանք ինչխ էնենք-->
+                                    <li><a href="grid-gallery.html"><span th:text="#{gallery}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                        <ul class="rd-navbar-dropdown">
+                                            <li><a href="grid-gallery.html"><span class="text-middle">Grid Gallery</span></a>
+                                            </li>
+                                            <li><a href="grid-gallery-no-padding.html"><span class="text-middle">Gallery Without Padding</span></a>
+                                            </li>
+                                            <li><a href="masonry-gallery.html"><span class="text-middle">Masonry Gallery</span></a>
+                                            </li>
+                                            <li><a href="cobbles-gallery.html"><span class="text-middle">Cobbles Gallery</span></a>
+                                            </li>
+                                        </ul>
                                     </li>
-                                    <li><a href="timetable.html"><span>Ժամատախտակ</span><span
-                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                                    </li>
-
-
-                                    <li><a href="contacts.html"><span>Կոնտակտներ</span><span
-                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${currentUser == null}"><a href="/loginPage"><span th:text="#{sign.in}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                        <!--RD Navbar Search-->
-                        <div class="rd-navbar-search"><a class="rd-navbar-search-toggle mdi"
-                                                         data-rd-navbar-toggle=".rd-navbar-menu-wrap,.rd-navbar-search"
-                                                         href="#"><span></span></a>
-                            <form class="rd-navbar-search-form search-form-icon-right rd-search"
-                                  action="search-results.html" data-search-live="rd-search-results-live" method="GET">
-                                <div class="form-wrap">
-                                    <label class="form-label" for="rd-navbar-search-form-control">Type and hit
-                                        enter...</label>
-                                    <input class="rd-navbar-search-form-control form-control form-control-gray-lightest"
-                                           id="rd-navbar-search-form-control" type="text" name="s" autocomplete="off"/>
-                                </div>
-                                <div class="rd-search-results-live" id="rd-search-results-live"></div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -188,87 +113,281 @@
     </header>
 
 
+    <!-- Modern Breadcrumbs-->
+    <section class="breadcrumb-modern novi-background bg-cover text-lg-left">
+        <div class="container section-34 section-md-top-110 section-md-bottom-41">
+            <h1 th:text="#{sign.up}"></h1>
+        </div>
+    </section>
+
+    <!-- Register -->
     <section class="offset-top-90 offset-md-top-130">
         <div class="container">
             <div class="row justify-content-center justify-content-lg-start">
                 <div class="col-sm-8">
-                    <h6 class="text-md-left">sign up</h6>
-                    <hr class="text-subline">
+                    <h5 th:text="#{fill.all.fields}"></h5>
+                    <hr>
+                    <div th:if="${errors != null && !errors.isEmpty()}" >
+                        <h5 th:each="error: ${errors}" th:text="${error}" style="font-size: 10px; color: red"></h5>
+                    </div>
                     <div class="offset-top-30">
-                        <form class="rd-mailform text-left" data-form-output="form-output-global"
-                              data-form-type="contact" method="post" action="/register"
-                              novalidate="novalidate">
+                        <form  data-form-output="form-output-global" data-form-type="contact" method="post" action="/register" enctype="multipart/form-data">
                             <div class="row">
-
-
-                                <div class="col-sm-6">
-                                    <!--input place name-->
+                                <div class="col-sm-6 offset-top-20 offset-sm-top-0">
+                                    <!-- name -->
                                     <div class="form-group form-group-label-outside">
-                                        <label>Անուն*</label>
-                                        <input class="form-control form-control-last-child"
-                                               type="text" name="name" data-constraints="@Required">
+                                        <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-first-name" th:text="#{name}"></label>
+                                        <input class="form-control form-control-last-child" id="contacts-first-name" type="text" name="name" data-constraints="@Required">
                                     </div>
-                                    <!--input place surname-->
+                                    <!-- email -->
                                     <div class="form-group form-group-label-outside offset-top-20">
-                                        <label
-                                                for="contacts-2-email">Ազգանուն*</label>
-                                        <input class="form-control form-control-last-child" id="contacts-2-email"
-                                               type="text" name="surname" data-constraints="@Required">
+                                        <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-email" th:text="#{e.mail}"></label>
+                                        <input class="form-control form-control-last-child" id="contacts-email" type="email" name="email" data-constraints="@Email @Required">
                                     </div>
                                 </div>
 
 
-                                <div class="col-sm-6">
-                                    <!--input place email-->
+                                <div class="col-sm-6 offset-top-20 offset-sm-top-0">
+                                    <!--surname -->
                                     <div class="form-group form-group-label-outside">
-                                        <label>Էլ․ հասցե*</label>
-                                        <input class="form-control form-control-last-child" id="contacts-2-first-name2"
-                                               type="email" name="email" data-constraints="@Email @Required">
+                                        <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-last-name" th:text="#{surname}"></label>
+                                        <input class="form-control form-control-last-child" id="contacts-last-name" type="text" name="surname" data-constraints="@Required">
                                     </div>
-                                    <!--input place password-->
+
+                                    <!-- password  -->
                                     <div class="form-group form-group-label-outside offset-top-20">
-                                        <label for="contacts-2-email">Գաղտնաբառ*</label>
-                                        <input class="form-control form-control-last-child" id="contacts-2-email2"
-                                               type="password" name="password" data-constraints="@Password @Required">
+                                        <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-phone" th:text="#{password}"></label>
+                                        <input class="form-control form-control-last-child" id="contacts-phone" type="password" name="password" data-constraints="@Required">
                                     </div>
                                 </div>
 
-
-                                <!--input place phone number-->
-                                <div class="col-sm-6">
+                                <!-- phone number  -->
+                                <div class="col-sm-6 offset-top-20 offset-sm-top-0">
                                     <div class="form-group form-group-label-outside">
-                                        <label>Բջջ․ հեռախոսահամար*</label>
-                                        <input class="form-control form-control-last-child"
-                                               type="text" name="phone" data-constraints="@Required">
+                                        <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-last-name" th:text="#{phone}"></label>
+                                        <input class="form-control form-control-last-child" type="text" name="phone" data-constraints="@IsNumeric @Required">
                                     </div>
                                 </div>
 
-
-                                <!--input place add picture-->
-                                <div class="col-sm-6">
+                                <!-- picture upload -->
+                                <div class="col-sm-6 offset-top-20 offset-sm-top-0">
                                     <div class="form-group form-group-label-outside">
-                                        <label>Ընտրել նկար</label>
-                                        <input class="form-control form-control-last-child"
-                                               type="file" name="picUrl">
+                                        <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-last-name"></label>
+                                        <button style="display:block;" onclick="document.getElementById('getFile').click()" class="btn btn-xs btn-ellipse btn-primary" th:text="#{choose.photo}"></button>
+                                        <input type="file" id="getFile" style="display:none" name="picture">
                                     </div>
                                 </div>
 
 
-                                <!--input type submit-->
-                                <div class="offset-top-18 offset-sm-top-30 text-center text-sm-left">
-                                    <input class="btn btn-ellipse btn-primary" type="submit"
-                                           style="min-width: 130px;" value="register">
+                                <!-- PERSONAL DETAILS SECTION -->
+                                <div class="col-sm-6 offset-top-20 offset-sm-top-0">
+                                    <hr>
+                                    <h5 th:text="#{give.personal.details}"></h5>
+                                    <hr>
+                                </div>
+                                <div class="container">
+                                    <div class="row justify-content-center justify-content-lg-start">
+                                        <div class="col-sm-8">
+                                            <div class="offset-top-30">
+                                                <div class="row">
+
+                                                    <!-- gender  -->
+                                                    <div class="col-sm-6 offset-top-20 offset-sm-top-0">
+                                                        <div class="form-group form-group-label-outside">
+                                                            <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-first-name" th:text="#{gender}"></label>
+                                                            <select name="gender">
+                                                                <option value="MALE" th:text="#{male}"></option>
+                                                                <option value="FEMALE" th:text="#{female}"></option>
+                                                            </select>
+                                                        </div>
+
+                                                        <!-- date of birth  -->
+                                                        <div class="form-group form-group-label-outside offset-top-20">
+                                                            <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-email" th:text="#{date.birth}"></label>
+                                                            <input class="form-control form-control-last-child" type="date" name="birthDate" data-constraints="@Required">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <!-- blood type -->
+                                                    <div class="col-sm-6 offset-top-20 offset-sm-top-0">
+                                                        <div class="form-group form-group-label-outside">
+                                                            <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-first-name" th:text="#{blood.type}"></label>
+                                                            <select name="bloodType">
+                                                                <option value="I">I</option>
+                                                                <option value="II">II</option>
+                                                                <option value="III">III</option>
+                                                                <option value="IV">IV</option>
+                                                            </select>
+                                                        </div>
+
+                                                        <!-- rhesus factor -->
+                                                        <div class="form-group form-group-label-outside">
+                                                            <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-first-name" th:text="#{rh.factor}"></label>
+                                                            <select name="rhFactor">
+                                                                <option value="POSITIVE" th:text="#{positive}"></option>
+                                                                <option value="NEGATIVE" th:text="#{negative}"></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- ADDRESS SECTION  -->
+                                        <div class="col-sm-6 offset-top-20 offset-sm-top-0">
+                                            <hr>
+                                            <h5 th:text="#{give.address}"></h5>
+                                            <hr>
+                                        </div>
+                                        <div class="container">
+                                            <div class="row justify-content-center justify-content-lg-start">
+                                                <div class="col-sm-8">
+                                                    <div class="offset-top-30">
+                                                        <div class="row">
+
+                                                            <!-- country  -->
+                                                            <div class="col-sm-6 offset-top-20 offset-sm-top-0">
+                                                                <div class="form-group form-group-label-outside">
+                                                                    <label class="form-label form-label-outside text-dark rd-input-label"
+                                                                           for="contacts-first-name" th:text="#{country}"></label>
+                                                                    <select  name="country">
+                                                                        <option value="ARMENIA">ARMENIA</option>
+                                                                        <option value="GEORGIA">GEORGIA</option>
+                                                                        <option value="RUSSIA">RUSSIA</option>
+                                                                        <option value="UKRAINE">UKRAINE</option>
+                                                                        <option value="GREECE">GREECE</option>
+                                                                        <option value="IRAN">IRAN</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <!-- region  -->
+                                                                <div class="form-group form-group-label-outside offset-top-20">
+                                                                    <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-email" th:text="#{region}"></label>
+                                                                    <select  name="region">
+                                                                        <option value="SHIRAK">SHIRAK</option>
+                                                                        <option value="LORI">LORI</option>
+                                                                        <option value="KOTAYQ">KOTAYQ</option>
+                                                                        <option value="SYUNIQ">SYUNIQ</option>
+                                                                        <option value="GEXARQUNIQ">GEXARQUNIQ</option>
+                                                                        <option value="ARMAVIR">ARMAVIR</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <!-- city -->
+                                                            <div class="col-sm-6 offset-top-20 offset-sm-top-0">
+                                                                <div class="form-group form-group-label-outside">
+                                                                    <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-first-name" th:text="#{city}"></label>
+                                                                    <select name="city">
+                                                                        <option value="GYUMRI">GYUMRI</option>
+                                                                        <option value="VANADZOR">VANADZOR</option>
+                                                                        <option value="EREVAN">EREVAN</option>
+                                                                        <option value="IJEVAN">IJEVAN</option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <!-- street name  -->
+                                                                <div class="form-group form-group-label-outside">
+                                                                    <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-first-name" th:text="#{street}"></label>
+                                                                    <input class="form-control form-control-last-child" type="text" name="street" data-constraints="@Required">
+                                                                </div>
+                                                            </div>
+
+
+                                                            <!-- house address  -->
+                                                            <div class="col-sm-6 offset-top-20 offset-sm-top-0">
+                                                                <div class="form-group form-group-label-outside">
+                                                                    <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-first-name" th:text="#{house.address}"></label>
+                                                                    <input class="form-control form-control-last-child" type="text" name="address" data-constraints="@Required">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="container">
+                                                    <div>
+                                                        <input class="btn btn-ellipse btn-primary" type="submit" style="min-width: 130px;" th:value="#{sign.up}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6 offset-top-20 offset-sm-top-0">
+                                                    <hr>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
+    </main>
+
+
+
+
+    <!-- Page Footer-->
+    <footer class="section-relative section-top-66 section-bottom-34 page-footer bg-secondary novi-background bg-cover">
+        <div class="container">
+            <div class="row justify-content-md-center text-xl-left">
+                <div class="col-md-8 col-lg-12">
+                    <div class="row justify-content-sm-center row-50">
+                        <div class="col-sm-10 text-sm-left col-lg-4 order-lg-2 text-left">
+                            <h6>contact us</h6>
+                            <hr class="text-subline">
+                            <div class="text-center text-xl-left">
+                                <address class="contact-info d-md-inline-block text-left">
+                                    <div class="p unit unit-spacing-xxs flex-row">
+                                        <div class="unit-left"><span
+                                                class="icon icon-xxs mdi mdi-phone text-primary novi-icon"></span></div>
+                                        <div class="unit-body"><a class="text-gray-darker" href="tel:#">+(374)93-77-66-94</a><span
+                                                class="text-gray-darker">, </span><a class="text-gray-darker"
+                                                                                     href="tel:#">+(374)98-97-96-17</a>
+                                        </div>
+                                    </div>
+                                    <div class="p unit flex-row unit-spacing-xxs">
+                                        <div class="unit-left"><span
+                                                class="icon icon-xxs mdi mdi-map-marker text-primary novi-icon"></span>
+                                        </div>
+                                        <div class="unit-body"><a class="text-gray-darker" href="#">2130 Fulton Street San Diego, CA 94117-1080 USA</a></div>
+                                    </div>
+                                    <div class="p unit unit-spacing-xxs flex-row offset-top-16">
+                                        <div class="unit-left"><span
+                                                class="icon icon-xxs mdi mdi-email-outline text-primary novi-icon"></span>
+                                        </div>
+                                        <div class="unit-body"><a class="text-primary"
+                                                                  href="mailto:#">info@demolink.org</a></div>
+                                    </div>
+                                </address>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-10 col-lg-4 order-lg-1">
+                            <!-- Footer brand-->
+                            <div class="footer-brand"><a href="index.html"><img src="images/logo-inverse-404x92.png"
+                                                                                alt="" width="202" height="46"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container offset-top-50 offset-md-top-60">
+            <p class="text-lg-left">&copy; <span class="copyright-year"></span> All Rights Reserved</p>
+        </div>
+    </footer>
 </div>
+
+<!-- Java script-->
+<script src="js/core.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

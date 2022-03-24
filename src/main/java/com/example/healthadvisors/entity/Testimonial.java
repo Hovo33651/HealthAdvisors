@@ -1,30 +1,24 @@
 package com.example.healthadvisors.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "doctor")
-@Builder
 @Entity
-public class Doctor {
+@Table(name = "testimonial")
+public class Testimonial {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String testimonial;
     @ManyToOne
-    @JoinColumn(name = "specialization_id")
-    private Specialization specialization;
-    @OneToMany
-    private List<Certificate> certificates;
-
-
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }

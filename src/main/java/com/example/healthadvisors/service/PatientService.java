@@ -6,7 +6,6 @@ import com.example.healthadvisors.entity.Patient;
 import com.example.healthadvisors.repository.MedReportRepository;
 import com.example.healthadvisors.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -17,21 +16,19 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PatientService {
     private final PatientRepository patientRepository;
-    private final MedReportRepository medReportRepository;
-    
-    public Page<Patient> findPatientsByDoctorId(int id, Pageable pageable){
-        List<MedReport> reportList = medReportRepository.findAllByDoctorId(id,pageable);
-        List<Patient> allPatients = new ArrayList<>();
-        for (MedReport medReport : reportList) {
-          allPatients.add(medReport.getPatient());
-        }
-        return (Page<Patient>) allPatients;
-
+ private final MedReportRepository medReportRepository;
+    public Patient save(Patient patient) {
+        patientRepository.save(patient);
+        return patient;
     }
 
-    public Patient save(Patient patient) {
-         patientRepository.save(patient);
-         return patient;
+    public List<Patient> findPatientsByDoctorId(int id, Pageable pageable) {
+        List<MedReport> allByDoctorId = medReportRepository.findAllByDoctorId(id);
+        List<Patient> patients= new ArrayList<>();
+        for (MedReport medReport : allByDoctorId) {
+           patients.add( medReport.getPatient());
+        }
+        return patients;
     }
 
     public void deletePatientByID(int id) {
@@ -41,7 +38,4 @@ public class PatientService {
     public Patient findPatientById(int patId) {
         return patientRepository.getById(patId);
     }
-
-
-
 }

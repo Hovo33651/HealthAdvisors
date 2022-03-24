@@ -16,18 +16,14 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
 		<!--[if lt IE 10]>
-      <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
-          <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
-                  src="../static/images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
-                  alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
-      </div>
-      <script src="../static/js/html5shiv.min.js"></script>
-      <![endif]-->
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script>
+		<![endif]-->
   </head>
   <body>
     <!-- Page-->
     <div class="page text-center">
-      <!-- Page Head-->
+      <!-- Page Header-->
       <header class="page-head">
         <!-- RD Navbar minimal-->
         <div class="rd-navbar-wrap">
@@ -38,12 +34,12 @@
                   <address class="contact-info d-md-inline-block text-left offset-none">
                     <div class="p unit unit-spacing-xs flex-row">
                       <div class="unit-left"><span class="icon icon-xs icon-circle icon-gray-light mdi mdi-phone text-primary"></span></div>
-                      <div class="unit-body"><a class="link-inherit font-weight-medium" href="tel:#">(+374)98-97-96-17</a><br/><a class="link-inherit font-weight-medium" href="tel:#">(+374)93-77-66-94</a></div>
+                      <div class="unit-body"><a class="link-inherit font-weight-medium" href="tel:#">1-800-1234-567</a><br/><a class="link-inherit font-weight-medium" href="tel:#">1-800-3214-654</a></div>
                     </div>
                   </address>
                 </div>
                 <!--Navbar Brand-->
-                <div ><a href="index.html" style="color: #0E7EB5; font-family: 'Dela Gothic One';font-size: 22px;">HEALTH ADVISORS</a></div>
+                <div class="rd-navbar-brand d-none d-xl-inline-block"><a href="index.html"><img src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
                 <div>
                   <address class="contact-info d-md-inline-block text-left">
                     <div class="p unit flex-row unit-spacing-xs">
@@ -78,13 +74,13 @@
                     </div>
                     <!-- RD Navbar Nav-->
                     <ul class="rd-navbar-nav">
-                      <li class="active"><a href="index.html"><span>Գլխավոր</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      <li><a href="index.html"><span>Home</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                       </li>
-                      <li><a href="about.html"><span>Մեր մասին</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      <li class="active"><a href="about.html"><span>About</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                       </li>
-                      <li><a href="our-team.html"><span>Մեր Թիմը</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      <li><a href="our-team.html"><span>Team</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                       </li>
-                      <li><a href="#"><span>Էջեր</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      <li><a href="#"><span>Pages</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                         <div class="rd-navbar-megamenu">
                           <div class="row">
                             <div class="col-xl-4">
@@ -103,7 +99,7 @@
                               <ul class="list-unstyled offset-lg-top-25">
                                 <li><a href="404.html">404 Page</a></li>
                                 <li><a href="coming-soon.html">Coming Soon</a></li>
-                                <li><a href="doctorPage.html">Team Member Profile</a></li>
+                                <li><a href="team-member.html">Team Member Profile</a></li>
                                 <li><a href="careers.html">Careers</a></li>
                               </ul>
                             </div>
@@ -111,22 +107,48 @@
                               <h6>Pages 2</h6>
                               <hr class="text-subline"/>
                               <ul class="list-unstyled offset-lg-top-25">
-
-                                <li><a href="search-results.html">Որոնում</a></li>
-                                <li><a href="make-an-appointment.html">Հերթագրվել</a></li>
-                                <li><a href="pricing.html">Գնացուցակ</a></li>
+                                <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                <li><a href="search-results.html">Search Results</a></li>
+                                <li><a href="make-an-appointment.html">Make an Appointment</a></li>
+                                <li><a href="pricing.html">Pricing</a></li>
                               </ul>
                             </div>
                           </div>
                         </div>
                       </li>
-                      <li><a href="services.html"><span>Ծառայություններ</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      <li><a href="services.html"><span>Services</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                       </li>
-
+                      <li><a href="departments.html"><span>Departments</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                       </li>
-                      <li><a href="timetable.html"><span>Ժամատախտակ</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      <li><a href="timetable.html"><span>Timetable</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                       </li>
-                      <li><a href="contacts.html"><span>Կոնտակտներ</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      <li><a href="grid-gallery.html"><span>Gallery</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li><a href="grid-gallery.html"><span class="text-middle">Grid Gallery</span></a>
+                          </li>
+                          <li><a href="grid-gallery-no-padding.html"><span class="text-middle">Gallery Without Padding</span></a>
+                          </li>
+                          <li><a href="masonry-gallery.html"><span class="text-middle">Masonry Gallery</span></a>
+                          </li>
+                          <li><a href="cobbles-gallery.html"><span class="text-middle">Cobbles Gallery</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="blog-masonry.html"><span>Blog</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                        <ul class="rd-navbar-dropdown">
+                          <li><a href="blog-masonry.html"><span class="text-middle">Masonry blog</span></a>
+                          </li>
+                          <li><a href="blog-modern.html"><span class="text-middle">Modern blog</span></a>
+                          </li>
+                          <li><a href="blog-classic.html"><span class="text-middle">Classic blog</span></a>
+                          </li>
+                          <li><a href="blog-grid.html"><span class="text-middle">Grid blog</span></a>
+                          </li>
+                          <li><a href="single-post.html"><span class="text-middle">Single post</span></a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a href="contacts.html"><span>Contacts</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                       </li>
                     </ul>
                   </div>
@@ -149,10 +171,10 @@
       <!-- Modern Breadcrumbs-->
       <section class="breadcrumb-modern novi-background bg-cover text-lg-left">
         <div class="container section-34 section-md-top-110 section-md-bottom-41">
-          <h1>Մեր մասին</h1>
+          <h1>About</h1>
           <ul class="list-inline list-inline-arrows p offset-top-14 offset-md-top-70">
-            <li><a href="index.html">Գլխավոր</a></li>
-            <li>Մեր մասին</li>
+            <li><a href="index.html">Home</a></li>
+            <li>About</li>
           </ul>
         </div>
       </section>
@@ -162,18 +184,15 @@
         <div class="container">
           <div class="row row-40 justify-content-sm-center">
             <div class="col-sm-10 col-lg-8">
-              <h3>Մի քանի խոսք մեր մասին</h3>
+              <h3>A few words about us</h3>
               <hr class="divider divider-lg bg-java hr-left-0 hr-sm-left-2">
               <div class="offset-top-20 offset-lg-top-60">
-                <p>Ցանկացած կազմակերպության ճակատագիրը մեծապես կախված է նրա ղեկավարների հնարավորություններից։ Առողջապահական հաստատությունները բացառություն չեն այս կանոնից: Այսպիսով, կարևոր է ամենաբարձր պաշտոններում ներգրավել նվիրված և բարձր որակավորում ունեցող կադրեր: Նրանք պետք է կարողանան պատասխանատվություն ստանձնել և ղեկավարել հիվանդանոցը ճիշտ ուղղությամբ:
-                  Բարձրագույն ղեկավարությունը նույնպես հավանաբար կպահանջի պատասխանատվություն: Սա դրդում է բժիշկներին և հիվանդանոցի այլ անձնակազմին՝ լավագույնս տրամադրել իրենց հիվանդներին: Այսպիսով, տեսլական ղեկավարի առկայությունը հիվանդանոցի ղեկավարությանը և մյուս բոլոր բաժանմունքներին դարձնում է ավելի արդյունավետ և արդյունավետ: Սա օգնում է հիվանդանոցին հասնել որակի բարելավման իր բոլոր նպատակներին:
-                  Բացի սրանից, կարևոր է նաև լավագույն բժիշկներին աշխատանքի ընդունել յուրաքանչյուր բաժանմունքում: Բժիշկները ցանկացած առողջապահական կազմակերպության դեմքն են։ Բարձր որակավորում ունեցող և փորձառու բժիշկների հավաքագրումը երաշխավորում է, որ հիվանդները ստանան լավագույն խնամք և բուժում: Իրենց աշխատանքում լավ լինելուց բացի, նրանք պետք է կարեկցեն իրենց հիվանդներին:
-                  Մեծ հիվանդանոցը նույնպես պետք է հպարտանա իր բժիշկներով: Այն պետք է ցուցադրի բժիշկների հավատարմագրերը և նախապատմությունը կայքում, ինչպես նաև հիվանդանոցի համալսարանում: Սա հեշտացնում է հիվանդներին ծանոթանալ իրենց բժիշկների մասին և ստիպում է նրանց ավելի վստահ զգալ իրենց բուժման վերաբերյալ:</p>
-                <p> </p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                <p>eque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
               </div>
             </div>
             <div class="col-sm-10 col-lg-4">
-              <h6>բժշկական կենտրոնի սիրտը</h6>
+              <h6>the heart of medical center</h6>
               <hr class="text-subline">
               <div class="offset-top-30">
                 <div class="unit flex-column flex-xs-row flex-lg-column flex-xl-row unit-spacing-sm">
@@ -189,7 +208,7 @@
                   </div>
                 </div>
                 <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi.</p>
-                <div class="offset-top-20 offset-lg-top-30"><a class="btn btn-primary btn-ellipse" href="doctorPage.html">Իմացեք ավելին</a></div>
+                <div class="offset-top-20 offset-lg-top-30"><a class="btn btn-primary btn-ellipse" href="team-member.html">Learn More</a></div>
               </div>
             </div>
           </div>
@@ -202,7 +221,7 @@
             <div class="col-xl-5 col-xxl-4 section-90 section-md-122 context-md-dark bg-image-md-fullwidth-1 bg-image-md-fullwidth-1-left d-none d-xl-block"><span class="before custom-bg-image"></span></div>
             <div class="col-md-10 col-lg-12 col-xl-7 col-xxl-8 section-60 section-md-85 mt-0">
               <div class="inset-lg-left-60 inset-xxl-left-100">
-                <h3>Մեր ձեռքբերումները</h3>
+                <h3>Our Achievements</h3>
                 <hr class="divider divider-lg bg-java hr-sm-left-2">
                 <div class="offset-top-50 offset-lg-top-60">
                   <div class="row row-fix">
@@ -213,7 +232,7 @@
                           <div class="unit unit-sm flex-column flex-md-row unit-spacing-sm text-md-left unit-middle">
                             <div class="unit-left"><span class="icon novi-icon icon icon-sm icon-circle icon-secondary-filled mdi mdi-trophy-variant"></span></div>
                             <div class="unit-body">
-                              <h5 class="font-weight-bold font-weight-bold text-primary">Լավագույն բժշկական կենտրոն 2021թ</h5>
+                              <h5 class="font-weight-bold font-weight-bold text-primary">The Best Medical Center 2015</h5>
                             </div>
                           </div>
                         </div>
@@ -222,7 +241,7 @@
                           <div class="unit unit-sm flex-column flex-md-row unit-spacing-sm text-md-left unit-middle">
                             <div class="unit-left"><span class="icon novi-icon icon icon-sm icon-circle icon-secondary-filled mdi mdi-pill copy"></span></div>
                             <div class="unit-body">
-                              <h5 class="font-weight-bold font-weight-bold text-primary">Հավաստագրված է Միջազգային ասոցիացիայի կողմից</h5>
+                              <h5 class="font-weight-bold font-weight-bold text-primary">Certified by the International Association</h5>
                             </div>
                           </div>
                         </div>
@@ -231,7 +250,7 @@
                           <div class="unit unit-sm flex-column flex-md-row unit-spacing-sm text-md-left unit-middle">
                             <div class="unit-left"><span class="icon novi-icon icon icon-sm icon-circle icon-secondary-filled mdi mdi-school"></span></div>
                             <div class="unit-body">
-                              <h5 class="font-weight-bold font-weight-bold text-primary">Լավագույն բժիշկ մրցանակ</h5>
+                              <h5 class="font-weight-bold font-weight-bold text-primary">The Best Doctors Award</h5>
                             </div>
                           </div>
                         </div>
@@ -240,7 +259,7 @@
                           <div class="unit unit-sm flex-column flex-md-row unit-spacing-sm text-md-left unit-middle">
                             <div class="unit-left"><span class="icon novi-icon icon icon-sm icon-circle icon-secondary-filled mdi mdi-star"></span></div>
                             <div class="unit-body">
-                              <h5 class="font-weight-bold font-weight-bold text-primary">Հինգ աստղ մրցանակ</h5>
+                              <h5 class="font-weight-bold font-weight-bold text-primary">The Five Star Award</h5>
                             </div>
                           </div>
                         </div>
@@ -256,61 +275,59 @@
       <!-- Our team-->
       <section class="section-60 section-sm-110 novi-background bg-cover">
         <div class="container">
-          <h3>Մեր թիմը</h3>
+          <h3>Our team</h3>
           <hr class="divider divider-lg bg-java">
           <div class="offset-top-41 offset-lg-top-60">
             <div class="row justify-content-sm-center row-40">
               <div class="col-sm-6 col-md-4 col-lg-3">
                 <!-- Thumbnail Josip-->
-                <figure class="thumbnail-josip odd"><a href="doctorPage.html"><img width="270" height="270" src="images/pages/our-team-05-384x410.jpg" alt=""/></a>
+                <figure class="thumbnail-josip odd"><a href="team-member.html"><img width="270" height="270" src="images/pages/our-team-05-384x410.jpg" alt=""/></a>
                   <div class="thumbnail-desc">
                     <h5 class="thumbnail-josip-title">Dr. Scott Riley</h5>
                     <p class="d-none d-lg-block offset-top-0">Chief Medical Officer, Pathologist</p>
                   </div>
-                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">
-                    դիտել պրոֆիլը</a></figcaption>
+                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="team-member.html">view full profile</a></figcaption>
                 </figure>
               </div>
               <div class="col-sm-6 col-md-4 col-lg-3">
                 <!-- Thumbnail Josip-->
-                <figure class="thumbnail-josip"><a href="doctorPage.html"><img width="270" height="270" src="images/pages/our-team-06-384x410.jpg" alt=""/></a>
+                <figure class="thumbnail-josip"><a href="team-member.html"><img width="270" height="270" src="images/pages/our-team-06-384x410.jpg" alt=""/></a>
                   <div class="thumbnail-desc">
                     <h5 class="thumbnail-josip-title">Dr. Johnny Fowler</h5>
                     <p class="d-none d-lg-block offset-top-0">Clinical Laboratory Technologist</p>
                   </div>
-                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">դիտել պրոֆիլը</a></figcaption>
+                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="team-member.html">view full profile</a></figcaption>
                 </figure>
               </div>
               <div class="col-sm-6 col-md-4 col-lg-3">
                 <!-- Thumbnail Josip-->
-                <figure class="thumbnail-josip odd"><a href="doctorPage.html"><img width="270" height="270" src="images/pages/our-team-07-384x410.jpg" alt=""/></a>
+                <figure class="thumbnail-josip odd"><a href="team-member.html"><img width="270" height="270" src="images/pages/our-team-07-384x410.jpg" alt=""/></a>
                   <div class="thumbnail-desc">
                     <h5 class="thumbnail-josip-title">Dr. Eric Snyder</h5>
                     <p class="d-none d-lg-block offset-top-0">MRI Technologist</p>
                   </div>
-                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">դիտել պրոֆիլը</a></figcaption>
+                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="team-member.html">view full profile</a></figcaption>
                 </figure>
               </div>
               <div class="col-sm-6 col-md-4 col-lg-3">
                 <!-- Thumbnail Josip-->
-                <figure class="thumbnail-josip"><a href="doctorPage.html"><img width="270" height="270" src="images/pages/our-team-08-384x410.jpg" alt=""/></a>
+                <figure class="thumbnail-josip"><a href="team-member.html"><img width="270" height="270" src="images/pages/our-team-08-384x410.jpg" alt=""/></a>
                   <div class="thumbnail-desc">
                     <h5 class="thumbnail-josip-title">Dr. Martha Schmidt</h5>
                     <p class="d-none d-lg-block offset-top-0">EKG Technician</p>
                   </div>
-                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">դիտել պրոֆիլը</a></figcaption>
+                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="team-member.html">view full profile</a></figcaption>
                 </figure>
               </div>
             </div>
-            <div class="offset-top-60"><a class="btn btn-ellipse btn-primary" href="our-team.html">
-              Դիտել ամբողջ թիմը</a></div>
+            <div class="offset-top-60"><a class="btn btn-ellipse btn-primary" href="our-team.html">View all Team</a></div>
           </div>
         </div>
       </section>
       <!-- testimonials-->
       <section class="section-60 section-sm-110 bg-default-liac novi-background bg-cover">
         <div class="container">
-          <h3>ԱՐՁԱԳԱՆՔՆԵՐ</h3>
+          <h3>Testimonials</h3>
           <hr class="divider divider-lg bg-java">
           <div class="offset-top-20 offset-md-top-66">
             <div class="owl-carousel owl-carousel-default" data-autoplay="true" data-margin="15" data-items="1" data-dots="true" data-lg-items="3" data-nav="false">
@@ -488,22 +505,20 @@
             <div class="col-md-8 col-lg-12">
               <div class="row justify-content-sm-center row-50">
                 <div class="col-sm-10 col-lg-4 text-left order-lg-3 inset-lg-left-50">
-                  <h6>
-                    Տեղեկագիր</h6>
+                  <h6>Newsletter</h6>
                   <hr class="text-subline">
-                  <p>Մուտքագրեք ձեր էլ․ հասցեն՝ արդի նորություններ և հիվանդների նոր տեղեկություններ ստանալու համարn.</p>
+                  <p>Enter your email address to receive up-to-date news and new patient information.</p>
                         <form class="rd-mailform" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
                           <div class="form-wrap">
                             <div class="input-group input-group-sm">
                               <input class="form-control text-gray-darker" placeholder="Your e-mail..." type="email" data-constraints="@Required @Email" name="email"><span class="input-group-btn">
-                                <button class="btn btn-sm btn-primary" type="submit">Բաժանորդագրվել</button></span>
+                                <button class="btn btn-sm btn-primary" type="submit">Subscribe</button></span>
                             </div>
                           </div>
                         </form>
                 </div>
                 <div class="col-sm-10 text-sm-left col-lg-4 order-lg-2 text-left">
-                  <h6>
-                    կապ հաստատեք մեզ հետ</h6>
+                  <h6>contact us</h6>
                   <hr class="text-subline">
                   <div class="text-center text-xl-left">
                     <address class="contact-info d-md-inline-block text-left">
@@ -539,10 +554,7 @@
           </div>
         </div>
         <div class="container offset-top-50 offset-md-top-60">
-          <p class="text-lg-left">&copy; <span class="copyright-year"></span>
-
-            Բոլոր իրավունքները պաշտպանված են. <a href="privacy-policy.html">
-              Գաղտնիության քաղաքականություն</a>
+          <p class="text-lg-left">&copy; <span class="copyright-year"></span> All Rights Reserved. <a href="privacy-policy.html">Privacy Policy</a>
           </p>
         </div>
       </footer>

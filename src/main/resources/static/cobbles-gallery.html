@@ -2,7 +2,7 @@
 <html class="wide wow-animation smoothscroll scrollTo" lang="en">
   <head>
     <!-- Site Title-->
-    <title>Team</title>
+    <title>Cobbles Gallery</title>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -16,13 +16,9 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
 		<!--[if lt IE 10]>
-      <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
-          <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
-                  src="../static/images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
-                  alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
-      </div>
-      <script src="../static/js/html5shiv.min.js"></script>
-      <![endif]-->
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script>
+		<![endif]-->
   </head>
   <body>
     <!-- Page-->
@@ -82,7 +78,7 @@
                       </li>
                       <li><a href="about.html"><span>About</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                       </li>
-                      <li class="active"><a href="our-team.html"><span>Team</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      <li><a href="our-team.html"><span>Team</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                       </li>
                       <li><a href="#"><span>Pages</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                         <div class="rd-navbar-megamenu">
@@ -103,7 +99,7 @@
                               <ul class="list-unstyled offset-lg-top-25">
                                 <li><a href="404.html">404 Page</a></li>
                                 <li><a href="coming-soon.html">Coming Soon</a></li>
-                                <li><a href="doctorPage.html">Team Member Profile</a></li>
+                                <li><a href="team-member.html">Team Member Profile</a></li>
                                 <li><a href="careers.html">Careers</a></li>
                               </ul>
                             </div>
@@ -126,7 +122,7 @@
                       </li>
                       <li><a href="timetable.html"><span>Timetable</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                       </li>
-                      <li><a href="grid-gallery.html"><span>Gallery</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      <li class="active"><a href="grid-gallery.html"><span>Gallery</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                         <ul class="rd-navbar-dropdown">
                           <li><a href="grid-gallery.html"><span class="text-middle">Grid Gallery</span></a>
                           </li>
@@ -175,170 +171,142 @@
       <!-- Modern Breadcrumbs-->
       <section class="breadcrumb-modern novi-background bg-cover text-lg-left">
         <div class="container section-34 section-md-top-110 section-md-bottom-41">
-          <h1>Team</h1>
+          <h1>Cobbles Gallery</h1>
           <ul class="list-inline list-inline-arrows p offset-top-14 offset-md-top-70">
             <li><a href="index.html">Home</a></li>
-            <li>Team</li>
+            <li><a href="grid-gallery.html">Gallery</a></li>
+            <li>Cobbles Gallery</li>
           </ul>
         </div>
       </section>
-      <!-- Page Content-->
-      <!-- 4 columns layout-->
-      <section class="section-60 section-sm-110 novi-background bg-cover">
-        <div class="container">
-          <h3>4 column layout</h3>
-          <hr class="divider divider-lg bg-java">
-          <div class="offset-top-41 offset-lg-top-60">
-            <div class="row justify-content-sm-center row-40">
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                <!-- Thumbnail Josip-->
-                <figure class="thumbnail-josip odd"><a href="doctorPage.html"><img width="270" height="270" src="images/pages/our-team-01-270x270.jpg" alt=""/></a>
-                  <div class="thumbnail-desc">
-                    <h5 class="thumbnail-josip-title">Dr. Katherine Wong</h5>
-                    <p class="d-none d-lg-block offset-top-0">Front Desk Coordinator</p>
+      <!-- Page Contents-->
+      <main class="page-content">
+        <!-- Cobbles Gallery-->
+        <section class="section-top-98 section-sm-top-110 section-cobbles-gallery">
+          <div class="container-fluid inset-md-left-0 inset-md-right-0">
+            <div class="isotope-wrap">
+              <div class="row row-30">
+                <!-- Isotope Filters-->
+                <div class="col-lg-12">
+                  <div class="isotope-filters isotope-filters-horizontal">
+                    <ul class="list-inline list-inline-sm isotope-list">
+                      <li class="d-lg-none">
+                        <p>Choose your category:</p>
+                      </li>
+                      <li class="section-relative">
+                        <button class="isotope-filters-toggle btn btn-sm btn-default" data-custom-toggle="isotope-1" data-custom-toggle-disable-on-blur="true">Filter<span class="caret"></span></button>
+                        <ul class="list-sm-inline isotope-filters-list" id="isotope-1">
+                          <li><a class="active" data-isotope-filter="*" data-isotope-group="gallery" href="#">All</a></li>
+                          <li><a data-isotope-filter="Gallery 1" data-isotope-group="gallery" href="#">Gallery 1</a></li>
+                          <li><a data-isotope-filter="Gallery 2" data-isotope-group="gallery" href="#">Gallery 2</a></li>
+                          <li><a data-isotope-filter="Gallery 3" data-isotope-group="gallery" href="#">Gallery 3</a></li>
+                        </ul>
+                      </li>
+                    </ul>
                   </div>
-                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">view full profile</a></figcaption>
-                </figure>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                <!-- Thumbnail Josip-->
-                <figure class="thumbnail-josip"><a href="doctorPage.html"><img width="270" height="270" src="images/pages/our-team-02-270x270.jpg" alt=""/></a>
-                  <div class="thumbnail-desc">
-                    <h5 class="thumbnail-josip-title">Dr. Nicholas Bryant</h5>
-                    <p class="d-none d-lg-block offset-top-0">Clinical Clinia Assistant</p>
-                  </div>
-                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">view full profile</a></figcaption>
-                </figure>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                <!-- Thumbnail Josip-->
-                <figure class="thumbnail-josip odd"><a href="doctorPage.html"><img width="270" height="270" src="images/pages/our-team-03-270x270.jpg" alt=""/></a>
-                  <div class="thumbnail-desc">
-                    <h5 class="thumbnail-josip-title">Dr. Victoria Morgan</h5>
-                    <p class="d-none d-lg-block offset-top-0">Therapist</p>
-                  </div>
-                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">view full profile</a></figcaption>
-                </figure>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-3">
-                <!-- Thumbnail Josip-->
-                <figure class="thumbnail-josip"><a href="doctorPage.html"><img width="270" height="270" src="images/pages/our-team-04-270x270.jpg" alt=""/></a>
-                  <div class="thumbnail-desc">
-                    <h5 class="thumbnail-josip-title">Dr. Walter Jenkins</h5>
-                    <p class="d-none d-lg-block offset-top-0">Clinical Clinia Assistant</p>
-                  </div>
-                  <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">view full profile</a></figcaption>
-                </figure>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="novi-background bg-cover">
-        <div class="container-fluid inset-left-0 inset-right-0">
-          <h3>Full-width layout</h3>
-          <hr class="divider divider-lg bg-java">
-          <div class="offset-top-41 offset-lg-top-60">
-            <div class="thumbnail-josip-wrap-big">
-              <!-- Thumbnail Josip-->
-              <figure class="thumbnail-josip thumbnail-big odd"><a href="doctorPage.html"><img width="384" height="410" src="images/pages/our-team-05-384x410.jpg" alt=""/></a>
-                <div class="thumbnail-desc">
-                  <h5 class="thumbnail-josip-title">Dr. Scott Riley</h5>
-                  <p class="d-none d-lg-block offset-top-0">Chief Medical Officer, Pathologist</p>
                 </div>
-                <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">view full profile</a></figcaption>
-              </figure>
-              <!-- Thumbnail Josip-->
-              <figure class="thumbnail-josip thumbnail-big"><a href="doctorPage.html"><img width="384" height="410" src="images/pages/our-team-06-384x410.jpg" alt=""/></a>
-                <div class="thumbnail-desc">
-                  <h5 class="thumbnail-josip-title">Dr. Johnny Fowler</h5>
-                  <p class="d-none d-lg-block offset-top-0">Clinical Laboratory Technologist</p>
-                </div>
-                <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">view full profile</a></figcaption>
-              </figure>
-              <!-- Thumbnail Josip-->
-              <figure class="thumbnail-josip thumbnail-big odd"><a href="doctorPage.html"><img width="384" height="410" src="images/pages/our-team-07-384x410.jpg" alt=""/></a>
-                <div class="thumbnail-desc">
-                  <h5 class="thumbnail-josip-title">Dr. Eric Snyder</h5>
-                  <p class="d-none d-lg-block offset-top-0">MRI Technologist</p>
-                </div>
-                <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">view full profile</a></figcaption>
-              </figure>
-              <!-- Thumbnail Josip-->
-              <figure class="thumbnail-josip thumbnail-big"><a href="doctorPage.html"><img width="384" height="410" src="images/pages/our-team-08-384x410.jpg" alt=""/></a>
-                <div class="thumbnail-desc">
-                  <h5 class="thumbnail-josip-title">Dr. Martha Schmidt</h5>
-                  <p class="d-none d-lg-block offset-top-0">EKG Technician</p>
-                </div>
-                <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">view full profile</a></figcaption>
-              </figure>
-              <!-- Thumbnail Josip-->
-              <figure class="thumbnail-josip thumbnail-big odd"><a href="doctorPage.html"><img width="384" height="410" src="images/pages/our-team-09-384x410.jpg" alt=""/></a>
-                <div class="thumbnail-desc">
-                  <h5 class="thumbnail-josip-title">Dr. Katherine Wong</h5>
-                  <p class="d-none d-lg-block offset-top-0">Radiology Technician</p>
-                </div>
-                <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="doctorPage.html">view full profile</a></figcaption>
-              </figure>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section-60 section-sm-110 novi-background bg-cover">
-        <div class="container">
-          <h3>3 column layout</h3>
-          <hr class="divider divider-lg bg-java">
-          <div class="offset-top-41 offset-lg-top-60">
-            <div class="row justify-content-sm-center row-40 text-left">
-              <div class="col-sm-10 col-lg-4 inset-lg-right-30">
-                <div class="unit flex-column flex-xs-row flex-xl-row flex-lg-column unit-spacing-sm">
-                  <div class="unit-left"><img class="img-responsive" src="images/users/user-scott-riley-110x110.jpg" width="110" height="110" alt=""/>
-                  </div>
-                  <div class="unit-body">
-                    <h5 class="font-weight-bold text-primary">DR. Scott Riley</h5>
-                    <p class="font-italic offset-top-0">Chief Medical Officer, Founder</p>
-                    <div class="p unit unit-spacing-xxs flex-row">
-                      <div class="unit-left"><span class="icon icon-xs mdi mdi-phone text-primary novi-icon"></span></div>
-                      <div class="unit-body"><a class="h6" href="tel:#">1-800-1234-567</a></div>
+                <!-- Isotope Content-->
+                <div class="col-lg-12">
+                  <div class="isotope" data-isotope-layout="masonry" data-isotope-group="gallery">
+                    <div class="row row-condensed" data-lightgallery="group">
+                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 1">
+                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-01_original.jpg">
+                          <figure><img width="370" height="240" src="images/gallery/gallery-01-370x240.jpg" alt=""/>
+                            <figcaption class="thumbnail-custom-caption text-center">
+                              <h6 class="thumbnail-custom-title text-white">Tennis Elbow</h6>
+                              <hr class="divider divider-xs bg-java"/>
+                            </figcaption>
+                          </figure></a>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 3">
+                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-02_original.jpg">
+                          <figure><img width="384" height="500" src="images/gallery/gallery-13-384x500.jpg" alt=""/>
+                            <figcaption class="thumbnail-custom-caption text-center">
+                              <h6 class="thumbnail-custom-title text-white">Headaches & Migraines</h6>
+                              <hr class="divider divider-xs bg-java"/>
+                            </figcaption>
+                          </figure></a>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 2">
+                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-05_original.jpg">
+                          <figure><img width="370" height="240" src="images/gallery/gallery-05-370x240.jpg" alt=""/>
+                            <figcaption class="thumbnail-custom-caption text-center">
+                              <h6 class="thumbnail-custom-title text-white">Arm Pain</h6>
+                              <hr class="divider divider-xs bg-java"/>
+                            </figcaption>
+                          </figure></a>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 2">
+                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-03_original.jpg">
+                          <figure><img width="384" height="500" src="images/gallery/gallery-14-384x500.jpg" alt=""/>
+                            <figcaption class="thumbnail-custom-caption text-center">
+                              <h6 class="thumbnail-custom-title text-white">Foot Pain</h6>
+                              <hr class="divider divider-xs bg-java"/>
+                            </figcaption>
+                          </figure></a>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 1">
+                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-09_original.jpg">
+                          <figure><img width="370" height="240" src="images/gallery/gallery-09-370x240.jpg" alt=""/>
+                            <figcaption class="thumbnail-custom-caption text-center">
+                              <h6 class="thumbnail-custom-title text-white">Chiropractic Examination</h6>
+                              <hr class="divider divider-xs bg-java"/>
+                            </figcaption>
+                          </figure></a>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 2">
+                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-04_original.jpg">
+                          <figure><img width="384" height="500" src="images/gallery/gallery-15-384x500.jpg" alt=""/>
+                            <figcaption class="thumbnail-custom-caption text-center">
+                              <h6 class="thumbnail-custom-title text-white">Lower Back Pain</h6>
+                              <hr class="divider divider-xs bg-java"/>
+                            </figcaption>
+                          </figure></a>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 1">
+                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-08_original.jpg">
+                          <figure><img width="384" height="500" src="images/gallery/gallery-16-384x500.jpg" alt=""/>
+                            <figcaption class="thumbnail-custom-caption text-center">
+                              <h6 class="thumbnail-custom-title text-white">Whiplash</h6>
+                              <hr class="divider divider-xs bg-java"/>
+                            </figcaption>
+                          </figure></a>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 3">
+                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-17_original.jpg">
+                          <figure><img width="384" height="500" src="images/gallery/gallery-17-384x500.jpg" alt=""/>
+                            <figcaption class="thumbnail-custom-caption text-center">
+                              <h6 class="thumbnail-custom-title text-white">Spinal manipulation</h6>
+                              <hr class="divider divider-xs bg-java"/>
+                            </figcaption>
+                          </figure></a>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 1">
+                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-07_original.jpg">
+                          <figure><img width="370" height="240" src="images/gallery/gallery-07-370x240.jpg" alt=""/>
+                            <figcaption class="thumbnail-custom-caption text-center">
+                              <h6 class="thumbnail-custom-title text-white">Shoulder Pain</h6>
+                              <hr class="divider divider-xs bg-java"/>
+                            </figcaption>
+                          </figure></a>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 1">
+                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-06_original.jpg">
+                          <figure><img width="370" height="240" src="images/gallery/gallery-06-370x240.jpg" alt=""/>
+                            <figcaption class="thumbnail-custom-caption text-center">
+                              <h6 class="thumbnail-custom-title text-white">Wear & Tear</h6>
+                              <hr class="divider divider-xs bg-java"/>
+                            </figcaption>
+                          </figure></a>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <p>With over 30 years of healthcare industry experience, Dr. Scott Riley serves as the Chief Medical Officer at Clinia.</p>
-              </div>
-              <div class="col-sm-10 col-lg-4 inset-lg-right-30">
-                <div class="unit flex-column flex-xs-row flex-xl-row flex-lg-column unit-spacing-sm">
-                  <div class="unit-left"><img class="img-responsive" src="images/users/user-johnny-fowler-110x110.jpg" width="110" height="110" alt=""/>
-                  </div>
-                  <div class="unit-body">
-                    <h5 class="font-weight-bold text-primary">DR. Johnny Fowler</h5>
-                    <p class="font-italic offset-top-0">Chiropractor</p>
-                    <div class="p unit unit-spacing-xxs flex-row">
-                      <div class="unit-left"><span class="icon icon-xs mdi mdi-phone text-primary novi-icon"></span></div>
-                      <div class="unit-body"><a class="h6" href="tel:#">1-800-1234-567</a></div>
-                    </div>
-                  </div>
-                </div>
-                <p>DR. Johnny Fowler is the leading chiropractor at our clinic. He boasts a 14 year-long career as a healthcare professional.</p>
-              </div>
-              <div class="col-sm-10 col-lg-4 inset-lg-right-30">
-                <div class="unit flex-column flex-xs-row flex-xl-row flex-lg-column unit-spacing-sm">
-                  <div class="unit-left"><img class="img-responsive" src="images/users/user-eric-110x110.jpg" width="110" height="110" alt=""/>
-                  </div>
-                  <div class="unit-body">
-                    <h5 class="font-weight-bold text-primary">DR. Eric Snyder</h5>
-                    <p class="font-italic offset-top-0">Clinical Assistant</p>
-                    <div class="p unit unit-spacing-xxs flex-row">
-                      <div class="unit-left"><span class="icon icon-xs mdi mdi-phone text-primary novi-icon"></span></div>
-                      <div class="unit-body"><a class="h6" href="tel:#">1-800-1234-567</a></div>
-                    </div>
-                  </div>
-                </div>
-                <p>DR. Eric Snyder is a promising assistant at Clinia, but his journey with our clinic began almost 10 years ago.</p>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
       <!-- Page Footer-->
       <!-- Default footer-->
       <footer class="section-relative section-top-66 section-bottom-34 page-footer bg-secondary novi-background bg-cover">

@@ -2,7 +2,7 @@
 <html class="wide wow-animation smoothscroll scrollTo" lang="en">
   <head>
     <!-- Site Title-->
-    <title>Cobbles Gallery</title>
+    <title>Masonry blog</title>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -16,13 +16,9 @@
     <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/style.css">
 		<!--[if lt IE 10]>
-      <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
-          <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
-                  src="../static/images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
-                  alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
-      </div>
-      <script src="../static/js/html5shiv.min.js"></script>
-      <![endif]-->
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <script src="js/html5shiv.min.js"></script>
+		<![endif]-->
   </head>
   <body>
     <!-- Page-->
@@ -103,7 +99,7 @@
                               <ul class="list-unstyled offset-lg-top-25">
                                 <li><a href="404.html">404 Page</a></li>
                                 <li><a href="coming-soon.html">Coming Soon</a></li>
-                                <li><a href="doctorPage.html">Team Member Profile</a></li>
+                                <li><a href="team-member.html">Team Member Profile</a></li>
                                 <li><a href="careers.html">Careers</a></li>
                               </ul>
                             </div>
@@ -126,7 +122,7 @@
                       </li>
                       <li><a href="timetable.html"><span>Timetable</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                       </li>
-                      <li class="active"><a href="grid-gallery.html"><span>Gallery</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      <li><a href="grid-gallery.html"><span>Gallery</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                         <ul class="rd-navbar-dropdown">
                           <li><a href="grid-gallery.html"><span class="text-middle">Grid Gallery</span></a>
                           </li>
@@ -138,7 +134,7 @@
                           </li>
                         </ul>
                       </li>
-                      <li><a href="blog-masonry.html"><span>Blog</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                      <li class="active"><a href="blog-masonry.html"><span>Blog</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                         <ul class="rd-navbar-dropdown">
                           <li><a href="blog-masonry.html"><span class="text-middle">Masonry blog</span></a>
                           </li>
@@ -175,136 +171,212 @@
       <!-- Modern Breadcrumbs-->
       <section class="breadcrumb-modern novi-background bg-cover text-lg-left">
         <div class="container section-34 section-md-top-110 section-md-bottom-41">
-          <h1>Cobbles Gallery</h1>
+          <h1>Blog</h1>
           <ul class="list-inline list-inline-arrows p offset-top-14 offset-md-top-70">
             <li><a href="index.html">Home</a></li>
-            <li><a href="grid-gallery.html">Gallery</a></li>
-            <li>Cobbles Gallery</li>
+            <li><a href="blog-masonry.html">Blog</a></li>
+            <li>Blog</li>
           </ul>
         </div>
       </section>
       <!-- Page Contents-->
       <main class="page-content">
-        <!-- Cobbles Gallery-->
-        <section class="section-top-98 section-sm-top-110 section-cobbles-gallery">
-          <div class="container-fluid inset-md-left-0 inset-md-right-0">
-            <div class="isotope-wrap">
-              <div class="row row-30">
-                <!-- Isotope Filters-->
-                <div class="col-lg-12">
-                  <div class="isotope-filters isotope-filters-horizontal">
-                    <ul class="list-inline list-inline-sm isotope-list">
-                      <li class="d-lg-none">
-                        <p>Choose your category:</p>
-                      </li>
-                      <li class="section-relative">
-                        <button class="isotope-filters-toggle btn btn-sm btn-default" data-custom-toggle="isotope-1" data-custom-toggle-disable-on-blur="true">Filter<span class="caret"></span></button>
-                        <ul class="list-sm-inline isotope-filters-list" id="isotope-1">
-                          <li><a class="active" data-isotope-filter="*" data-isotope-group="gallery" href="#">All</a></li>
-                          <li><a data-isotope-filter="Gallery 1" data-isotope-group="gallery" href="#">Gallery 1</a></li>
-                          <li><a data-isotope-filter="Gallery 2" data-isotope-group="gallery" href="#">Gallery 2</a></li>
-                          <li><a data-isotope-filter="Gallery 3" data-isotope-group="gallery" href="#">Gallery 3</a></li>
+        <!-- Masonry Blog-->
+        <div id="fb-root"></div>
+        <section class="section-98 section-sm-110 novi-background bg-cover">
+          <div class="container">
+            <div class="row justify-content-sm-center">
+              <div class="col-lg-10 col-xl-8">
+                <div class="row justify-content-sm-center row-50">
+                  <div class="col-md-6 post-wrap">
+                    <!-- Post Modern-->
+                    <article class="post post-modern post-modern-classic post-modern-classic-full">
+                      <!-- Post media-->
+                      <div class="post-media"><a class="post-media-link" href="single-post.html"><img class="img-responsive img-cover" width="770" height="480" src="images/blog/post-08-770x480.jpg" alt=""/></a>
+                      </div>
+                      <!-- Post content-->
+                      <div class="post-content text-left">
+                        <!-- Post Title-->
+                        <div class="post-title offset-top-8">
+                          <h4 class="font-weight-bold"><a href="single-post.html">Benefits of Chiropractic Care</a></h4>
+                        </div>
+                        <ul class="list-inline list-inline-dashed post-meta">
+                          <li>June 21, 2018 at 8:12pm</li>
+                          <li><a href="blog-masonry.html">Chiropractic</a></li>
                         </ul>
-                      </li>
-                    </ul>
+                        <!-- Post Body-->
+                        <div class="post-body">
+                          <p>Chiropractors are best known for safely and effectively treating acute back and neck pain, as well as headaches. Whereas a medical doctor...</p>
+                        </div>
+                        <div class="tags group group-sm"><a class="btn-tag btn btn-default" href="#">Health</a><a class="btn-tag btn btn-default" href="#">Care</a><a class="btn-tag btn btn-default" href="#">Chiropractic</a>
+                        </div>
+                      </div>
+                    </article>
+                    <!-- Post Modern-->
+                    <article class="post post-modern post-modern-classic post-modern-classic-full">
+                      <!-- Post media-->
+                      <div class="post-media"><a class="post-media-link" href="single-post.html"><img class="img-responsive img-cover" width="770" height="480" src="images/blog/post-10-770x480.jpg" alt=""/></a>
+                      </div>
+                      <!-- Post content-->
+                      <div class="post-content text-left">
+                        <!-- Post Title-->
+                        <div class="post-title offset-top-8">
+                          <h4 class="font-weight-bold"><a href="single-post.html">The Top 3 True Causes of Heart Disease</a></h4>
+                        </div>
+                        <ul class="list-inline list-inline-dashed post-meta">
+                          <li>June 21, 2018 at 8:12pm</li>
+                          <li><a href="blog-masonry.html">Heart Health</a></li>
+                        </ul>
+                        <!-- Post Body-->
+                        <div class="post-body">
+                          <p>Heart disease is the number one cause of death in the U.S. How many people do you know that have been personally affected by heart disease? I’m guessing the number...</p>
+                        </div>
+                        <div class="tags group group-sm"><a class="btn-tag btn btn-default" href="#">Health</a><a class="btn-tag btn btn-default" href="#">Disease</a><a class="btn-tag btn btn-default" href="#">Heart</a>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                  <div class="col-md-6 post-wrap offset-top-60 offset-sm-top-0">
+                    <!-- Post Modern-->
+                    <article class="post post-modern post-modern-classic post-modern-classic-full">
+                      <!-- Post media-->
+                      <div class="post-media"><a class="post-media-link" href="single-post.html"><img class="img-responsive img-cover" width="770" height="480" src="images/blog/post-09-770x480.jpg" alt=""/></a>
+                      </div>
+                      <!-- Post content-->
+                      <div class="post-content text-left">
+                        <!-- Post Title-->
+                        <div class="post-title offset-top-8">
+                          <h4 class="font-weight-bold"><a href="single-post.html">What Every Athlete Needs To Know About Injury Recovery</a></h4>
+                        </div>
+                        <ul class="list-inline list-inline-dashed post-meta">
+                          <li>June 21, 2018 at 8:12pm</li>
+                          <li><a href="blog-masonry.html">Healthy Lifestyle</a></li>
+                        </ul>
+                        <!-- Post Body-->
+                        <div class="post-body">
+                          <p>About 2 months ago, I was participating in my morning class at Crossfit Omaha, partaking in a killer WOD...</p>
+                        </div>
+                        <div class="tags group group-sm"><a class="btn-tag btn btn-default" href="#">Health</a><a class="btn-tag btn btn-default" href="#">Recovery</a><a class="btn-tag btn btn-default" href="#">Injury</a>
+                        </div>
+                      </div>
+                    </article>
+                    <!-- Post Modern-->
+                    <article class="post post-modern post-modern-classic post-modern-classic-full">
+                      <!-- Post media-->
+                      <div class="post-media"><a class="post-media-link" href="single-post.html"><img class="img-responsive img-cover" width="770" height="480" src="images/blog/post-11-770x480.jpg" alt=""/></a>
+                      </div>
+                      <!-- Post content-->
+                      <div class="post-content text-left">
+                        <!-- Post Title-->
+                        <div class="post-title offset-top-8">
+                          <h4 class="font-weight-bold"><a href="single-post.html">Chiropractic and the Stress Response</a></h4>
+                        </div>
+                        <ul class="list-inline list-inline-dashed post-meta">
+                          <li>June 21, 2018 at 8:12pm</li>
+                          <li><a href="blog-masonry.html">Chiropractic</a></li>
+                        </ul>
+                        <!-- Post Body-->
+                        <div class="post-body">
+                          <p>When we are in the last stage of stress, that exhaustion or burnout stage, we are not adapting to stress well and cause our sympathetic nervous system to become overactivated. Remember, this is the “fight or flight” part of our nervous system and it’s on overdrive!</p>
+                        </div>
+                        <div class="tags group group-sm"><a class="btn-tag btn btn-default" href="#">Health</a><a class="btn-tag btn btn-default" href="#">Stress</a><a class="btn-tag btn btn-default" href="#">Chiropractic</a>
+                        </div>
+                      </div>
+                    </article>
                   </div>
                 </div>
-                <!-- Isotope Content-->
-                <div class="col-lg-12">
-                  <div class="isotope" data-isotope-layout="masonry" data-isotope-group="gallery">
-                    <div class="row row-condensed" data-lightgallery="group">
-                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 1">
-                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-01_original.jpg">
-                          <figure><img width="370" height="240" src="images/gallery/gallery-01-370x240.jpg" alt=""/>
-                            <figcaption class="thumbnail-custom-caption text-center">
-                              <h6 class="thumbnail-custom-title text-white">Tennis Elbow</h6>
-                              <hr class="divider divider-xs bg-java"/>
-                            </figcaption>
-                          </figure></a>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 3">
-                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-02_original.jpg">
-                          <figure><img width="384" height="500" src="images/gallery/gallery-13-384x500.jpg" alt=""/>
-                            <figcaption class="thumbnail-custom-caption text-center">
-                              <h6 class="thumbnail-custom-title text-white">Headaches & Migraines</h6>
-                              <hr class="divider divider-xs bg-java"/>
-                            </figcaption>
-                          </figure></a>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 2">
-                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-05_original.jpg">
-                          <figure><img width="370" height="240" src="images/gallery/gallery-05-370x240.jpg" alt=""/>
-                            <figcaption class="thumbnail-custom-caption text-center">
-                              <h6 class="thumbnail-custom-title text-white">Arm Pain</h6>
-                              <hr class="divider divider-xs bg-java"/>
-                            </figcaption>
-                          </figure></a>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 2">
-                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-03_original.jpg">
-                          <figure><img width="384" height="500" src="images/gallery/gallery-14-384x500.jpg" alt=""/>
-                            <figcaption class="thumbnail-custom-caption text-center">
-                              <h6 class="thumbnail-custom-title text-white">Foot Pain</h6>
-                              <hr class="divider divider-xs bg-java"/>
-                            </figcaption>
-                          </figure></a>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 1">
-                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-09_original.jpg">
-                          <figure><img width="370" height="240" src="images/gallery/gallery-09-370x240.jpg" alt=""/>
-                            <figcaption class="thumbnail-custom-caption text-center">
-                              <h6 class="thumbnail-custom-title text-white">Chiropractic Examination</h6>
-                              <hr class="divider divider-xs bg-java"/>
-                            </figcaption>
-                          </figure></a>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 2">
-                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-04_original.jpg">
-                          <figure><img width="384" height="500" src="images/gallery/gallery-15-384x500.jpg" alt=""/>
-                            <figcaption class="thumbnail-custom-caption text-center">
-                              <h6 class="thumbnail-custom-title text-white">Lower Back Pain</h6>
-                              <hr class="divider divider-xs bg-java"/>
-                            </figcaption>
-                          </figure></a>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 1">
-                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-08_original.jpg">
-                          <figure><img width="384" height="500" src="images/gallery/gallery-16-384x500.jpg" alt=""/>
-                            <figcaption class="thumbnail-custom-caption text-center">
-                              <h6 class="thumbnail-custom-title text-white">Whiplash</h6>
-                              <hr class="divider divider-xs bg-java"/>
-                            </figcaption>
-                          </figure></a>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 3">
-                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-17_original.jpg">
-                          <figure><img width="384" height="500" src="images/gallery/gallery-17-384x500.jpg" alt=""/>
-                            <figcaption class="thumbnail-custom-caption text-center">
-                              <h6 class="thumbnail-custom-title text-white">Spinal manipulation</h6>
-                              <hr class="divider divider-xs bg-java"/>
-                            </figcaption>
-                          </figure></a>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 1">
-                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-07_original.jpg">
-                          <figure><img width="370" height="240" src="images/gallery/gallery-07-370x240.jpg" alt=""/>
-                            <figcaption class="thumbnail-custom-caption text-center">
-                              <h6 class="thumbnail-custom-title text-white">Shoulder Pain</h6>
-                              <hr class="divider divider-xs bg-java"/>
-                            </figcaption>
-                          </figure></a>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 isotope-item" data-filter="Gallery 1">
-                        <!-- Classic Thumbnail--><a class="thumbnail-custom" data-lightgallery="item" href="images/gallery/originals/gallery-06_original.jpg">
-                          <figure><img width="370" height="240" src="images/gallery/gallery-06-370x240.jpg" alt=""/>
-                            <figcaption class="thumbnail-custom-caption text-center">
-                              <h6 class="thumbnail-custom-title text-white">Wear & Tear</h6>
-                              <hr class="divider divider-xs bg-java"/>
-                            </figcaption>
-                          </figure></a>
+                <div class="offset-top-50 offset-lg-top-60 text-lg-left">
+                  <!-- Classic Pagination-->
+                  <nav>
+                    <ul class="pagination-classic">
+                      <li class="active"><span class="btn btn-primary">1</span>
+                      </li>
+                      <li><a class="btn btn-primary" href="#">2</a>
+                      </li>
+                      <li><a class="btn btn-primary" href="#">3</a>
+                      </li>
+                      <li><a class="btn btn-primary" href="#">4</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              <div class="col-md-10 col-lg-8 col-xl-4 offset-top-66 offset-md-top-90 offset-xl-top-0">
+                <div class="blog-grid-sidebar inset-lg-left-30">
+                  <!-- Aside-->
+                  <aside class="text-left sidebar-item-wrap1">
+                    <!-- Search in Blog-->
+                    <div class="sidebar-item">
+                      <h6>Search in Blog</h6>
+                      <hr class="text-subline">
+                      <div class="offset-top-14 offset-md-top-20 rd-search-blog">
+                                          <!-- RD Search Form-->
+                                          <form class="form-search rd-search" action="search-results.html" method="GET">
+                                            <div class="form-wrap">
+                                              <label class="form-label form-search-label" for="blog-classic-form-search-widget">Search</label>
+                                              <input class="form-search-input form-control null" id="blog-classic-form-search-widget" type="text" name="s" autocomplete="off">
+                                            </div>
+                                            <button class="form-search-submit" type="submit"><span class="fa fa-search"></span></button>
+                                          </form>
                       </div>
                     </div>
-                  </div>
+                    <!-- Archive-->
+                    <div class="sidebar-item">
+                      <h6>Archive</h6>
+                      <hr class="text-subline">
+                      <div class="offset-top-14 offset-md-top-20">
+                        <div class="row justify-content-sm-center justify-content-xl-start">
+                          <div class="col-sm-6 col-xl-5">
+                            <!-- List Marked-->
+                            <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
+                              <li><a href="#">Jan 2020</a></li>
+                              <li><a href="#">Mar 2020</a></li>
+                              <li><a href="#">May 2020</a></li>
+                              <li><a href="#">Jul 2020</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-sm-6 col-xl-5 offset-top-10 offset-xs-top-0 inset-sm-left-5">
+                            <!-- List Marked-->
+                            <ul class="list list-marked inset-left-0 list-marked-icon text-dark list-marked-gray">
+                              <li><a href="#">Feb 2020</a></li>
+                              <li><a href="#">Apr 2020</a></li>
+                              <li><a href="#">Jun 2020</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Flickr @fasttravel-->
+                    <div class="sidebar-item">
+                      <h6>gallery</h6>
+                      <hr class="text-subline">
+                      <div class="offset-top-14 offset-md-top-20">
+                        <div class="group-sm" data-lightgallery="group"><a class="thumbnail-classic" data-lightgallery="item" href="images/gallery/originals/gallery-01_original.jpg"><img width="165" height="165" src="images/blog/sidebar-img-01-165x165.jpg" alt=""></a><a class="thumbnail-classic" data-lightgallery="item" href="images/gallery/originals/gallery-02_original.jpg"><img width="165" height="165" src="images/blog/sidebar-img-02-165x165.jpg" alt=""></a><a class="thumbnail-classic" data-lightgallery="item" href="images/gallery/originals/gallery-05_original.jpg"><img width="165" height="165" src="images/blog/sidebar-img-03-165x165.jpg" alt=""></a><a class="thumbnail-classic" data-lightgallery="item" href="images/gallery/originals/gallery-08_original.jpg"><img width="165" height="165" src="images/blog/sidebar-img-04-165x165.jpg" alt=""></a><a class="thumbnail-classic" data-lightgallery="item" href="images/gallery/originals/gallery-09_original.jpg"><img width="165" height="165" src="images/blog/sidebar-img-05-165x165.jpg" alt=""></a><a class="thumbnail-classic" data-lightgallery="item" href="images/gallery/originals/gallery-04_original.jpg"><img width="165" height="165" src="images/blog/sidebar-img-06-165x165.jpg" alt=""></a></div>
+                      </div>
+                    </div>
+                    <!-- Recent Posts-->
+                    <div class="sidebar-item">
+                      <h6>Recent Posts</h6>
+                      <hr class="text-subline">
+                      <div class="offset-top-14 offset-md-top-20">
+                        <!-- List Marked-->
+                        <ul class="list list-marked list-marked-icon text-dark inset-left-0 list-marked-gray">
+                          <li><a class="font-weight-bold" href="single-post.html">Heart Health – The 3 Stages of Stress</a><br>
+                            <time class="text-gray-dark" datetime="2020-04-30">June 21, 2020 at 8:12pm</time>
+                          </li>
+                          <li><a class="font-weight-bold" href="single-post.html">The Costs of Headaches</a><br>
+                            <time class="text-gray-dark" datetime="2020-04-30">June 21, 2020 at 8:12pm</time>
+                          </li>
+                          <li><a class="font-weight-bold" href="single-post.html">What’s With These Pesky Symptoms?</a><br>
+                            <time class="text-gray-dark" datetime="2020-04-30">June 21, 2020 at 8:12pm</time>
+                          </li>
+                          <li><a class="font-weight-bold" href="single-post.html">Power Minute: Improved Concentration and Sleep!</a><br>
+                            <time class="text-gray-dark" datetime="2020-04-30">June 21, 2020 at 8:12pm</time>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </aside>
                 </div>
               </div>
             </div>

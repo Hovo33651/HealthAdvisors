@@ -128,7 +128,7 @@
                     <h5 th:text="#{fill.all.fields}"></h5>
                     <hr>
                     <div th:if="${errors != null && !errors.isEmpty()}" >
-                        <h5 th:each="error: ${errors}" th:text="${error}" style="font-size: 13px; color: red"></h5>
+                        <h5 th:each="error: ${errors}" th:text="${error}" style="font-size: 10px; color: red"></h5>
                     </div>
                     <div class="offset-top-30">
                         <form  data-form-output="form-output-global" data-form-type="contact" method="post" action="/register" enctype="multipart/form-data">

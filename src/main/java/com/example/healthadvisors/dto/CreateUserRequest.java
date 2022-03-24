@@ -39,8 +39,6 @@ public class CreateUserRequest {
     private String password;
 
     @NotBlank(message = "You forgot to fill the phone number field")
-    @Pattern(regexp = "(([+374]{4}|[0]{1}))?([1-9]{2})(\\d{6})", message = "Check your phone number again")
-
     private String phone;
 
     private String picUrl;

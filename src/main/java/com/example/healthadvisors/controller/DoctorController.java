@@ -58,7 +58,7 @@ public class DoctorController {
                                   @RequestParam(value = "size", defaultValue = "5") int size) {
         PageRequest pageRequest = PageRequest.of(page, size);
         Doctor doctor = modelMapper.map(createDoctorRequest, Doctor.class);
-        patientService.findPatientsByDoctorId(doctor.getId(), pageRequest);
+//        patientService.findPatientsByDoctorId(doctor.getId(), pageRequest);
         return "allPatientsPage";
     }
 

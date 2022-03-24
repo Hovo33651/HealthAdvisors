@@ -19,11 +19,17 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String info;
     @ManyToOne
     @JoinColumn(name = "specialization_id")
     private Specialization specialization;
     @OneToMany
     private List<Certificate> certificates;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    @OneToMany
+    private List<MedReport> medReports;
 
 
 

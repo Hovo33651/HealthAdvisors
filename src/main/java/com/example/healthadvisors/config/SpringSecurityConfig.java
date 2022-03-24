@@ -33,9 +33,9 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .formLogin()
-                .loginPage("/loginPage").permitAll()
+                .loginPage("/loginPage")
                 .loginProcessingUrl("/perform_login")
-                .defaultSuccessUrl("/userPage",true).permitAll()
+                .defaultSuccessUrl("/userPage",true)
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .and()
@@ -45,7 +45,13 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/").permitAll();
+                .antMatchers(HttpMethod.GET,"/").permitAll()
+                .antMatchers(HttpMethod.GET,"/register").permitAll()
+                .antMatchers(HttpMethod.POST,"/register").permitAll()
+                .antMatchers(HttpMethod.GET,"/loginPage").permitAll()
+                .antMatchers(HttpMethod.POST,"/perform_login").permitAll()
+                .antMatchers("/css/**", "/js/**", "/images/**").permitAll()
+                .anyRequest().authenticated();
 
     }
 

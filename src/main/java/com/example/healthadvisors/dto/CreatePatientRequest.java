@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Data
@@ -17,6 +18,7 @@ import java.util.Date;
 public class CreatePatientRequest {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotBlank(message = "You forgot to fill the birth date field")
     private Date birthDate;
     @Enumerated(EnumType.STRING)
     private String gender;

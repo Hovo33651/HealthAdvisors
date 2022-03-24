@@ -16,11 +16,14 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -54,7 +57,17 @@ public class PatientController {
     public String addUser(@ModelAttribute @Valid CreateUserRequest createUserRequest,
                           BindingResult bindingResult,
                           @ModelAttribute CreatePatientRequest createPatientRequest,
-                          @ModelAttribute CreateAddressRequest createAddressRequest) {
+                          @ModelAttribute CreateAddressRequest createAddressRequest,
+                          ModelMap map) {
+
+        if(bindingResult.hasErrors()){
+            List<String> errors = new ArrayList<>();
+            for (ObjectError allError : bindingResult.getAllErrors()) {
+                errors.add(allError.getDefaultMessage());
+            }
+            map.addAttribute("errors",errors);
+            return "register";
+        }
 
         User newUser = userService.save(modelMapper.map(createUserRequest, User.class));
 

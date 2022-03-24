@@ -49,6 +49,11 @@
                                 </div>
                             </address>
                         </div>
+                        <div style="float: right; margin-right: 15px">
+                            <a href="?lang=en" style="text-decoration: none"><img src="images/en.jpg" width="27px" height="20px"></a>
+                            <a href="?lang=ru" style="text-decoration: none"><img src="images/ru.jpg" width="27px" height="20px"></a>
+                            <a href="?lang=hy" style="text-decoration: none"><img src="images/hy.png" width="27px" height="20px"></a>
+                        </div>
                     </div>
 
 
@@ -72,19 +77,19 @@
 
                                 <!-- RD Navbar Nav-->
                                 <ul class="rd-navbar-nav">
-                                    <li><a href="/"><span>Home</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li><a href="/" ><span th:text="#{home}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/about"><span>About</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li><a href="/about"><span th:text="#{about}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/ourTeam"><span>Team</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li><a href="/ourTeam" ><span th:text="#{team}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/services"><span>Services</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li><a href="/services"><span th:text="#{services}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/timetable"><span>Timetable</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li><a href="/timetable"><span th:text="#{timetable}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
 
                                     <!-- Գալերեայի պահը պտի քննարկենք հասկնանք ինչխ էնենք-->
-                                    <li><a href="grid-gallery.html"><span>Gallery</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li><a href="grid-gallery.html"><span th:text="#{gallery}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                         <ul class="rd-navbar-dropdown">
                                             <li><a href="grid-gallery.html"><span class="text-middle">Grid Gallery</span></a>
                                             </li>
@@ -96,11 +101,11 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li th:if="${currentUser == null}"><a href="/register"><span>Sign up</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${currentUser == null}"><a href="/register"><span th:text="#{sign.up}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li th:if="${currentUser == null}"><a href="/loginPage"><span>Sign in</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${currentUser == null}"><a href="/loginPage"><span th:text="#{sign.in}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li th:if="${currentUser != null}"><a href="/logout"><span>Log Out</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${currentUser != null}"><a href="/logout"><span th:text="#{log.out}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
                                 </ul>
                             </div>
@@ -123,10 +128,9 @@
                     <div class="container section-41 section-bottom-85 section-sm-98 section-md-bottom-124 text-xl-left">
                         <div class="row align-items-sm-center">
                             <div class="col-xxl-6">
-                                <h2>Qualified team<br class="d-none d-lg-block"> of experts
-                                </h2>
-                                <p class="big d-none d-lg-block">We have the best specialists in the area.
-                                </p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html">make an appointment</a>
+                                <h2 th:text="#{qualified.team}"></h2><br class="d-none d-lg-block"><h2 th:text="#{of.experts}"></h2>
+                                <p class="big d-none d-lg-block" th:text="#{best.specialists.in.area}">
+                                </p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html" th:text="#{make.appointment}"></a>
                             </div>
                         </div>
                     </div>
@@ -137,8 +141,8 @@
                     <div class="container section-41 section-bottom-85 section-sm-98 section-md-bottom-124">
                         <div class="row align-items-sm-center justify-content-sm-center">
                             <div class="col-lg-10 col-xxl-9">
-                                <h2>All kinds of diagnostics</h2>
-                                <p class="big d-none d-lg-block">Clinia offers the region’s most comprehensive range of diagnostic services, from MRI to X-ray.</p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html">make an appointment</a>
+                                <h2 th:text="#{all.kinds.of.diagnostics}"></h2>
+                                <p class="big d-none d-lg-block" th:text="#{clinia.offers}"></p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html" th:text="#{make.appointment}"></a>
                             </div>
                         </div>
                     </div>
@@ -149,10 +153,9 @@
                     <div class="container section-41 section-bottom-85 section-sm-98 section-md-bottom-124 text-xl-left">
                         <div class="row align-items-sm-center justify-content-xl-end">
                             <div class="col-xl-8">
-                                <h2>The best specialists<br class="d-none d-lg-block"> of the city expect you
-                                </h2>
-                                <p class="big d-none d-lg-block">Our team of diagnosticians is always ready to help you be healthier.
-                                </p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html">make an appointment</a>
+                                <h2 th:text="#{best.specialists}"><br class="d-none d-lg-block"></h2><h2 th:text="#{expect.you}"></h2>
+                                <p class="big d-none d-lg-block" th:text="#{our.team.is.ready}">
+                                </p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html" th:text="#{make.appointment}"></a>
                             </div>
                         </div>
                     </div>
@@ -167,20 +170,20 @@
     <!-- What makes us different-->
     <section class="section-60 section-sm-110 novi-background bg-cover">
         <div class="container">
-            <h3>What makes us different</h3>
+            <h3 th:text="#{what.makes.us.different}"></h3>
             <hr class="divider divider-lg bg-accent">
             <div class="row row-30 justify-content-sm-center offset-top-40 offset-sm-top-60 offset-lg-top-80">
                 <div class="col-md-4"><img class="icon-img" src="images/icons/icon-medic-53x94.png" alt="" width="53" height="94"/>
-                    <h5>Qualified specialists</h5>
-                    <p>We hire the best specialists to deliver top-notch diagnostic services for you.</p>
+                    <h5 th:text="#{qualified.specialists}"></h5>
+                    <p th:text="#{we.hire.the.best.specs}"></p>
                 </div>
                 <div class="col-md-4"><img class="icon-img" src="images/icons/icon-bed-94x94.png" alt="" width="94" height="94"/>
-                    <h5>Modern equipment</h5>
-                    <p>We use the first-class medical equipment for timely diagnostics of various diseases.</p>
+                    <h5 th:text="#{modern.equipment}"></h5>
+                    <p th:text="#{we.use.the.first.class}"></p>
                 </div>
                 <div class="col-md-4"><img class="icon-img" src="images/icons/icon-hospital-94x94.png" alt="" width="94" height="94"/>
-                    <h5>24-hour service</h5>
-                    <p>Anytime you need help, you may contact us and our receptionist will make an appointment for you.</p>
+                    <h5 th:text="#{24.hour.service}"></h5>
+                    <p th:text="#{anytime.you.need.help}"></p>
                 </div>
             </div>
         </div>
@@ -191,10 +194,10 @@
     <!-- bajanmunqner(specizalicainer) pti eli foreach franq u cuyc tanq sax-->
     <section class="section-60 section-sm-110 novi-background bg-cover">
         <div class="container">
-            <h3>Main departments</h3>
+            <h3 th:text="#{main.departments}"></h3>
             <hr class="divider divider-lg bg-accent">
             <div class="offset-top-25 offset-md-top-60">
-                <p class="font-weight-normal">We provide assistance in various spheres.</p>
+                <p class="font-weight-normal" th:text="#{we.provide.assistance}"></p>
             </div>
             <div class="row row-30 row-lg-50 offset-top-30 offset-sm-top-60 text-lg-left">
                 <div class="col-md-6 col-lg-4">
@@ -227,7 +230,7 @@
     <!-- Testimonials-->
     <section class="section-60 section-sm-110 novi-background bg-cover">
         <div class="container">
-            <h3>Testimonials</h3>
+            <h3 th:text="#{testimonials}"></h3>
             <hr class="divider divider-lg bg-accent">
             <div class="offset-top-40 offset-md-top-66">
                 <div class="owl-carousel owl-carousel-default" data-autoplay="true" data-items="1" data-dots="true" data-lg-items="2" data-nav="false">
@@ -262,9 +265,9 @@
             <div class="row align-items-end">
                 <div class="col-xl-9 col-xxl-10">
                     <div class="section-98 section-sm-110">
-                        <h2>High-class specialists are ready to help you at any time.</h2>
-                        <p>Contact us any suitable way and make an appointment with the doctor whose help you need! Visit us at the scheduled time and get your treatment.</p>
-                        <div class="offset-top-24 offset-lg-top-41"><a class="btn btn-ellipse btn-primary" href="make-an-appointment.html">free consultation</a></div>
+                        <h2 th:text="#{high.class.specs.are.ready}"></h2>
+                        <p th:text="#{contact.us.any.suitable.way}"></p>
+                        <div class="offset-top-24 offset-lg-top-41"><a class="btn btn-ellipse btn-primary" href="make-an-appointment.html" th:text="#{free.consultation}"></a></div>
                     </div>
                 </div>
                 <div class="col-xl-2 col-xxl-2 d-none d-xl-block"><img class="img-custom" src="images/users/user-03-329x551.png" alt="" width="329" height="551"/>
@@ -284,7 +287,7 @@
                 <div class="col-md-8 col-lg-12">
                     <div class="row justify-content-sm-center row-50">
                         <div class="col-sm-10 text-sm-left col-lg-4 order-lg-2 text-left">
-                            <h6>contact us</h6>
+                            <h6 th:text="#{contact.us}"></h6>
                             <hr>
                             <div class="text-center text-xl-left">
                                 <address class="contact-info d-md-inline-block text-left">
@@ -317,8 +320,7 @@
             </div>
         </div>
         <div class="container offset-top-50 offset-md-top-60">
-            <p class="text-lg-left">&copy; <span class="copyright-year"></span> All Rights Reserved
-            </p>
+            <p class="text-lg-left" th:text="#{all.rights.reserved}">&copy; <span class="copyright-year"></span></p>
         </div>
     </footer>
 </div>

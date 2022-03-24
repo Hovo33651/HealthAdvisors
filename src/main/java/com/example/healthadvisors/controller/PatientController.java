@@ -63,9 +63,7 @@ public class PatientController {
         Patient patient = modelMapper.map(createPatientRequest, Patient.class);
         patient.setUser(newUser);
         patient.setAddress(newAddress);
-        Patient newPatient = patientService.save(patient);
-
-        newUser.setPatient(newPatient);
+        patientService.save(patient);
 
         String subject = "WELCOME TO OUR WEBSITE";
         String message = "Dear "+ newUser.getName() +  ", you are successfully registered";

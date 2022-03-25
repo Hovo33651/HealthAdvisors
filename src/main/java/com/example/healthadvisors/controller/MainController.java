@@ -44,16 +44,18 @@ public class MainController {
         String userType = currentUser.getUser().getType().name();
         switch (userType) {
             case "ADMIN":
-                return "redirect:/";
+                return "index";
             case "PATIENT":
+                currentUser.getUser().setPatient(patientService.findPatientByUserId(currentUser.getUser().getId()));
                 map.addAttribute("testimonials", testimonialService.findTestimonialsByUserId(currentUser.getUser().getId()));
-                return "404";
+                return "patientHomePage";
             case "DOCTOR":
+                currentUser.getUser().setDoctor(doctorService.findDoctorByUserId(currentUser.getUser().getId()));
                 map.addAttribute("certificates", certificateService.findCertificatesByDoctorUserId(currentUser.getUser().getId()));
-                map.addAttribute("doctor", doctorService.findDoctorByUserId(currentUser.getUser().getId()));
-                return "doctorPage";
+                map.addAttribute("medReport",medReportService.findMedReportsByDoctorUserId(currentUser.getUser().getId()));
+                return "doctorHomePage";
             default:
-                return "/loginPage";
+                return "redirect:/loginPage";
         }
     }
 

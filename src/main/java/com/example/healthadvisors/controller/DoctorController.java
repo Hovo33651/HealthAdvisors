@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
@@ -38,12 +41,13 @@ public class DoctorController {
 
     @PostMapping("/addDoctor")
     public String addUser(@ModelAttribute CreateUserRequest createUserRequest,
-                          @ModelAttribute CreateDoctorRequest createDoctorRequest) {
+                          @ModelAttribute CreateDoctorRequest createDoctorRequest,
+                          @RequestParam("picture") MultipartFile[] uploadedFiles) throws IOException {
 
         User user = modelMapper.map(createUserRequest, User.class);
         Doctor doctor = modelMapper.map(createDoctorRequest, Doctor.class);
 
-        User newUser = userService.save(user);
+        User newUser = userService.save(user,uploadedFiles);
         Doctor newDoctor = doctorService.save(doctor);
         newUser.setDoctor(newDoctor);
 

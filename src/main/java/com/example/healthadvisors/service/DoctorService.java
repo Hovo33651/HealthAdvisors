@@ -35,8 +35,5 @@ public class DoctorService {
         return doctorRepository.findDoctorByUser_Id(userId);
     }
 
-    public List<Doctor> findDoctorsByMedReports(List<MedReport> medReports){
-        return doctorRepository.findDoctorsByMedReports(medReports);
-    }
 
 }

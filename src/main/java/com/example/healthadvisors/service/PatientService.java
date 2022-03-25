@@ -24,9 +24,6 @@ public class PatientService {
         return patient;
     }
 
-    public List<Patient> findPatientsByMedReports(List<MedReport> medReports) {
-        return patientRepository.findPatientsByMedReports(medReports);
-    }
 
     public void deletePatientByID(int id) {
         patientRepository.deleteById(id);

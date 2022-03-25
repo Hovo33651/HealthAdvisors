@@ -20,6 +20,32 @@
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
 </head>
+<style>
+    .custom-file-input::-webkit-file-upload-button {
+        visibility: hidden;
+    }
+    .custom-file-input::before {
+        content: 'Select some files';
+        display: inline-block;
+        background: linear-gradient(top, #f9f9f9, #e3e3e3);
+        border: 1px solid #999;
+        border-radius: 3px;
+        padding: 5px 8px;
+        outline: none;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        cursor: pointer;
+        text-shadow: 1px 1px #fff;
+        font-weight: 700;
+        font-size: 10pt;
+    }
+    .custom-file-input:hover::before {
+        border-color: black;
+    }
+    .custom-file-input:active::before {
+        background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+    }
+</style>
 <body>
 <!-- Page-->
 <div class="page text-center">
@@ -173,8 +199,7 @@
                                 <div class="col-sm-6 offset-top-20 offset-sm-top-0">
                                     <div class="form-group form-group-label-outside">
                                         <label class="form-label form-label-outside text-dark rd-input-label" for="contacts-last-name"></label>
-                                        <button style="display:block;" onclick="document.getElementById('getFile').click()" class="btn btn-xs btn-ellipse btn-primary" th:text="#{choose.photo}"></button>
-                                        <input type="file" id="getFile" style="display:none" name="picture">
+                                        <input class="btn btn-xs btn-ellipse btn-primary"  type="file" id="getFile" name="picture" >
                                     </div>
                                 </div>
 

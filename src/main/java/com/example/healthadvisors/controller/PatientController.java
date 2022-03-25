@@ -20,8 +20,11 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +53,8 @@ public class PatientController {
                           BindingResult bindingResult,
                           @ModelAttribute CreatePatientRequest createPatientRequest,
                           @ModelAttribute CreateAddressRequest createAddressRequest,
-                          ModelMap map) {
+                          @RequestParam("picture") MultipartFile[] uploadedFiles,
+                          ModelMap map) throws IOException {
 
         if(bindingResult.hasErrors()){
             List<String> errors = new ArrayList<>();
@@ -61,14 +65,16 @@ public class PatientController {
             return "register";
         }
 
-        User newUser = userService.save(modelMapper.map(createUserRequest, User.class));
+        User newUser = userService.save(modelMapper.map(createUserRequest, User.class), uploadedFiles);
 
         Address newAddress = addressService.save(modelMapper.map(createAddressRequest, Address.class));
 
         Patient patient = modelMapper.map(createPatientRequest, Patient.class);
         patient.setUser(newUser);
         patient.setAddress(newAddress);
-        patientService.save(patient);
+        Patient newPatient = patientService.save(patient);
+
+        newUser.setPatient(newPatient);
 
         String subject = "WELCOME TO OUR WEBSITE";
         String message = "Dear "+ newUser.getName() +  ", you are successfully registered";

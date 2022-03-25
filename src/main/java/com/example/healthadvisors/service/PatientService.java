@@ -29,7 +29,8 @@ public class PatientService {
         patientRepository.deleteById(id);
     }
 
-    public Patient findPatientById(int patId) {
-        return patientRepository.getById(patId);
+
+    public Patient findPatientByUserId(int userId){
+        return patientRepository.findByUser_Id(userId);
     }
 }

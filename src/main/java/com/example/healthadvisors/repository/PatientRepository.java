@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface PatientRepository extends JpaRepository<Patient,Integer> {
 
+    Patient findByUser_Id(int userId);
+
 }

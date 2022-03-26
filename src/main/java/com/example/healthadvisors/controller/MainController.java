@@ -52,7 +52,6 @@ public class MainController {
                 return "redirect:/loginPage";
         }
     }
-
     @GetMapping("/loginPage")
     public String loginPage() {
         return "login";
@@ -66,4 +65,8 @@ public class MainController {
         return IOUtils.readAllBytes(inputStream);
 
     }
+
+
+
+
 }

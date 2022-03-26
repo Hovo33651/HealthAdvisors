@@ -32,25 +32,6 @@ public class DoctorController {
 
 
 
-    @GetMapping("/addDoctor")
-    public String addPatientPage() {
-        return "registerDoctor";
-    }
-
-    @PostMapping("/addDoctor")
-    public String addUser(@ModelAttribute CreateUserRequest createUserRequest,
-                          @ModelAttribute CreateDoctorRequest createDoctorRequest,
-                          @RequestParam("picture") MultipartFile[] uploadedFiles) throws IOException {
-
-        User newUser = userService.saveDoctor(modelMapper.map(createUserRequest,User.class),uploadedFiles);
-        Doctor doctor = modelMapper.map(createDoctorRequest, Doctor.class);
-        doctor.setUser(newUser);
-
-        doctorService.save(doctor);
-
-        return "redirect:/loginPage";
-    }
-
     @GetMapping("/viewPatients/{doctorId}")
     public String viewAllPatients(@RequestParam(value = "page", defaultValue = "0") int page,
                                   @RequestParam(value = "size", defaultValue = "5") int size,

@@ -4,24 +4,21 @@ import com.example.healthadvisors.dto.CreateDoctorRequest;
 import com.example.healthadvisors.dto.CreatePatientRequest;
 import com.example.healthadvisors.dto.CreateUserRequest;
 import com.example.healthadvisors.entity.Doctor;
+import com.example.healthadvisors.entity.MedReport;
 import com.example.healthadvisors.entity.User;
-import com.example.healthadvisors.security.CurrentUser;
 import com.example.healthadvisors.service.DoctorService;
+import com.example.healthadvisors.service.MedReportService;
 import com.example.healthadvisors.service.PatientService;
 import com.example.healthadvisors.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,6 +27,7 @@ public class DoctorController {
     private final DoctorService doctorService;
     private final PatientService patientService;
     private final ModelMapper modelMapper;
+    private final MedReportService medReportService;
 
 
 
@@ -53,15 +51,12 @@ public class DoctorController {
         return "redirect:/loginPage";
     }
 
-    @GetMapping("/viewPatients")
-    public String viewAllPatients(@ModelAttribute CreatePatientRequest createPatientRequest,
-                                  @ModelAttribute CreateDoctorRequest createDoctorRequest,
-                                  @ModelAttribute CreateUserRequest createUserRequest,
-                                  @RequestParam(value = "page", defaultValue = "0") int page,
-                                  @RequestParam(value = "size", defaultValue = "5") int size) {
+    @GetMapping("/viewPatients/{doctorId}")
+    public String viewAllPatients(@RequestParam(value = "page", defaultValue = "0") int page,
+                                  @RequestParam(value = "size", defaultValue = "5") int size,
+                                  @PathVariable int doctorId) {
         PageRequest pageRequest = PageRequest.of(page, size);
-        Doctor doctor = modelMapper.map(createDoctorRequest, Doctor.class);
-//        patientService.findPatientsByDoctorId(doctor.getId(), pageRequest);
+        medReportService.findPatientsByDoctorId(doctorId,pageRequest);
         return "allPatientsPage";
     }
 

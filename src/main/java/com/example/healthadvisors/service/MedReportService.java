@@ -1,10 +1,15 @@
 package com.example.healthadvisors.service;
 
 import com.example.healthadvisors.entity.MedReport;
+import com.example.healthadvisors.entity.Patient;
 import com.example.healthadvisors.repository.MedReportRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,11 +22,14 @@ public class MedReportService {
         medReportRepository.save(report);
     }
 
-    public List<MedReport> findMedReportByPatientId(int userId){
-        return medReportRepository.findAllByPatient_User_Id(userId);
+
+    public Page<Patient> findPatientsByDoctorId(int doctorId, Pageable pageable) {
+        List<MedReport> medReportsByDoctor_id = medReportRepository.findMedReportsByDoctor_Id(doctorId,pageable);
+        List<Patient> patients = new ArrayList<>();
+        for (MedReport medReport : medReportsByDoctor_id) {
+            patients.add(medReport.getPatient());
+        }
+        return (Page<Patient>) patients;
     }
 
-    public List<MedReport> findMedReportsByDoctorUserId(int userId){
-        return medReportRepository.findMedReportsByDoctor_User_Id(userId);
-    }
 }

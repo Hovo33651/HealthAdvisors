@@ -23,7 +23,7 @@ public class PatientService {
     }
 
 
-    public Patient findPatientByUserId(int userId){
-        return patientRepository.findByUser_Id(userId);
+    public Patient findPatientById(int patientId){
+        return patientRepository.findById(patientId).orElse(null);
     }
 }

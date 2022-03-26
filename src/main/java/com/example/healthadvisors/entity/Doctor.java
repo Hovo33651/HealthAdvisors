@@ -20,10 +20,11 @@ public class Doctor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String info;
+    private String education;
     @ManyToOne
     @JoinColumn(name = "specialization_id")
     private Specialization specialization;
-    @OneToMany
+    @OneToMany(mappedBy = "doctor")
     private List<Certificate> certificates;
     @OneToOne
     @JoinColumn(name = "user_id")

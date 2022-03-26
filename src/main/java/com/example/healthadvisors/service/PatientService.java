@@ -16,7 +16,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PatientService {
     private final PatientRepository patientRepository;
-    private final MedReportRepository medReportRepository;
 
 
     public Patient save(Patient patient) {

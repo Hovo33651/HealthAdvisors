@@ -3,10 +3,8 @@ package com.example.healthadvisors.service;
 
 import com.example.healthadvisors.entity.MedReport;
 import com.example.healthadvisors.entity.Patient;
-import com.example.healthadvisors.repository.MedReportRepository;
 import com.example.healthadvisors.repository.PatientRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

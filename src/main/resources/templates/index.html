@@ -105,8 +105,8 @@
                                     </li>
                                     <li th:if="${currentUser == null}"><a href="/loginPage"><span th:text="#{sign.in}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li th:if="${currentUser != null}"><a href="/logout"><span th:text="#{log.out}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                                    </li>
+                                    <li th:if="${currentUser != null}"><a href="/logout"><span th:text="#{log.out}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a></li>
+                                    <li th:if="${currentUser != null && currentUser.user.type.name().equals('ADMIN')}"><a href="/addDoctor"><span th:text="#{add.doctor}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a></li>
                                 </ul>
                             </div>
                         </div>

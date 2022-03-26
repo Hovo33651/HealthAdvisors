@@ -31,5 +31,9 @@ public class AppointmentService {
         return appointmentRepository.findAppointmentsByAppointmentDate(date);
     }
 
+    public void deleteAppointmentById(int appointmentId){
+        appointmentRepository.deleteById(appointmentId);
+    }
+
 
 }

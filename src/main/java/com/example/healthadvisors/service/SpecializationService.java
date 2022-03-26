@@ -3,7 +3,7 @@ package com.example.healthadvisors.service;
 import com.example.healthadvisors.dto.CreateSpecializationRequest;
 import com.example.healthadvisors.entity.Specialization;
 import com.example.healthadvisors.repository.SpecializationRepository;
-import com.example.healthadvisors.util.FileUploadUtils;
+import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +17,7 @@ import java.io.IOException;
 public class SpecializationService {
 
     private final SpecializationRepository specializationRepository;
-    private final FileUploadUtils fileUploadUtils;
+    private final FileUploadDownLoadUtils fileUploadUtils;
 
     private final ModelMapper modelMapper;
     @Value("${health.advisors.specialization.icons.path}")

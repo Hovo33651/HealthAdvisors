@@ -7,16 +7,16 @@ import com.example.healthadvisors.entity.Address;
 import com.example.healthadvisors.entity.Patient;
 import com.example.healthadvisors.entity.User;
 import com.example.healthadvisors.service.*;
+import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
@@ -30,12 +30,13 @@ public class PatientController {
 
     private final PatientService patientService;
     private final AddressService addressService;
-    private final MedReportService medReportService;
     private final UserService userService;
     private final ModelMapper modelMapper;
     private final MailService mailService;
+    private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
 
-
+    @Value("${health.advisors.patient.pictures.upload.path}")
+    String path;
 
 
 
@@ -77,6 +78,12 @@ public class PatientController {
         mailService.sendEmail(newUser.getEmail(),subject,message);
 
         return "redirect:/loginPage";
+    }
+
+    @GetMapping(value = "/getPatientImage", produces = MediaType.IMAGE_JPEG_VALUE)
+    public @ResponseBody
+    byte[] getImage(@RequestParam("picName") String picName) throws IOException {
+        return fileUploadDownLoadUtils.getImage(path,picName);
     }
 
 }

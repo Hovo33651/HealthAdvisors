@@ -2,6 +2,7 @@ package com.example.healthadvisors.controller;
 
 import com.example.healthadvisors.security.CurrentUser;
 import com.example.healthadvisors.service.*;
+import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
@@ -11,26 +12,19 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import sun.misc.IOUtils;
-
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @Controller
 @RequiredArgsConstructor
 public class MainController {
 
-    private final MedReportService medReportService;
-    private final TestimonialService testimonialService;
-    private final CertificateService certificateService;
-    private final DoctorService doctorService;
-    private final PatientService patientService;
+    private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
 
-    @Value("${health.advisors.upload.path}")
-    private String imagePath;
+    @Value("${health.advisors.analysis.files.upload.path}")
+    private String analysisFilesPath;
+    @Value("${health.advisors.specialization.icons.path}")
+    private String specIconsPath;
 
 
     @GetMapping("/")
@@ -57,16 +51,16 @@ public class MainController {
         return "login";
     }
 
-
-    @GetMapping(value = "/getImage", produces = MediaType.IMAGE_JPEG_VALUE)
+    @GetMapping(value = "/getSpecIconImage", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody
-    byte[] getImage(@RequestParam("picName") String picName) throws IOException {
-        InputStream inputStream = Files.newInputStream(Paths.get(imagePath + picName));
-        return IOUtils.readAllBytes(inputStream);
-
+    byte[] getSpecIcon(@RequestParam("picName") String picName) throws IOException {
+        return fileUploadDownLoadUtils.getImage(specIconsPath,picName);
     }
 
-
-
+    @GetMapping(value = "/getAnalysisFiles", produces = MediaType.IMAGE_JPEG_VALUE)
+    public @ResponseBody
+    byte[] getAnalysisFiles(@RequestParam("picName") String picName) throws IOException {
+        return fileUploadDownLoadUtils.getImage(analysisFilesPath,picName);
+    }
 
 }

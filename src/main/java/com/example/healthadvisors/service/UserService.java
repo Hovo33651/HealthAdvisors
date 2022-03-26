@@ -3,7 +3,7 @@ package com.example.healthadvisors.service;
 import com.example.healthadvisors.entity.User;
 import com.example.healthadvisors.entity.UserType;
 import com.example.healthadvisors.repository.UserRepository;
-import com.example.healthadvisors.util.FileUploadUtils;
+import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,7 +19,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    private final FileUploadUtils fileUploadUtils;
+    private final FileUploadDownLoadUtils fileUploadUtils;
 
     @Value("${health.advisors.doctor.pictures.upload.path}")
     String doctorPicturePath;

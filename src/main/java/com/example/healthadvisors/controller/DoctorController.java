@@ -1,35 +1,24 @@
 package com.example.healthadvisors.controller;
 
-import com.example.healthadvisors.dto.CreateDoctorRequest;
-import com.example.healthadvisors.dto.CreatePatientRequest;
-import com.example.healthadvisors.dto.CreateUserRequest;
-import com.example.healthadvisors.entity.Doctor;
-import com.example.healthadvisors.entity.MedReport;
-import com.example.healthadvisors.entity.User;
-import com.example.healthadvisors.service.DoctorService;
 import com.example.healthadvisors.service.MedReportService;
-import com.example.healthadvisors.service.PatientService;
-import com.example.healthadvisors.service.UserService;
+import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class DoctorController {
-    private final UserService userService;
-    private final DoctorService doctorService;
-    private final PatientService patientService;
-    private final ModelMapper modelMapper;
+
     private final MedReportService medReportService;
-
-
+    private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
+    @Value("${health.advisors.doctor.pictures.upload.path}")
+    String path;
 
 
     @GetMapping("/viewPatients/{doctorId}")
@@ -41,6 +30,11 @@ public class DoctorController {
         return "allPatientsPage";
     }
 
+    @GetMapping(value = "/getDoctorImage", produces = MediaType.IMAGE_JPEG_VALUE)
+    public @ResponseBody
+    byte[] getImage(@RequestParam("picName") String picName) throws IOException {
+        return fileUploadDownLoadUtils.getImage(path,picName);
+    }
 
 }
 

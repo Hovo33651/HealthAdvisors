@@ -9,5 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateDoctorRequest {
 
+    private String info;
+    private String education;
     private int specializationId;
+
 }

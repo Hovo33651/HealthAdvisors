@@ -40,5 +40,8 @@ public class Patient {
     private User user;
     @OneToMany(mappedBy = "patient")
     private List<MedReport> medReports;
+    @OneToMany(mappedBy = "patient")
+    private List<Testimonial> testimonials;
+
 
 }

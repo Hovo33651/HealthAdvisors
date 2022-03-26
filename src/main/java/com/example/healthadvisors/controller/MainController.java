@@ -44,13 +44,8 @@ public class MainController {
             case "ADMIN":
                 return "index";
             case "PATIENT":
-//                currentUser.getUser().setPatient(patientService.findPatientByUserId(currentUser.getUser().getId()));
-                map.addAttribute("testimonials", testimonialService.findTestimonialsByUserId(currentUser.getUser().getId()));
                 return "patientHomePage";
             case "DOCTOR":
-//                currentUser.getUser().setDoctor(doctorService.findDoctorByUserId(currentUser.getUser().getId()));
-                map.addAttribute("certificates", certificateService.findCertificatesByDoctorUserId(currentUser.getUser().getId()));
-                map.addAttribute("medReport",medReportService.findMedReportsByDoctorUserId(currentUser.getUser().getId()));
                 return "doctorHomePage";
             default:
                 return "redirect:/loginPage";

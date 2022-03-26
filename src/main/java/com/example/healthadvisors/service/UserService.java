@@ -22,7 +22,7 @@ public class UserService {
     @Value("${health.advisors.upload.path}")
     private String imagePath;
 
-    public User save(User user, MultipartFile[] uploadedFiles) throws IOException {
+    public User savePatient(User user, MultipartFile[] uploadedFiles) throws IOException {
         user.setType(UserType.PATIENT);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         String picUrl = saveUserImages(uploadedFiles);
@@ -44,5 +44,14 @@ public class UserService {
             }
         }
         return null;
+    }
+
+    public User saveDoctor(User user, MultipartFile[] uploadedFiles) throws IOException {
+        user.setType(UserType.DOCTOR);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        String picUrl = saveUserImages(uploadedFiles);
+        user.setPicUrl(picUrl);
+        userRepository.save(user);
+        return user;
     }
 }

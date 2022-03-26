@@ -39,18 +39,16 @@ public class MainController {
 
     @GetMapping("/homePage")
     public String login(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
-        map.addAttribute("currentUser", currentUser);
-        map.addAttribute("medReport", medReportService.findMedReportByPatientId(currentUser.getUser().getId()));
         String userType = currentUser.getUser().getType().name();
         switch (userType) {
             case "ADMIN":
                 return "index";
             case "PATIENT":
-                currentUser.getUser().setPatient(patientService.findPatientByUserId(currentUser.getUser().getId()));
+//                currentUser.getUser().setPatient(patientService.findPatientByUserId(currentUser.getUser().getId()));
                 map.addAttribute("testimonials", testimonialService.findTestimonialsByUserId(currentUser.getUser().getId()));
                 return "patientHomePage";
             case "DOCTOR":
-                currentUser.getUser().setDoctor(doctorService.findDoctorByUserId(currentUser.getUser().getId()));
+//                currentUser.getUser().setDoctor(doctorService.findDoctorByUserId(currentUser.getUser().getId()));
                 map.addAttribute("certificates", certificateService.findCertificatesByDoctorUserId(currentUser.getUser().getId()));
                 map.addAttribute("medReport",medReportService.findMedReportsByDoctorUserId(currentUser.getUser().getId()));
                 return "doctorHomePage";

@@ -25,7 +25,7 @@ public class Doctor {
     private Specialization specialization;
     @OneToMany
     private List<Certificate> certificates;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
     @OneToMany(mappedBy = "doctor")

@@ -6,13 +6,9 @@ import com.example.healthadvisors.dto.CreateUserRequest;
 import com.example.healthadvisors.entity.Address;
 import com.example.healthadvisors.entity.Patient;
 import com.example.healthadvisors.entity.User;
-import com.example.healthadvisors.entity.UserType;
-import com.example.healthadvisors.security.CurrentUser;
 import com.example.healthadvisors.service.*;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.mail.MailSender;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -65,7 +61,7 @@ public class PatientController {
             return "register";
         }
 
-        User newUser = userService.save(modelMapper.map(createUserRequest, User.class), uploadedFiles);
+        User newUser = userService.savePatient(modelMapper.map(createUserRequest, User.class), uploadedFiles);
 
         Address newAddress = addressService.save(modelMapper.map(createAddressRequest, Address.class));
 
@@ -73,6 +69,7 @@ public class PatientController {
         patient.setUser(newUser);
         patient.setAddress(newAddress);
         patientService.save(patient);
+
 
         String subject = "WELCOME TO OUR WEBSITE";
         String message = "Dear "+ newUser.getName() +  ", you are successfully registered";

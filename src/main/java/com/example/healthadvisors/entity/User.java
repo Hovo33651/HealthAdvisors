@@ -24,9 +24,9 @@ public class User {
     @JoinColumn(name = "type")
     @Enumerated(EnumType.STRING)
     private UserType type;
-    @Transient
+    @OneToOne(mappedBy = "user")
     private Patient patient;
-    @Transient
+    @OneToOne(mappedBy = "user")
     private Doctor doctor;
 
 }

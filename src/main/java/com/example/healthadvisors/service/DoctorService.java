@@ -14,9 +14,8 @@ public class DoctorService {
 
     private final DoctorRepository doctorRepository;
 
-    public Doctor save(Doctor doctor) {
+    public void save(Doctor doctor) {
         doctorRepository.save(doctor);
-        return doctor;
     }
 
     public void delete(Doctor doctor) {

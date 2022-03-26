@@ -10,5 +10,4 @@ import lombok.NoArgsConstructor;
 public class CreateDoctorRequest {
 
     private int specializationId;
-    private int userId;
 }

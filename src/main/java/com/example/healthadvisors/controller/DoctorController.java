@@ -44,12 +44,11 @@ public class DoctorController {
                           @ModelAttribute CreateDoctorRequest createDoctorRequest,
                           @RequestParam("picture") MultipartFile[] uploadedFiles) throws IOException {
 
-        User user = modelMapper.map(createUserRequest, User.class);
+        User newUser = userService.saveDoctor(modelMapper.map(createUserRequest,User.class),uploadedFiles);
         Doctor doctor = modelMapper.map(createDoctorRequest, Doctor.class);
+        doctor.setUser(newUser);
 
-        User newUser = userService.save(user,uploadedFiles);
-        Doctor newDoctor = doctorService.save(doctor);
-        newUser.setDoctor(newDoctor);
+        doctorService.save(doctor);
 
         return "redirect:/loginPage";
     }

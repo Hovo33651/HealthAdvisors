@@ -35,7 +35,7 @@ public class Patient {
     @ManyToOne
     @JoinColumn(name = "address_id")
     private Address address;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
     @OneToMany(mappedBy = "patient")

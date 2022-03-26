@@ -21,16 +21,8 @@ public class TestimonialService {
         testimonialRepository.delete(testimonial);
     }
 
-    public void deleteAllTestimonialByUserId(int userId){
-        testimonialRepository.deleteTestimonialsByUser_Id(userId);
-    }
-
-    public Testimonial findByUserId(int userId){
-        return testimonialRepository.findByUser_Id(userId);
-    }
-
-    public List<Testimonial> findTestimonialsByUserId(int userId){
-        return testimonialRepository.findTestimonialsByUser_Id(userId);
+    public List<Testimonial> findTestimonialsByPatientId(int patientId){
+        return testimonialRepository.findTestimonialsByPatient_Id(patientId);
     }
 
 

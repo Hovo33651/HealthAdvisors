@@ -18,7 +18,7 @@ public class PatientService {
     }
 
 
-    public void deletePatientByID(int id) {
+    public void deletePatientById(int id) {
         patientRepository.deleteById(id);
     }
 

@@ -4,14 +4,17 @@ import com.example.healthadvisors.dto.CreateAddressRequest;
 import com.example.healthadvisors.dto.CreatePatientRequest;
 import com.example.healthadvisors.dto.CreateUserRequest;
 import com.example.healthadvisors.entity.Address;
+import com.example.healthadvisors.entity.Appointment;
 import com.example.healthadvisors.entity.Patient;
 import com.example.healthadvisors.entity.User;
+import com.example.healthadvisors.security.CurrentUser;
 import com.example.healthadvisors.service.*;
 import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -21,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +38,9 @@ public class PatientController {
     private final ModelMapper modelMapper;
     private final MailService mailService;
     private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
+
+    private final AppointmentService appointmentService;
+    private final DoctorService doctorService;
 
     @Value("${health.advisors.patient.pictures.upload.path}")
     String path;
@@ -84,6 +91,27 @@ public class PatientController {
     public @ResponseBody
     byte[] getImage(@RequestParam("picName") String picName) throws IOException {
         return fileUploadDownLoadUtils.getImage(path,picName);
+    }
+
+
+    @GetMapping("/newAppointment")
+    public String makeAppointment(@RequestParam("doctorId") int doctorId,
+                                  @AuthenticationPrincipal CurrentUser currentUser){
+
+        Appointment newAppointment = Appointment.builder()
+                .doctor(doctorService.findDoctorById(doctorId))
+                .patient(patientService.findPatientById(currentUser.getUser().getPatient().getId()))
+                .appointmentDate(LocalDateTime.now())
+                .build();
+        appointmentService.saveAppointment(newAppointment);
+        return "redirect:/homePage";
+    }
+
+
+   @PostMapping("/discardAppointment/{appointmentId}")
+    public String discardAppointment(@PathVariable int appointmentId){
+        appointmentService.deleteAppointmentById(appointmentId);
+        return "redirect:/home";
     }
 
 }

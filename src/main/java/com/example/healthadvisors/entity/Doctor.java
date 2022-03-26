@@ -30,6 +30,7 @@ public class Doctor {
     private User user;
     @OneToMany(mappedBy = "doctor")
     private List<MedReport> medReports;
+    private double rating;
 
 
 

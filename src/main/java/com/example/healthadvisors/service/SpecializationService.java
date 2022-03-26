@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -28,6 +29,11 @@ public class SpecializationService {
         Specialization specialization = modelMapper.map(createSpecializationRequest, Specialization.class);
         specialization.setIconUrl(fileUploadUtils.uploadImage(uploadedFiles,specIconPath));
         specializationRepository.save(specialization);
+    }
+
+
+    public List<Specialization> findAll(){
+        return specializationRepository.findAll();
     }
 }
 

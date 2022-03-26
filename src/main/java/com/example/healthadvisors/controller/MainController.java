@@ -20,7 +20,6 @@ import java.io.IOException;
 public class MainController {
 
     private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
-
     @Value("${health.advisors.analysis.files.upload.path}")
     private String analysisFilesPath;
     @Value("${health.advisors.specialization.icons.path}")
@@ -33,7 +32,7 @@ public class MainController {
     }
 
     @GetMapping("/homePage")
-    public String login(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
+    public String login(@AuthenticationPrincipal CurrentUser currentUser,ModelMap map) {
         String userType = currentUser.getUser().getType().name();
         switch (userType) {
             case "ADMIN":

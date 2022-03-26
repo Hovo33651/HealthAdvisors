@@ -64,5 +64,6 @@ public class MainController {
     byte[] getImage(@RequestParam("picName") String picName) throws IOException {
         InputStream inputStream = Files.newInputStream(Paths.get(imagePath + picName));
         return IOUtils.readAllBytes(inputStream);
+
     }
 }

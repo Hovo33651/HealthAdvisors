@@ -61,7 +61,7 @@ public class PatientController {
             return "register";
         }
 
-        User newUser = userService.savePatient(modelMapper.map(createUserRequest, User.class), uploadedFiles);
+        User newUser = userService.saveUserAsPatient(modelMapper.map(createUserRequest, User.class), uploadedFiles);
 
         Address newAddress = addressService.save(modelMapper.map(createAddressRequest, Address.class));
 

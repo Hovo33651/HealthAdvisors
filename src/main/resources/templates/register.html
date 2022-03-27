@@ -20,32 +20,6 @@
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
 </head>
-<style>
-    .custom-file-input::-webkit-file-upload-button {
-        visibility: hidden;
-    }
-    .custom-file-input::before {
-        content: 'Select some files';
-        display: inline-block;
-        background: linear-gradient(top, #f9f9f9, #e3e3e3);
-        border: 1px solid #999;
-        border-radius: 3px;
-        padding: 5px 8px;
-        outline: none;
-        white-space: nowrap;
-        -webkit-user-select: none;
-        cursor: pointer;
-        text-shadow: 1px 1px #fff;
-        font-weight: 700;
-        font-size: 10pt;
-    }
-    .custom-file-input:hover::before {
-        border-color: black;
-    }
-    .custom-file-input:active::before {
-        background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
-    }
-</style>
 <body>
 <!-- Page-->
 <div class="page text-center">
@@ -76,9 +50,9 @@
                             </address>
                         </div>
                         <div style="float: right; margin-right: 15px">
-                            <a href="?lang=en" style="text-decoration: none"><img src="images/en.jpg" width="27px" height="20px"></a>
-                            <a href="?lang=ru" style="text-decoration: none"><img src="images/ru.jpg" width="27px" height="20px"></a>
-                            <a href="?lang=hy" style="text-decoration: none"><img src="images/hy.png" width="27px" height="20px"></a>
+                            <a href="?lang=en"  style="text-decoration: none"><img src="images/en.jpg" width="27px" height="20px"></a>
+                            <a href="?lang=ru"  style="text-decoration: none"><img src="images/ru.jpg" width="27px" height="20px"></a>
+                            <a href="?lang=hy"  style="text-decoration: none"><img src="images/hy.png" width="27px" height="20px"></a>
                         </div>
                     </div>
 
@@ -99,35 +73,8 @@
                             <div class="rd-navbar-mobile-scroll">
                                 <!--Navbar Brand Mobile-->
                                 <div class="rd-navbar-mobile-brand"><a href="/"><img src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
-
-
-                                <!-- RD Navbar Nav-->
                                 <ul class="rd-navbar-nav">
-                                    <li><a href="/" ><span th:text="#{home}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                                    </li>
-                                    <li><a href="/about"><span th:text="#{about}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                                    </li>
-                                    <li><a href="/ourTeam" ><span th:text="#{team}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                                    </li>
-                                    <li><a href="/services"><span th:text="#{services}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                                    </li>
-                                    <li><a href="/timetable"><span th:text="#{timetable}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                                    </li>
-
-                                    <!-- Գալերեայի պահը պտի քննարկենք հասկնանք ինչխ էնենք-->
-                                    <li><a href="grid-gallery.html"><span th:text="#{gallery}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                                        <ul class="rd-navbar-dropdown">
-                                            <li><a href="grid-gallery.html"><span class="text-middle">Grid Gallery</span></a>
-                                            </li>
-                                            <li><a href="grid-gallery-no-padding.html"><span class="text-middle">Gallery Without Padding</span></a>
-                                            </li>
-                                            <li><a href="masonry-gallery.html"><span class="text-middle">Masonry Gallery</span></a>
-                                            </li>
-                                            <li><a href="cobbles-gallery.html"><span class="text-middle">Cobbles Gallery</span></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li th:if="${currentUser == null}"><a href="/loginPage"><span th:text="#{sign.in}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${currentUser == null}"><a href="/login"><span th:text="#{sign.in}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
                                 </ul>
                             </div>

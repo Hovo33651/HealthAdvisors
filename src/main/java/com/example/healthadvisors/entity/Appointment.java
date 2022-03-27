@@ -27,5 +27,6 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
+    @DateTimeFormat(pattern = "dd.MM.yyyy HH:MM")
     private LocalDateTime appointmentDate;
 }

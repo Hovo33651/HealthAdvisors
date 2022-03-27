@@ -162,8 +162,8 @@
         <!-- Modern Breadcrumbs-->
         <section class="breadcrumb-modern novi-background bg-cover text-lg-left">
             <div class="container section-34 section-md-top-110 section-md-bottom-41">
-                <h2 th:text="${currentUser.user.name}">name</h2>
-                <h2 th:text="${currentUser.user.surname}">surname</h2>
+                <h2 th:text="${doctor.user.name}">name</h2>
+                <h2 th:text="${doctor.user.surname}">surname</h2>
             </div>
         </section>
     </div>
@@ -173,19 +173,19 @@
         <div class="container">
             <div class="col-sm-10 col-lg-4">
                 <div class="member-block-type-5 inset-lg-right-20"><img class="img-responsive center-block"
-                                                                        th:src="@{/getDoctorImage(picName=${currentUser.user.picUrl})}"
+                                                                        th:src="@{/getDoctorImage(picName=${doctor.user.picUrl})}"
                                                                         width="320" height="320" alt=""/>
                     <address class="contact-info offset-top-20 offset-sm-top-24">
                         <ul class="list-unstyled p">
                             <li><i style="font-size:24px" class="fa">&#xf095;</i><span
                                     class="icon icon-xxxs text-md-left text-primary novi-icon mdi"></span><a
                                     class="text-middle d-inline-block text-gray-darker" href="tel:1-800-1234-567"
-                                    th:text="${currentUser.user.phone}">telephone</a></li>
+                                    th:text="${doctor.user.phone}">telephone</a></li>
 
                             <li><i style="font-size:24px" class="fa">&#xf0e0;</i><span
                                     class="icon icon-xxxs text-md-left text-primary novi-icon mdi"></span><a
                                     class="text-middle d-inline-block" href="/sendEmail"
-                                    th:text="${currentUser.user.email}">mail</a></li>
+                                    th:text="${doctor.user.email}">mail</a></li>
                         </ul>
 
                     </address>
@@ -194,14 +194,14 @@
             <div class="offset-top-34 text-md-left inset-lg-right-20">
                 <h6 class="text-left" th:text="#{certificates}"></h6>
                 <hr class="text-subline">
-                <div th:if="${currentUser.user.doctor.certificates!=null && !currentUser.user.doctor.certificates.isEmpty()}"
-                     th:each="certificate: ${currentUser.user.doctor.certificates}"
+                <div th:if="${doctor.certificates!=null && !doctor.certificates.isEmpty()}"
+                     th:each="certificate: ${doctor.certificates}"
                      class="row row-20 justify-content-sm-center justify-content-md-start offset-top-24"
                      data-lightgallery="group">
                     <div class="col-sm-6 col-md-4"><a class="thumbnail-classic" data-lightgallery="item"
                                                       href="images/certifications/certificate-01-700x970.jpg">
                         <figure><img width="100" height="138"
-                                     th:src="@{/getImage(picName=${certificate.certificatePicUrl})}" alt=""/>
+                                     th:src="@{/getDoctorImage(picName=${certificate.certificatePicUrl})}" alt=""/>
                         </figure>
                     </a>
                     </div>
@@ -214,17 +214,17 @@
             <div class="row row-fix">
                 <div class="col-md-5">
                     <h6 th:text="#{specialization}"></h6>
-                    <p class="font-weight-bold" th:text="${currentUser.user.doctor.specialization.name}"></p>
+                    <p class="font-weight-bold" th:text="${doctor.specialization.name}"></p>
                 </div>
                 <div class="col-md-7 offset-top-41 offset-md-top-0">
                     <h6 th:text="#{education}"></h6>
-                    <p class="font-weight-bold" th:text="${currentUser.user.doctor.education}"></p>
+                    <p class="font-weight-bold" th:text="${doctor.education}"></p>
                 </div>
             </div>
             <div class="offset-top-66 text-left">
                 <h6 th:text="#{info}"></h6>
                 <hr class="text-subline">
-                <p th:text="${currentUser.user.doctor.info}"></p>
+                <p th:text="${doctor.info}"></p>
             </div>
             <div class="offset-top-66">
                 <h6 class="text-left" th:text="#{rating}"></h6>
@@ -244,8 +244,11 @@
 
     <section class="section-60 section-sm-top-34 section-sm-bottom-110 novi-background bg-cover">
         <div class="group-lg offset-top-20 offset-md-top-30">
-            <button class="btn btn-lg btn-ellipse btn-primary" onclick="location.href='/viewAllPatients'"
-                    th:text="#{view.all.patients}"></button>
+            <form action="/newAppointment" method="post">
+                <input type="hidden" name="doctorId" th:value="${doctor.id}">
+                <input type="datetime-local" name="appointmentDate">
+                <input type="submit" th:value="#{make.appointment}">
+            </form>
         </div>
     </section>
 

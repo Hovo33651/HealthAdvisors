@@ -50,6 +50,7 @@ public class DoctorController {
         return "viewAllPatients";
     }
 
+
     @GetMapping(value = "/getDoctorImage", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody
     byte[] getImage(@RequestParam("picName") String picName) throws IOException {

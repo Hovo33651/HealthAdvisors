@@ -61,6 +61,7 @@ public class MainController {
         return fileUploadDownLoadUtils.getImage(specIconsPath, picName);
     }
 
+
     @GetMapping(value = "/getAnalysisFiles", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody
     byte[] getAnalysisFiles(@RequestParam("picName") String picName) throws IOException {

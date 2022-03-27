@@ -153,6 +153,7 @@ public class PatientController {
     }
 
 
+
    @PostMapping("/discardAppointment/{appointmentId}")
     public String discardAppointment(@PathVariable int appointmentId){
         appointmentService.deleteAppointmentById(appointmentId);

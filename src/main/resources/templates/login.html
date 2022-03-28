@@ -125,6 +125,7 @@
 
 
 
+
       <!-- Page Content-->
       <main class="page-content section-98 section-sm-110">
         <!--LOGIN FORM-->
@@ -132,6 +133,7 @@
           <div class="container">
             <div class="row justify-content-center justify-content-lg-start">
               <div class="col-sm-8 col-lg-5">
+                <span th:if="${message!=null}" th:text="${message}" style="font-size: 13px; color: darkcyan"></span>
                 <hr>
                 <!-- RD Mailform-->
                 <form action="/perform_login" method="post">

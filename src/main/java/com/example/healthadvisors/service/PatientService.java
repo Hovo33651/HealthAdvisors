@@ -18,8 +18,8 @@ public class PatientService {
     }
 
 
-    public void deletePatientById(int id) {
-        patientRepository.deleteById(id);
+    public void deletePatientByUserId(int id) {
+        patientRepository.deleteByUserId(id);
     }
 
 

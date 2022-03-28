@@ -6,7 +6,10 @@ import com.example.healthadvisors.dto.CreateUserRequest;
 import com.example.healthadvisors.entity.Address;
 import com.example.healthadvisors.entity.Patient;
 import com.example.healthadvisors.entity.User;
-import com.example.healthadvisors.service.*;
+import com.example.healthadvisors.service.AddressService;
+import com.example.healthadvisors.service.MailService;
+import com.example.healthadvisors.service.PatientService;
+import com.example.healthadvisors.service.UserService;
 import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -19,10 +22,11 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.mail.MessagingException;
 import javax.validation.Valid;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.util.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -35,9 +39,8 @@ public class PatientController {
     private final MailService mailService;
     private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
 
-    @Value("${health.advisors.patient.pictures.upload.path}")
+    @Value(value = "E:\\HealthAdvisors\\upload")
     String path;
-
 
 
     @GetMapping("/register")
@@ -46,23 +49,25 @@ public class PatientController {
     }
 
     @PostMapping("/register")
-    public String addUser(@ModelAttribute @Valid CreateUserRequest createUserRequest,
-                          BindingResult bindingResult,
+    public String addUser(@ModelAttribute @Valid CreateUserRequest createUserRequest, BindingResult bindingResult,
                           @ModelAttribute CreatePatientRequest createPatientRequest,
                           @ModelAttribute CreateAddressRequest createAddressRequest,
-                          @RequestParam("picture") MultipartFile[] uploadedFiles,
-                          ModelMap map) throws IOException {
+                          @RequestParam("picture") MultipartFile[] uploadedFiles, ModelMap map, Locale locale) throws IOException, MessagingException {
 
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             List<String> errors = new ArrayList<>();
             for (ObjectError allError : bindingResult.getAllErrors()) {
                 errors.add(allError.getDefaultMessage());
             }
-            map.addAttribute("errors",errors);
+            map.addAttribute("errors", errors);
             return "register";
         }
 
-        User newUser = userService.saveUserAsPatient(modelMapper.map(createUserRequest, User.class), uploadedFiles);
+        User user = modelMapper.map(createUserRequest, User.class);
+        user.setActive(false);
+        user.setToken(UUID.randomUUID().toString());
+        user.setTokenCreatedDate(LocalDateTime.now());
+        User newUser = userService.saveUserAsPatient(user, uploadedFiles);
 
         Address newAddress = addressService.save(modelMapper.map(createAddressRequest, Address.class));
 
@@ -73,17 +78,39 @@ public class PatientController {
 
 
         String subject = "WELCOME TO OUR WEBSITE";
-        String message = "Dear "+ newUser.getName() +  ", you are successfully registered";
+        String message = "Dear " + newUser.getName() + " " + newUser.getSurname() + ", you are successfully registered" + " For activation please click on this URL: http://localhost:8080/user/activate?token="+newUser.getToken();
 
-        mailService.sendEmail(newUser.getEmail(),subject,message);
-
+        //mailService.sendHtmlEmail(newUser.getEmail(), subject, newUser, "http://localhost:8080/user/activate?token=" + newUser.getToken(), "activateUser", locale);
+        mailService.sendEmail(newUser.getEmail(), subject, message);
         return "redirect:/loginPage";
     }
 
+    @GetMapping("/user/activate")
+    public String activateUser(ModelMap map,
+                               @RequestParam(name = "token") String token) {
+
+        Optional<User> user = userService.findByToken(token);
+        if (!user.isPresent()) {
+            map.addAttribute("message", "User does not exists");
+            return "activateUser";
+        }
+        User userFromDb = user.get();
+        if (userFromDb.isActive()) {
+            map.addAttribute("message", "User already active");
+            return "activateUser";
+        }
+        userFromDb.setActive(true);
+        userFromDb.setToken(null);
+        userFromDb.setTokenCreatedDate(null);
+        userService.saveUser(userFromDb);
+        map.addAttribute("message", "Your account has been activated. \n Please sign in");
+        return "login";
+    }
+
+
     @GetMapping(value = "/getPatientImage", produces = MediaType.IMAGE_JPEG_VALUE)
-    public @ResponseBody
-    byte[] getImage(@RequestParam("picName") String picName) throws IOException {
-        return fileUploadDownLoadUtils.getImage(path,picName);
+    public @ResponseBody byte[] getImage(@RequestParam("picName") String picName) throws IOException {
+        return fileUploadDownLoadUtils.getImage(path, picName);
     }
 
 }

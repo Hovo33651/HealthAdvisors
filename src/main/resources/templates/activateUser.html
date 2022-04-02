@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html class="wide wow-animation smoothscroll scrollTo" lang="en">
+<html class="wide wow-animation smoothscroll scrollTo" lang="en"  xmlns:th="http://www.thymeleaf.org">
   <head>
     <!-- Site Title-->
-    <title>404 Page</title>
+    <title>Activate User</title>
     <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -35,10 +35,10 @@
             <div class="container">
               <div class="section-110 section-cover row justify-content-sm-center align-items-center justify-content-center">
                 <div class="col-xl-6">
-                  <h2>PAGE NOT FOUND</h2>
+                  <h2 th:text="${message}"></h2>
                   <div class="text-extra-big text-black opacity-02 font-accent">404</div>
-                  <p class="offset-top-30 offset-md-top-50">The page requested couldn't be found - this could be due to a spelling error in the URL or a removed page.</p>
-                  <div class="group offset-top-30"><a class="btn btn-ellipse btn-primary" href="index.html">back to home page</a></div>
+                  <p class="offset-top-30 offset-md-top-50" th:text="${message}"></p>
+                  <div class="group offset-top-30"><a class="btn btn-ellipse btn-primary" href="/user/activate">Activate</a></div>
                 </div>
               </div>
             </div>

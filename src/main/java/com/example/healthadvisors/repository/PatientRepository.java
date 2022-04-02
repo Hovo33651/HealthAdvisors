@@ -11,4 +11,7 @@ public interface PatientRepository extends JpaRepository<Patient,Integer> {
 
     @Override
     Optional<Patient> findById(Integer integer);
+    Patient findByUser_Id(int userId);
+
+    void deleteByUserId(int userId);
 }

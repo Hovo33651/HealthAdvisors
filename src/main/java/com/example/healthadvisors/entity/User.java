@@ -3,6 +3,7 @@ package com.example.healthadvisors.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -28,5 +29,8 @@ public class User {
     private Patient patient;
     @OneToOne(mappedBy = "user")
     private Doctor doctor;
+    private String token;
+    private boolean active;
+    private LocalDateTime tokenCreatedDate;
 
 }

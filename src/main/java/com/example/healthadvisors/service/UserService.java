@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -23,7 +26,7 @@ public class UserService {
 
     @Value("${health.advisors.doctor.pictures.upload.path}")
     String doctorPicturePath;
-    @Value("${health.advisors.patient.pictures.upload.path}")
+    @Value("E:/HealthAdvisors/upload/patients")
     String patientPicPath;
 
     public User saveUserAsPatient(User user, MultipartFile[] uploadedFiles) throws IOException {
@@ -42,6 +45,20 @@ public class UserService {
         user.setPicUrl(picUrl);
         userRepository.save(user);
         return user;
+    }
+
+
+    public Optional<User> findByToken(String token) {
+        return userRepository.findByToken(token);
+    }
+
+
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
+
+    public void saveUser(User user){
+        userRepository.save(user);
     }
 
 

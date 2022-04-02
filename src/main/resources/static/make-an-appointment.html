@@ -1,628 +1,325 @@
 <!DOCTYPE html>
-<html class="wide wow-animation smoothscroll scrollTo" lang="en">
+<html class="wide wow-animation smoothscroll scrollTo" lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <!-- Site Title-->
-  <title>Health Advisors</title>
-  <meta charset="utf-8">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="keywords" content="SANA design multipurpose template">
-  <meta name="date" content="Dec 26">
-  <script src="/cdn-cgi/apps/head/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script><link rel="icon" href="images/favicon.ico" type="image/x-icon">
-  <!-- Stylesheets-->
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/style.css">
-  <!--[if lt IE 10]>
-  <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
-  <script src="js/html5shiv.min.js"></script>
-  <![endif]-->
+    <!-- Site Title-->
+    <title>Health Advisors</title>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="keywords" content="SANA design multipurpose template">
+    <meta name="date" content="Dec 26">
+    <script src="/cdn-cgi/apps/head/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Stylesheets-->
+    <link rel="stylesheet" type="text/css"
+          href="//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
+        <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
+                src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
+                alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+    </div>
+    <script src="js/html5shiv.min.js"></script>
+    <![endif]-->
 </head>
 <body>
 <!-- Page-->
 <div class="page text-center">
-  <!-- Page Header-->
-  <header class="page-head">
-    <!-- RD Navbar minimal-->
-    <div class="rd-navbar-wrap">
-      <nav class="rd-navbar rd-navbar-minimal rd-navbar-light" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-md-stick-up-offset="120px" data-lg-stick-up-offset="120px">
-        <div class="rd-navbar-inner">
-          <div class="rd-navbar-top-panel">
-            <div>
-              <address class="contact-info d-md-inline-block text-left offset-none">
-                <div class="p unit unit-spacing-xs flex-row">
-                  <div class="unit-left"><span class="icon icon-xs icon-circle icon-gray-light mdi mdi-phone text-primary"></span></div>
-                  <div class="unit-body"><a class="link-inherit font-weight-medium" href="tel:#">+(374)98-97-96-17</a><br/><a class="link-inherit font-weight-medium" href="tel:#">+(374)93-77-66-94</a></div>
-                </div>
-              </address>
-            </div>
-
-
-            <!--Navbar Brand-->
-            <div class="rd-navbar-brand d-none d-xl-inline-block"><a href="/"><img src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
-            <div>
-              <address class="contact-info d-md-inline-block text-left">
-                <div class="p unit flex-row unit-spacing-xs">
-                  <div class="unit-body"><a class="link-inherit font-weight-medium white-space-wrap" href="#">2130 Fulton Street San Diego<br/>CA 94117-1080 USA</a></div>
-                </div>
-              </address>
-            </div>
-          </div>
-
-
-
-          <!-- RD Navbar Panel-->
-          <div class="rd-navbar-panel">
-            <!-- RD Navbar Toggle-->
-            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap"><span></span></button>
-            <!--Navbar Brand-->
-            <div class="rd-navbar-brand d-xl-none"><a href="index.html"><img src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
-            <button class="rd-navbar-top-panel-toggle" data-rd-navbar-toggle=".rd-navbar, .rd-navbar-top-panel"><span></span></button>
-          </div>
-
-
-          <div class="rd-navbar-menu-wrap">
-            <div class="rd-navbar-nav-wrap">
-              <div class="rd-navbar-mobile-scroll">
-                <!--Navbar Brand Mobile-->
-                <div class="rd-navbar-mobile-brand"><a href="/"><img src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
-
-
-                <!-- RD Navbar Nav-->
-                <ul class="rd-navbar-nav">
-                  <li><a href="/"><span>Home</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                  </li>
-                  <li><a href="/about"><span>About</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                  </li>
-                  <li><a href="/ourTeam"><span>Team</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                  </li>
-                  <li><a href="/services"><span>Services</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                  </li>
-                  <li><a href="/timetable"><span>Timetable</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                  </li>
-
-                  <!-- Գալերեայի պահը պտի քննարկենք հասկնանք ինչխ էնենք-->
-                  <li><a href="grid-gallery.html"><span>Gallery</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                    <ul class="rd-navbar-dropdown">
-                      <li><a href="grid-gallery.html"><span class="text-middle">Grid Gallery</span></a>
-                      </li>
-                      <li><a href="grid-gallery-no-padding.html"><span class="text-middle">Gallery Without Padding</span></a>
-                      </li>
-                      <li><a href="masonry-gallery.html"><span class="text-middle">Masonry Gallery</span></a>
-                      </li>
-                      <li><a href="cobbles-gallery.html"><span class="text-middle">Cobbles Gallery</span></a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li th:if="${currentUser == null}"><a href="/register"><span>Sign up</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                  </li>
-                  <li th:if="${currentUser == null}"><a href="/loginPage"><span>Sign in</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                  </li>
-                  <li th:if="${currentUser != null}"><a href="/logout"><span>Log Out</span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-
-
-
-      <!-- Modern Breadcrumbs-->
-      <section class="breadcrumb-modern novi-background bg-cover text-lg-left">
-        <div class="container section-34 section-md-top-110 section-md-bottom-41">
-          <h1>Make an Appointment</h1>
-        </div>
-      </section>
-      <!-- Page Content-->
-      <main class="page-content">
-
-        <!-- Calendar-->
-        <section class="bg-overlay-white" id="rd-event-calendar-demo">
-          <div class="container-wide section-98 section-sm-110">
-            <h3>Calendar</h3>
-            <hr class="divider divider-lg bg-accent">
-            <div class="offset-top-60">
-              <!-- Responsive-tabs-->
-              <div class="responsive-tabs responsive-tabs-classic" data-type="horizontal">
-                <!-- Our Team (STEX EL PTI FOREACH FRANQ BJISHKNERI CUCAKI VRA, IRANC ANUNNEROV, NKARNEROV U SPECIALIZACIAYOV -->
-                <section>
-                  <div class="thumbnail-josip-wrap-big">
-                    <!-- Thumbnail Josip-->
-                    <figure class="thumbnail-josip thumbnail-big odd"><a href="team-member.html"><img width="384" height="410" src="images/pages/our-team-05-384x410.jpg" alt=""/></a>
-                      <div class="thumbnail-desc">
-                        <h5 class="thumbnail-josip-title">Dr. Scott Riley</h5>
-                        <p class="d-none d-lg-block offset-top-0">Chief Medical Officer, Pathologist</p>
-                      </div>
-                      <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left" href="team-member.html">view full profile</a></figcaption>
-                    </figure>
-                  </div>
-                </section>
-                <div class="resp-tabs-container text-left tabs-group-default" data-group="tabs-group-default">
-                  <div>
-                    <div class="rd-calendar-fullwidth">
-                      <div class="rd-calendar">
-                        <div class="rdc-panel"><a class="rdc-next"></a><a class="rdc-prev"></a>
-                          <div class="rdc-month"></div>
-                          <div class="rdc-fullyear"></div>
+    <!-- Page Header-->
+    <header class="page-head">
+        <!-- RD Navbar minimal-->
+        <div class="rd-navbar-wrap">
+            <nav class="rd-navbar rd-navbar-minimal rd-navbar-light" data-md-device-layout="rd-navbar-fixed"
+                 data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static"
+                 data-xxl-device-layout="rd-navbar-static" data-sm-layout="rd-navbar-fixed"
+                 data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static"
+                 data-xxl-layout="rd-navbar-static" data-md-stick-up-offset="120px" data-lg-stick-up-offset="120px">
+                <div class="rd-navbar-inner">
+                    <div class="rd-navbar-top-panel">
+                        <div>
+                            <address class="contact-info d-md-inline-block text-left offset-none">
+                                <div class="p unit unit-spacing-xs flex-row">
+                                    <div class="unit-left"><span
+                                            class="icon icon-xs icon-circle icon-gray-light mdi mdi-phone text-primary"></span>
+                                    </div>
+                                    <div class="unit-body"><a class="link-inherit font-weight-medium" href="tel:#">+(374)98-97-96-17</a><br/><a
+                                            class="link-inherit font-weight-medium" href="tel:#">+(374)93-77-66-94</a>
+                                    </div>
+                                </div>
+                            </address>
                         </div>
-                        <div class="rdc-table offset-top-20"></div>
-                        <div class="rdc-events text-left"><a class="rdc-events_close"></a>
-                          <ul>
-                            <li class="rdc-event" data-date="06/14/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="06/15/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="06/16/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="07/14/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="07/15/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="07/16/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="08/14/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="08/15/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="08/16/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="09/14/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="09/15/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="10/16/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="11/14/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="12/15/2021">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="01/16/2021">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                          </ul>
+
+
+                        <!--Navbar Brand-->
+                        <div class="rd-navbar-brand d-none d-xl-inline-block"><a href="/"><img
+                                src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
+                        <div>
+                            <address class="contact-info d-md-inline-block text-left">
+                                <div class="p unit flex-row unit-spacing-xs">
+                                    <div class="unit-body"><a class="link-inherit font-weight-medium white-space-wrap"
+                                                              href="#">2130 Fulton Street San Diego<br/>CA 94117-1080
+                                        USA</a></div>
+                                </div>
+                            </address>
                         </div>
-                      </div>
+                        <div style="float: right; margin-right: 15px">
+                            <a href="?lang=en" style="text-decoration: none"><img src="images/en.jpg" width="27px"
+                                                                                  height="20px"></a>
+                            <a href="?lang=ru" style="text-decoration: none"><img src="images/ru.jpg" width="27px"
+                                                                                  height="20px"></a>
+                            <a href="?lang=hy" style="text-decoration: none"><img src="images/hy.png" width="27px"
+                                                                                  height="20px"></a>
+                        </div>
                     </div>
-                  </div>
-                  <div>
-                    <div class="rd-calendar-fullwidth">
-                      <div class="rd-calendar">
-                        <div class="rdc-panel"><a class="rdc-next"></a><a class="rdc-prev"></a>
-                          <div class="rdc-month"></div>
-                          <div class="rdc-fullyear"></div>
-                        </div>
-                        <div class="rdc-table offset-top-20"></div>
-                        <div class="rdc-events text-left"><a class="rdc-events_close"></a>
-                          <ul>
-                            <li class="rdc-event" data-date="06/04/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="06/06/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="10/09/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="11/10/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="12/11/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="01/12/2021">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
+
+
+                    <!-- RD Navbar Panel-->
+                    <div class="rd-navbar-panel">
+                        <!-- RD Navbar Toggle-->
+                        <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar, .rd-navbar-nav-wrap">
+                            <span></span></button>
+                        <!--Navbar Brand-->
+                        <div class="rd-navbar-brand d-xl-none"><a href="index.html"><img
+                                src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
+                        <button class="rd-navbar-top-panel-toggle"
+                                data-rd-navbar-toggle=".rd-navbar, .rd-navbar-top-panel"><span></span></button>
                     </div>
-                  </div>
-                  <div>
-                    <div class="rd-calendar-fullwidth">
-                      <div class="rd-calendar">
-                        <div class="rdc-panel"><a class="rdc-next"></a><a class="rdc-prev"></a>
-                          <div class="rdc-month"></div>
-                          <div class="rdc-fullyear"></div>
-                        </div>
-                        <div class="rdc-table offset-top-20"></div>
-                        <div class="rdc-events text-left"><a class="rdc-events_close"></a>
-                          <ul>
-                            <li class="rdc-event" data-date="09/1/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="11/2/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="12/1/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="01/2/2021">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="rd-calendar-fullwidth">
-                      <div class="rd-calendar">
-                        <div class="rdc-panel"><a class="rdc-next"></a><a class="rdc-prev"></a>
-                          <div class="rdc-month"></div>
-                          <div class="rdc-fullyear"></div>
-                        </div>
-                        <div class="rdc-table offset-top-20"></div>
-                        <div class="rdc-events text-left"><a class="rdc-events_close"></a>
-                          <ul>
-                            <li class="rdc-event" data-date="11/07/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="12/06/2020">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                            <li class="rdc-event" data-date="01/07/2021">
-                              <div class="rdc-event-wrap">
-                                <article class="post widget-event">
-                                  <div class="post-meta"><span class="icon icon-xxs text-java mdi mdi-clock"></span>
-                                    <time class="text-dark" datetime="2020-01-01"> 10:00 am, 11:00 am, 12:00 am, 01:00 pm, 02:00 pm, 03:00 pm</time>
-                                  </div>
-                                  <div class="post-title">
-                                    <h6 class="text-regular"><a href="#"></a></h6>
-                                  </div>
-                                </article>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-      <!-- Page Footer-->
-      <!-- Default footer-->
-      <footer class="section-relative section-top-66 section-bottom-34 page-footer bg-secondary novi-background bg-cover">
-        <div class="container">
-          <div class="row justify-content-md-center text-xl-left">
-            <div class="col-md-8 col-lg-12">
-              <div class="row justify-content-sm-center row-50">
-                <div class="col-sm-10 col-lg-4 text-left order-lg-3 inset-lg-left-50">
-                  <h6>Newsletter</h6>
-                  <hr class="text-subline">
-                  <p>Enter your email address to receive up-to-date news and new patient information.</p>
-                        <form class="rd-mailform" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
-                          <div class="form-wrap">
-                            <div class="input-group input-group-sm">
-                              <input class="form-control text-gray-darker" placeholder="Your e-mail..." type="email" data-constraints="@Required @Email" name="email"><span class="input-group-btn">
-                                <button class="btn btn-sm btn-primary" type="submit">Subscribe</button></span>
+
+
+                    <div class="rd-navbar-menu-wrap">
+                        <div class="rd-navbar-nav-wrap">
+                            <div class="rd-navbar-mobile-scroll">
+                                <!--Navbar Brand Mobile-->
+                                <div class="rd-navbar-mobile-brand"><a href="/"><img
+                                        src="images/logo-default-404x92.png" alt="" width="202" height="46"/></a></div>
+
+
+                                <!-- RD Navbar Nav-->
+                                <ul class="rd-navbar-nav">
+                                    <li><a href="/"><span th:text="#{home}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li><a href="/about"><span th:text="#{about}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li><a href="/ourTeam"><span th:text="#{team}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li><a href="/services"><span th:text="#{services}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li><a href="/timetable"><span th:text="#{timetable}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+
+                                    <!-- Գալերեայի պահը պտի քննարկենք հասկնանք ինչխ էնենք-->
+                                    <li><a href="grid-gallery.html"><span th:text="#{gallery}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                        <ul class="rd-navbar-dropdown">
+                                            <li><a href="grid-gallery.html"><span
+                                                    class="text-middle">Grid Gallery</span></a>
+                                            </li>
+                                            <li><a href="grid-gallery-no-padding.html"><span class="text-middle">Gallery Without Padding</span></a>
+                                            </li>
+                                            <li><a href="masonry-gallery.html"><span
+                                                    class="text-middle">Masonry Gallery</span></a>
+                                            </li>
+                                            <li><a href="cobbles-gallery.html"><span
+                                                    class="text-middle">Cobbles Gallery</span></a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!--                                    <li th:if="${currentUser == null}"><a href="/register"><span th:text="#{sign.up}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>-->
+                                    <!--                                    </li>-->
+                                    <!--                                    <li th:if="${currentUser == null}"><a href="/loginPage"><span th:text="#{sign.in}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>-->
+                                    <!--                                    </li>-->
+                                    <li th:if="${currentUser.user.type.name().equals('PATIENT')}"><a href="/home"><span
+                                            th:text="#{my.profile}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li th:if="${currentUser.user.type.name().equals('DOCTOR')}"><a href="/home"><span
+                                            th:text="#{my.profile}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li th:if="${currentUser.user.type.name().equals('ADMIN')}"><a
+                                            href="/addDoctor"><span th:text="#{add.doctor}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li th:if="${currentUser.user.type.name().equals('ADMIN')}"><a
+                                            href="/addSpecialization"><span th:text="#{add.specialization}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li><a href="/logout"><span th:text="#{log.out}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                </ul>
                             </div>
-                          </div>
-                        </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-10 text-sm-left col-lg-4 order-lg-2 text-left">
-                  <h6>contact us</h6>
-                  <hr class="text-subline">
-                  <div class="text-center text-xl-left">
-                    <address class="contact-info d-md-inline-block text-left">
-                      <div class="p unit unit-spacing-xxs flex-row">
-                        <div class="unit-left"><span class="icon icon-xxs mdi mdi-phone text-primary novi-icon"></span></div>
-                        <div class="unit-body"><a class="text-gray-darker" href="tel:#">1-800-1234-567</a><span class="text-gray-darker">, </span><a class="text-gray-darker" href="tel:#">1-800-3214-321</a></div>
-                      </div>
-                      <div class="p unit flex-row unit-spacing-xxs">
-                        <div class="unit-left"><span class="icon icon-xxs mdi mdi-map-marker text-primary novi-icon"></span></div>
-                        <div class="unit-body"><a class="text-gray-darker" href="#">2130 Fulton Street San Diego, CA 94117-1080 USA</a></div>
-                      </div>
-                      <div class="p unit unit-spacing-xxs flex-row offset-top-16">
-                        <div class="unit-left"><span class="icon icon-xxs mdi mdi-email-outline text-primary novi-icon"></span></div>
-                        <div class="unit-body"><a class="text-primary" href="mailto:#">info@demolink.org</a></div>
-                      </div>
-                    </address>
-                  </div>
-                </div>
-                <div class="col-sm-10 col-lg-4 order-lg-1">
-                  <!-- Footer brand-->
-                  <div class="footer-brand"><a href="index.html"><img src="images/logo-inverse-404x92.png" alt="" width="202" height="46"/></a></div>
-                  <div class="offset-top-50 offset-lg-top-90">
-                          <ul class="list-inline">
-                            <li><a class="icon novi-icon fa fa-facebook icon-xxs icon-circle icon-gray-light-2" href="#"></a></li>
-                            <li><a class="icon novi-icon fa fa-twitter icon-xxs icon-circle icon-gray-light-2" href="#"></a></li>
-                            <li><a class="icon novi-icon fa fa-google-plus icon-xxs icon-circle icon-gray-light-2" href="#"></a></li>
-                            <li><a class="icon novi-icon fa fa-rss icon-xxs icon-circle icon-gray-light-2" href="#"></a></li>
-                          </ul>
-                  </div>
-                </div>
-              </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <main class="page-content">
+        <!-- Modern Breadcrumbs-->
+        <section class="breadcrumb-modern novi-background bg-cover text-lg-left">
+            <div class="container section-34 section-md-top-110 section-md-bottom-41">
+                <h2 th:text="#{appointment}+' with Doctor '${doctor.surname}">Appointment</h2>
             </div>
-          </div>
+        </section>
+
+
+        <section class="novi-background bg-cover">
+            <div class="container-fluid inset-left-0 inset-right-0">
+                <div class="offset-top-41 offset-lg-top-60">
+                    <div class="thumbnail-josip-wrap-big">
+                        <figure class="thumbnail-josip thumbnail-big odd"><a th:href="@{'/doctor' + ${doctor.id}}"><img
+                                width="384" height="410" th:src="@{/getDoctorImage(picName=${doctor.user.picUrl})}"
+                                alt=""/></a>
+                            <div class="thumbnail-desc">
+                                <h5 class="thumbnail-josip-title"
+                                    th:text="${doctor.user.name + ' ' + doctor.user.surname}"></h5>
+                                <p class="d-none d-lg-block offset-top-0" th:text="${doctor.specialization}"></p>
+                            </div>
+                            <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left"
+                                           th:href="@{'/doctor' + ${doctor.id}}" th:text="#{view.full.profile}"></a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <div class="container section-34 section-md-top-110 section-md-bottom-41">
+                        <form action="/newAppointment">
+                            <input type="hidden" name="doctorId" th:value="${doctor.id}">
+                            <div class="form-group form-group-label-outside offset-top-20">
+                                <label class="form-label form-label-outside text-dark rd-input-label"
+                                       th:text="#{date.birth}"></label>
+                                <input class="form form-control-last-child" type="datetime-local"
+                                       name="appointmentDate" data-constraints="@Required">
+                            </div>
+                            <div class="container">
+                                <div>
+                                    <input class="btn btn-ellipse btn-primary" type="submit" style="min-width: 130px;"
+                                           th:value="#{make.appointment}">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+
+    <!-- Page Footer-->
+    <!-- Default footer-->
+    <footer class="section-relative section-top-66 section-bottom-34 page-footer bg-secondary novi-background bg-cover">
+        <div class="container">
+            <div class="row justify-content-md-center text-xl-left">
+                <div class="col-md-8 col-lg-12">
+                    <div class="row justify-content-sm-center row-50">
+                        <div class="col-sm-10 col-lg-4 text-left order-lg-3 inset-lg-left-50">
+                            <h6>Newsletter</h6>
+                            <hr class="text-subline">
+                            <p>Enter your email address to receive up-to-date news and new patient information.</p>
+                            <form class="rd-mailform" data-form-output="form-output-global"
+                                  data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
+                                <div class="form-wrap">
+                                    <div class="input-group input-group-sm">
+                                        <input class="form-control text-gray-darker" placeholder="Your e-mail..."
+                                               type="email" data-constraints="@Required @Email" name="email"><span
+                                            class="input-group-btn">
+                                <button class="btn btn-sm btn-primary" type="submit">Subscribe</button></span>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-10 text-sm-left col-lg-4 order-lg-2 text-left">
+                            <h6>contact us</h6>
+                            <hr class="text-subline">
+                            <div class="text-center text-xl-left">
+                                <address class="contact-info d-md-inline-block text-left">
+                                    <div class="p unit unit-spacing-xxs flex-row">
+                                        <div class="unit-left"><span
+                                                class="icon icon-xxs mdi mdi-phone text-primary novi-icon"></span>
+                                        </div>
+                                        <div class="unit-body"><a class="text-gray-darker"
+                                                                  href="tel:#">1-800-1234-567</a><span
+                                                class="text-gray-darker">, </span><a class="text-gray-darker"
+                                                                                     href="tel:#">1-800-3214-321</a>
+                                        </div>
+                                    </div>
+                                    <div class="p unit flex-row unit-spacing-xxs">
+                                        <div class="unit-left"><span
+                                                class="icon icon-xxs mdi mdi-map-marker text-primary novi-icon"></span>
+                                        </div>
+                                        <div class="unit-body"><a class="text-gray-darker" href="#">2130 Fulton
+                                            Street San Diego, CA 94117-1080 USA</a></div>
+                                    </div>
+                                    <div class="p unit unit-spacing-xxs flex-row offset-top-16">
+                                        <div class="unit-left"><span
+                                                class="icon icon-xxs mdi mdi-email-outline text-primary novi-icon"></span>
+                                        </div>
+                                        <div class="unit-body"><a class="text-primary"
+                                                                  href="mailto:#">info@demolink.org</a>
+                                        </div>
+                                    </div>
+                                </address>
+                            </div>
+                        </div>
+                        <div class="col-sm-10 col-lg-4 order-lg-1">
+                            <!-- Footer brand-->
+                            <div class="footer-brand"><a href="index.html"><img src="images/logo-inverse-404x92.png"
+                                                                                alt="" width="202" height="46"/></a>
+                            </div>
+                            <div class="offset-top-50 offset-lg-top-90">
+                                <ul class="list-inline">
+                                    <li>
+                                        <a class="icon novi-icon fa fa-facebook icon-xxs icon-circle icon-gray-light-2"
+                                           href="#"></a></li>
+                                    <li>
+                                        <a class="icon novi-icon fa fa-twitter icon-xxs icon-circle icon-gray-light-2"
+                                           href="#"></a></li>
+                                    <li>
+                                        <a class="icon novi-icon fa fa-google-plus icon-xxs icon-circle icon-gray-light-2"
+                                           href="#"></a></li>
+                                    <li><a class="icon novi-icon fa fa-rss icon-xxs icon-circle icon-gray-light-2"
+                                           href="#"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="container offset-top-50 offset-md-top-60">
-          <p class="text-lg-left">&copy; <span class="copyright-year"></span> All Rights Reserved. <a href="privacy-policy.html">Privacy Policy</a>
-          </p>
+            <p class="text-lg-left">&copy; <span class="copyright-year"></span> All Rights Reserved. <a
+                    href="privacy-policy.html">Privacy Policy</a>
+            </p>
         </div>
-      </footer>
-    </div>
-    <!-- Preloader-->
-    <div class="preloader">
-      <div class="preloader-body">
+    </footer>
+</div>
+<!-- Preloader-->
+<div class="preloader">
+    <div class="preloader-body">
         <div class="preloader-inner">
-          <div class="preloader-item"><span></span><span></span><span></span></div>
-          <div class="preloader-item"><span></span><span></span><span></span></div>
-          <div class="preloader-item"><span></span><span></span><span></span></div>
-          <div class="preloader-item"><span></span><span></span><span></span></div>
+            <div class="preloader-item"><span></span><span></span><span></span></div>
+            <div class="preloader-item"><span></span><span></span><span></span></div>
+            <div class="preloader-item"><span></span><span></span><span></span></div>
+            <div class="preloader-item"><span></span><span></span><span></span></div>
         </div>
-      </div>
     </div>
-    <!-- Global Mailform Output-->
-    <div class="snackbars" id="form-output-global"></div>
-    <!-- Java script-->
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
-  </body>
+</div>
+<!-- Global Mailform Output-->
+<div class="snackbars" id="form-output-global"></div>
+<!-- Java script-->
+<script src="js/core.min.js"></script>
+<script src="js/script.js"></script>
+</body>
 </html>

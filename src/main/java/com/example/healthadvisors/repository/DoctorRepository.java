@@ -1,15 +1,14 @@
 package com.example.healthadvisors.repository;
 
 import com.example.healthadvisors.entity.Doctor;
-import com.example.healthadvisors.entity.MedReport;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import javax.print.Doc;
 import java.util.List;
+import java.util.Optional;
 
 public interface DoctorRepository extends JpaRepository<Doctor,Integer> {
 
     List<Doctor> findDoctorsBySpecialization_Id(int specId);
 
-    Doctor findDoctorByUser_Id(int userId);
+    Optional<Doctor> findById(int doctorId);
 }

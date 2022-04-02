@@ -22,15 +22,13 @@ public class Doctor {
     @ManyToOne
     @JoinColumn(name = "specialization_id")
     private Specialization specialization;
-    @OneToMany(mappedBy = "doctor")
+    @OneToMany(mappedBy = "doctor", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Certificate> certificates;
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
     @OneToMany(mappedBy = "doctor")
     private List<MedReport> medReports;
-    @Transient
-    private double rating;
 
 
 

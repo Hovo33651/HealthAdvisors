@@ -1,6 +1,5 @@
 package com.example.healthadvisors.security;
 
-
 import com.example.healthadvisors.entity.User;
 import org.springframework.security.core.authority.AuthorityUtils;
 

@@ -20,6 +20,7 @@ import java.io.IOException;
 public class MainController {
 
     private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
+    private final RatingService ratingService;
     @Value("${health.advisors.analysis.files.upload.path}")
     private String analysisFilesPath;
     @Value("${health.advisors.specialization.icons.path}")
@@ -31,35 +32,40 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/homePage")
-    public String login(@AuthenticationPrincipal CurrentUser currentUser,ModelMap map) {
+    @GetMapping("/home")
+    public String login(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
         String userType = currentUser.getUser().getType().name();
         switch (userType) {
-            case "ADMIN":
-                return "index";
             case "PATIENT":
                 return "patientHomePage";
             case "DOCTOR":
+                map.addAttribute("rating",ratingService.getDoctorRating(currentUser.getUser().getDoctor().getId()));
                 return "doctorHomePage";
             default:
-                return "redirect:/loginPage";
+                return "redirect:/";
         }
     }
-    @GetMapping("/loginPage")
-    public String loginPage() {
-        return "login";
+
+    @GetMapping("/login")
+    public String loginPage(@AuthenticationPrincipal CurrentUser currentUser) {
+        if (currentUser == null) {
+            return "login";
+        }else{
+            return "redirect:/homePage";
+        }
     }
 
     @GetMapping(value = "/getSpecIconImage", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody
     byte[] getSpecIcon(@RequestParam("picName") String picName) throws IOException {
-        return fileUploadDownLoadUtils.getImage(specIconsPath,picName);
+        return fileUploadDownLoadUtils.getImage(specIconsPath, picName);
     }
+
 
     @GetMapping(value = "/getAnalysisFiles", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody
     byte[] getAnalysisFiles(@RequestParam("picName") String picName) throws IOException {
-        return fileUploadDownLoadUtils.getImage(analysisFilesPath,picName);
+        return fileUploadDownLoadUtils.getImage(analysisFilesPath, picName);
     }
 
 }

@@ -18,12 +18,13 @@ public class RatingService {
 
 
     public double getDoctorRating(int doctorId){
+        List<Rating> ratingsByDoctor_id = ratingRepository.findRatingsByDoctor_Id(doctorId);
         List<Integer> ratings = new ArrayList<>();
-        for (Rating rating : ratingRepository.findRatingsByDoctor_Id(doctorId)) {
+        for (Rating rating : ratingsByDoctor_id) {
             ratings.add(rating.getRating());
         }
         Stream<Integer> stream = ratings.stream();
-        OptionalDouble average = stream.mapToInt(r -> r).average();
+        OptionalDouble average = stream.mapToDouble(r -> r).average();
         if(average.isPresent()){
             return average.getAsDouble();
         }

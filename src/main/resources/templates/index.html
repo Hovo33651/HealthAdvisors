@@ -79,17 +79,17 @@
                                 <ul class="rd-navbar-nav">
                                     <li><a href="/" ><span th:text="#{home}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/about"><span th:text="#{about}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a href="/about"><span th:text="#{about}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/ourTeam" ><span th:text="#{team}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a href="/ourTeam" ><span th:text="#{team}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/services"><span th:text="#{services}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a href="/services"><span th:text="#{services}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/timetable"><span th:text="#{timetable}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a href="/timetable"><span th:text="#{timetable}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
 
                                     <!-- Գալերեայի պահը պտի քննարկենք հասկնանք ինչխ էնենք-->
-                                    <li><a href="grid-gallery.html"><span th:text="#{gallery}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a href="grid-gallery.html"><span th:text="#{gallery}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                         <ul class="rd-navbar-dropdown">
                                             <li><a href="grid-gallery.html"><span class="text-middle">Grid Gallery</span></a>
                                             </li>
@@ -101,12 +101,17 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li th:if="${currentUser == null}"><a href="/register"><span th:text="#{sign.up}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+
+                                    <li th:if="${currentUser.user.type.name().equals('PATIENT')}"><a href="/home"><span th:text="#{my.profile}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li th:if="${currentUser == null}"><a href="/loginPage"><span th:text="#{sign.in}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${currentUser.user.type.name().equals('DOCTOR')}"><a href="/home"><span th:text="#{my.profile}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li th:if="${currentUser != null}"><a href="/logout"><span th:text="#{log.out}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a></li>
-                                    <li th:if="${currentUser != null && currentUser.user.type.name().equals('ADMIN')}"><a href="/addDoctor"><span th:text="#{add.doctor}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a></li>
+                                    <li th:if="${currentUser.user.type.name().equals('ADMIN')}"><a href="/addDoctor"><span th:text="#{add.doctor}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li th:if="${currentUser.user.type.name().equals('ADMIN')}"><a href="/addSpecialization"><span th:text="#{add.specialization}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li><a href="/logout"><span th:text="#{log.out}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -130,7 +135,7 @@
                             <div class="col-xxl-6">
                                 <h2 th:text="#{qualified.team}"></h2><br class="d-none d-lg-block"><h2 th:text="#{of.experts}"></h2>
                                 <p class="big d-none d-lg-block" th:text="#{best.specialists.in.area}">
-                                </p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html" th:text="#{make.appointment}"></a>
+                                </p><a class="btn btn-ellipse btn-primary offset-top-30" href="/makeAppointment" th:text="#{make.appointment}"></a>
                             </div>
                         </div>
                     </div>
@@ -142,7 +147,7 @@
                         <div class="row align-items-sm-center justify-content-sm-center">
                             <div class="col-lg-10 col-xxl-9">
                                 <h2 th:text="#{all.kinds.of.diagnostics}"></h2>
-                                <p class="big d-none d-lg-block" th:text="#{clinia.offers}"></p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html" th:text="#{make.appointment}"></a>
+                                <p class="big d-none d-lg-block" th:text="#{clinia.offers}"></p><a class="btn btn-ellipse btn-primary offset-top-30" href="/makeAppointment" th:text="#{make.appointment}"></a>
                             </div>
                         </div>
                     </div>
@@ -155,9 +160,10 @@
                             <div class="col-xl-8">
                                 <h2 th:text="#{best.specialists}"><br class="d-none d-lg-block"></h2><h2 th:text="#{expect.you}"></h2>
                                 <p class="big d-none d-lg-block" th:text="#{our.team.is.ready}">
-                                </p><a class="btn btn-ellipse btn-primary offset-top-30" href="make-an-appointment.html" th:text="#{make.appointment}"></a>
+                                </p><a class="btn btn-ellipse btn-primary offset-top-30" href="/makeAppointment" th:text="#{make.appointment}"></a>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -203,7 +209,6 @@
                 <div class="col-md-6 col-lg-4">
                     <div class="service"><img src="images/icons/icon-stethoscope-80x80.png" alt="" width="80" height="80"/>
                         <h5 class="service-title"><a href="#">Pediatrics</a></h5>
-                        <div class="service-desc">Our pediatric unit utilizes state-of-the-art technology and employs a team of true experts.</div>
                     </div>
                 </div>
             </div>

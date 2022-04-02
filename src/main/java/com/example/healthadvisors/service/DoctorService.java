@@ -3,6 +3,8 @@ package com.example.healthadvisors.service;
 import com.example.healthadvisors.entity.Doctor;
 import com.example.healthadvisors.repository.DoctorRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,16 +23,16 @@ public class DoctorService {
         doctorRepository.delete(doctor);
     }
 
-    public List<Doctor> findAllDoctors() {
-        return doctorRepository.findAll();
+    public Page<Doctor> findAllDoctors(PageRequest pageRequest) {
+        return doctorRepository.findAll(pageRequest);
     }
 
     public List<Doctor> findDoctorsBySpecializationId(int specId) {
         return doctorRepository.findDoctorsBySpecialization_Id(specId);
     }
 
-    public Doctor findDoctorByUserId(int userId){
-        return doctorRepository.findDoctorByUser_Id(userId);
+    public Doctor findDoctorById(int doctorId){
+        return doctorRepository.findById(doctorId).orElse(null);
     }
 
 

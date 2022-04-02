@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -26,6 +27,6 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date appointmentDate;
+    @DateTimeFormat(pattern = "dd.MM.yyyy HH:MM")
+    private LocalDateTime appointmentDate;
 }

@@ -67,7 +67,9 @@ public class PatientController {
     public String addUser(@ModelAttribute @Valid CreateUserRequest createUserRequest, BindingResult bindingResult,
                           @ModelAttribute CreatePatientRequest createPatientRequest,
                           @ModelAttribute CreateAddressRequest createAddressRequest,
-                          @RequestParam("picture") MultipartFile[] uploadedFiles, ModelMap map, Locale locale) throws IOException, MessagingException {
+                          @RequestParam("picture") MultipartFile[] uploadedFiles,
+                          ModelMap map,
+                          Locale locale) throws IOException, MessagingException {
 
         if (bindingResult.hasErrors()) {
             List<String> errors = new ArrayList<>();
@@ -91,11 +93,10 @@ public class PatientController {
         patient.setAddress(newAddress);
         patientService.save(patient);
 
-
         String subject = "WELCOME TO OUR WEBSITE";
-        String message = "Dear "+ newUser.getName() +  ", you are successfully registered";
+        String link = "localhost:8080/user/activate?token="+newUser.getToken();
 
-        mailService.sendEmail(newUser.getEmail(),subject,message);
+        mailService.sendHtmlEmail(newUser.getEmail(),subject,newUser,link,"404",locale);
 
         return "redirect:/loginPage";
     }

@@ -36,6 +36,8 @@
               <div class="section-110 section-cover row justify-content-sm-center align-items-center justify-content-center">
                 <div class="col-xl-6">
                   <h2>PAGE NOT FOUND</h2>
+                  <span th:text="${'Dear' + name + 'please click on link to activate your account'}"></span>
+                  <a th:text="${url}">Link</a>
                   <div class="text-extra-big text-black opacity-02 font-accent">404</div>
                   <p class="offset-top-30 offset-md-top-50">The page requested couldn't be found - this could be due to a spelling error in the URL or a removed page.</p>
                   <div class="group offset-top-30"><a class="btn btn-ellipse btn-primary" href="index.html">back to home page</a></div>

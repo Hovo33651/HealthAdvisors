@@ -39,7 +39,7 @@ public class MailConfig {
 
     private ITemplateResolver textTemplateResolver() {
         final ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-        templateResolver.setOrder(Integer.valueOf(1));
+        templateResolver.setOrder(1);
         templateResolver.setResolvablePatterns(Collections.singleton("text/*"));
         templateResolver.setPrefix("/templates/email/");
         templateResolver.setSuffix(".txt");
@@ -51,7 +51,7 @@ public class MailConfig {
 
     private ITemplateResolver htmlTemplateResolver() {
         final ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
-        templateResolver.setOrder(Integer.valueOf(2));
+        templateResolver.setOrder(2);
         templateResolver.setResolvablePatterns(Collections.singleton("html/*"));
         templateResolver.setPrefix("/templates/email/");
         templateResolver.setSuffix(".html");
@@ -61,9 +61,10 @@ public class MailConfig {
         return templateResolver;
     }
 
+
     private ITemplateResolver stringTemplateResolver() {
         final StringTemplateResolver templateResolver = new StringTemplateResolver();
-        templateResolver.setOrder(Integer.valueOf(3));
+        templateResolver.setOrder(3);
         // No resolvable pattern, will simply process as a String template everything not previously matched
         templateResolver.setTemplateMode("HTML");
         templateResolver.setCacheable(false);

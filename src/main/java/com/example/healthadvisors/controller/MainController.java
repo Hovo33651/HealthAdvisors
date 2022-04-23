@@ -27,11 +27,20 @@ public class MainController {
     private String specIconsPath;
 
 
+    /**
+     * redirects the open site request to index.html
+     */
     @GetMapping("/")
     public String index() {
         return "index";
     }
 
+    /**
+     * accepts the principal
+     * checks principal type
+     * depending on type redirects the request to principal home page
+     * if principal is not a DOCTOR or PATIENT, then request is redirected to main page
+     */
     @GetMapping("/home")
     public String login(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
         String userType = currentUser.getUser().getType().name();
@@ -46,14 +55,23 @@ public class MainController {
         }
     }
 
+    /**
+     * accepts the principal
+     * redirects to /home
+     */
     @GetMapping("/login")
-    public String loginPage(@AuthenticationPrincipal CurrentUser currentUser) {
+    public String login(@AuthenticationPrincipal CurrentUser currentUser) {
         if (currentUser == null) {
             return "login";
         }else{
-            return "redirect:/homePage";
+            return "redirect:/home";
         }
     }
+
+    /**
+     * accepts specialization picture name
+     * sends picture in byte[]
+     */
 
     @GetMapping(value = "/getSpecIconImage", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody
@@ -61,6 +79,11 @@ public class MainController {
         return fileUploadDownLoadUtils.getImage(specIconsPath, picName);
     }
 
+
+    /**
+     * accepts analysis file name
+     * sends picture in byte[]
+     */
 
     @GetMapping(value = "/getAnalysisFiles", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody

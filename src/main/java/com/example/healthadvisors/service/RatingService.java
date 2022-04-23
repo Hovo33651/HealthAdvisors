@@ -31,7 +31,8 @@ public class RatingService {
         return 0;
     }
 
-    public void setRatingToDoctor(Rating rating){
+
+    public void save(Rating rating) {
         ratingRepository.save(rating);
     }
 }

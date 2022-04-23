@@ -14,4 +14,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findByToken(String token);
 
 
+    @Override
+    User save(User user);
 }

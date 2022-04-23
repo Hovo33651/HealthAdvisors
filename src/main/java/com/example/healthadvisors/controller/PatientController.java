@@ -4,12 +4,12 @@ import com.example.healthadvisors.dto.CreateAddressRequest;
 import com.example.healthadvisors.dto.CreatePatientRequest;
 import com.example.healthadvisors.dto.CreateUserRequest;
 import com.example.healthadvisors.entity.Doctor;
+import com.example.healthadvisors.entity.Rating;
 import com.example.healthadvisors.entity.User;
 import com.example.healthadvisors.security.CurrentUser;
 import com.example.healthadvisors.service.*;
 import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -43,21 +43,18 @@ public class PatientController {
     private final DoctorService doctorService;
     private final RatingService ratingService;
 
+
     @Value("${health.advisors.patient.pictures.upload.path}")
     String path;
-
-
 
 
     /**
      * redirects null current user into register page
      */
     @GetMapping("/register")
-    public String addUser() {
+    public String redirectToRegisterPage() {
         return "register";
     }
-
-
 
 
     /**
@@ -68,10 +65,10 @@ public class PatientController {
      * sends activation email to not null, not active current user
      */
     @PostMapping("/register")
-    public String addUser(@ModelAttribute @Valid CreateUserRequest createUserRequest,
+    public String registerAsPatient(@ModelAttribute @Valid CreateUserRequest createUserRequest,
                           BindingResult bindingResult,
-                          @ModelAttribute CreatePatientRequest createPatientRequest,
-                          @ModelAttribute CreateAddressRequest createAddressRequest,
+                          @ModelAttribute @Valid CreatePatientRequest createPatientRequest,
+                          @ModelAttribute @Valid CreateAddressRequest createAddressRequest,
                           @RequestParam("picture") MultipartFile[] uploadedFiles,
                           ModelMap map,
                           Locale locale) throws IOException, MessagingException {
@@ -84,13 +81,11 @@ public class PatientController {
             map.addAttribute("errors", errors);
             return "register";
         }
+        patientService.registerPatient(createUserRequest, createPatientRequest,
+                createAddressRequest, uploadedFiles, locale);
 
-        patientService.registerUser(createUserRequest, createPatientRequest,
-                createAddressRequest, uploadedFiles, map, locale);
-        return "redirect:/loginPage";
+        return "redirect:/home";
     }
-
-
 
 
     /**
@@ -116,15 +111,10 @@ public class PatientController {
             map.addAttribute("message", "Your account is activated");
             return "activateUser";
         }
-        userFromDb.setActive(true);
-        userFromDb.setToken(null);
-        userFromDb.setTokenCreatedDate(null);
-        userService.saveUser(userFromDb);
+        userService.activateUser(userFromDb);
         map.addAttribute("message", "Your account has been activated. \n Please sign in");
         return "redirect:/login";
     }
-
-
 
 
     /**
@@ -136,7 +126,6 @@ public class PatientController {
     byte[] getImage(@RequestParam("picName") String picName) throws IOException {
         return fileUploadDownLoadUtils.getImage(path, picName);
     }
-
 
 
     /**
@@ -162,7 +151,6 @@ public class PatientController {
     }
 
 
-
     /**
      * accepts the doctor id
      * accepts the appointment date and time
@@ -172,10 +160,9 @@ public class PatientController {
     public String makeAppointment(@RequestParam("doctorId") int doctorId,
                                   @RequestParam("appointmentDate") String appointmentDate,
                                   @AuthenticationPrincipal CurrentUser currentUser) {
-        patientService.newAppointment(doctorId, appointmentDate, currentUser);
+        appointmentService.newAppointment(doctorId, appointmentDate, currentUser.getUser());
         return "redirect:/home";
     }
-
 
 
     /**
@@ -189,7 +176,6 @@ public class PatientController {
     }
 
 
-
     /**
      * accepts the doctor id
      * finds the doctor by id
@@ -201,6 +187,24 @@ public class PatientController {
         map.addAttribute("doctor", doctorService.findDoctorById(doctorId));
         map.addAttribute("rating", ratingService.getDoctorRating(doctorId));
         return "viewDoctorPage";
+    }
+
+
+    @GetMapping("/deleteAccount")
+    public String deleteAccount(@RequestParam int userId) {
+        userService.deleteUserById(userId);
+        return "redirect:/";
+    }
+
+    @PostMapping("/rate")
+    public String rate(@RequestParam("doctorId") int doctorId,
+                       @RequestParam("rate") int rate){
+        Rating rating = Rating.builder()
+                .rating(rate)
+                .doctor(doctorService.findDoctorById(doctorId))
+                .build();
+        ratingService.save(rating);
+        return "redirect:/";
     }
 
 }

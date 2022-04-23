@@ -85,8 +85,7 @@
                                     </li>
                                     <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a href="/services"><span th:text="#{services}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a href="/timetable"><span th:text="#{timetable}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
-                                    </li>
+
 
                                     <!-- Գալերեայի պահը պտի քննարկենք հասկնանք ինչխ էնենք-->
                                     <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a href="grid-gallery.html"><span th:text="#{gallery}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>

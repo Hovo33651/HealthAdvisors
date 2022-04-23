@@ -14,7 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "med_report")
+@Table(name = "patient_receipt_discharge")
 public class MedReport {
 
     @Id

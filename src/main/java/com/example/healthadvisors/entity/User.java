@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -32,5 +33,7 @@ public class User {
     private String token;
     private boolean active;
     private LocalDateTime tokenCreatedDate;
+    @OneToMany(mappedBy = "user")
+    private List<Testimonial> testimonials;
 
 }

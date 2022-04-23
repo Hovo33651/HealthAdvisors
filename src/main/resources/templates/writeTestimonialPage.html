@@ -1,36 +1,35 @@
 <!DOCTYPE html>
-<html class="wide wow-animation smoothscroll scrollTo" lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <!-- Site Title-->
-    <title>Health Advisors</title>
-    <meta charset="utf-8">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport"
-          content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="keywords" content="SANA design multipurpose template">
-    <meta name="date" content="Dec 26">
-    <script src="/cdn-cgi/apps/head/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <!-- Stylesheets-->
-    <link rel="stylesheet" type="text/css"
-          href="//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap">
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/fonts.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--[if lt IE 10]>
-    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
-        <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
-                src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820"
-                alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
-    </div>
-    <script src="js/html5shiv.min.js"></script>
-    <![endif]-->
+    <meta charset="UTF-8">
+    <title>Leave Testimonial</title>
 </head>
+<!-- Site Title-->
+<title>Health Advisors</title>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="keywords" content="SANA design multipurpose template">
+<meta name="date" content="Dec 26">
+<script src="/cdn-cgi/apps/head/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script>
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<!-- Stylesheets-->
+<link rel="stylesheet" type="text/css"
+      href="//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&amp;display=swap">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/style.css">
+<!--[if lt IE 10]>
+<div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;">
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg"
+                                                                         border="0" height="42" width="820"
+                                                                         alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+</div>
+<script src="js/html5shiv.min.js"></script>
+<![endif]-->
 <body>
-<!-- Page-->
 <div class="page text-center">
     <!-- Page Header-->
     <header class="page-head">
@@ -106,21 +105,26 @@
                                     <li><a href="/"><span th:text="#{home}"></span><span
                                             class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/about"><span th:text="#{about}"></span><span
+                                    <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a href="/about"><span
+                                            th:text="#{about}"></span><span
                                             class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/ourTeam"><span th:text="#{team}"></span><span
+                                    <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a
+                                            href="/ourTeam"><span th:text="#{team}"></span><span
                                             class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/services"><span th:text="#{services}"></span><span
+                                    <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a
+                                            href="/services"><span th:text="#{services}"></span><span
                                             class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li><a href="/timetable"><span th:text="#{timetable}"></span><span
+                                    <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a
+                                            href="/timetable"><span th:text="#{timetable}"></span><span
                                             class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
 
                                     <!-- Գալերեայի պահը պտի քննարկենք հասկնանք ինչխ էնենք-->
-                                    <li><a href="grid-gallery.html"><span th:text="#{gallery}"></span><span
+                                    <li th:if="${!currentUser.user.type.name().equals('ADMIN')}"><a
+                                            href="grid-gallery.html"><span th:text="#{gallery}"></span><span
                                             class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                         <ul class="rd-navbar-dropdown">
                                             <li><a href="grid-gallery.html"><span
@@ -136,16 +140,27 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li th:if="${currentUser == null}"><a href="/register"><span
-                                            th:text="#{sign.up}"></span><span
+
+                                    <li th:if="${currentUser.user.type.name().equals('PATIENT')}"><a href="/home"><span
+                                            th:text="#{my.profile}"></span><span
                                             class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li th:if="${currentUser == null}"><a href="/loginPage"><span
-                                            th:text="#{sign.in}"></span><span
+                                    <li th:if="${currentUser.user.type.name().equals('DOCTOR')}"><a href="/home"><span
+                                            th:text="#{my.profile}"></span><span
                                             class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
-                                    <li th:if="${currentUser != null}"><a href="/logout"><span
-                                            th:text="#{log.out}"></span><span
+                                    <li th:if="${currentUser.user.type.name().equals('ADMIN')}"><a
+                                            href="/addDoctor"><span th:text="#{add.doctor}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li th:if="${currentUser.user.type.name().equals('ADMIN')}"><a
+                                            href="/addSpecialization"><span th:text="#{add.specialization}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    <li th:if="${currentUser.user.type.name().equals('PATIENT')}"><a
+                                            href="/addSpecialization"><span th:text="#{add.specialization}"></span><span
+                                            class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
+                                    <li><a href="/logout"><span th:text="#{log.out}"></span><span
                                             class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
                                 </ul>
@@ -158,121 +173,20 @@
     </header>
 
 
-    <div class="breadcrumb-inset-left">
-        <!-- Modern Breadcrumbs-->
-        <section class="breadcrumb-modern novi-background bg-cover text-lg-left">
-            <div class="container section-34 section-md-top-110 section-md-bottom-41">
-                <h2 th:text="${doctor.user.name}">name</h2>
-                <h2 th:text="${doctor.user.surname}">surname</h2>
-            </div>
-        </section>
-    </div>
 
-
-    <section class="section-60 section-sm-top-34 section-sm-bottom-110 novi-background bg-cover">
-        <div class="container">
-            <div class="col-sm-10 col-lg-4">
-                <div class="member-block-type-5 inset-lg-right-20"><img class="img-responsive center-block"
-                                                                        th:src="@{/getDoctorImage(picName=${doctor.user.picUrl})}"
-                                                                        width="320" height="320" alt=""/>
-                    <address class="contact-info offset-top-20 offset-sm-top-24">
-                        <ul class="list-unstyled p">
-                            <li><i style="font-size:24px" class="fa">&#xf095;</i><span
-                                    class="icon icon-xxxs text-md-left text-primary novi-icon mdi"></span><a
-                                    class="text-middle d-inline-block text-gray-darker" href="tel:1-800-1234-567"
-                                    th:text="${doctor.user.phone}">telephone</a></li>
-
-                            <li><i style="font-size:24px" class="fa">&#xf0e0;</i><span
-                                    class="icon icon-xxxs text-md-left text-primary novi-icon mdi"></span><a
-                                    class="text-middle d-inline-block" href="/sendEmail"
-                                    th:text="${doctor.user.email}">mail</a></li>
-                        </ul>
-
-                    </address>
-                </div>
-            </div>
-            <div class="offset-top-34 text-md-left inset-lg-right-20">
-                <h6 class="text-left" th:text="#{certificates}"></h6>
-                <hr class="text-subline">
-                <div th:if="${doctor.certificates!=null && !doctor.certificates.isEmpty()}"
-                     th:each="certificate: ${doctor.certificates}"
-                     class="row row-20 justify-content-sm-center justify-content-md-start offset-top-24"
-                     data-lightgallery="group">
-                    <div class="col-sm-6 col-md-4"><a class="thumbnail-classic" data-lightgallery="item"
-                                                      href="images/certifications/certificate-01-700x970.jpg">
-                        <figure><img width="100" height="138"
-                                     th:src="@{/getDoctorImage(picName=${certificate.certificatePicUrl})}" alt=""/>
-                        </figure>
-                    </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-sm-10 col-lg-8 text-lg-left offset-top-60 offset-lg-top-0">
-            <div class="row row-fix">
-                <div class="col-md-5">
-                    <h6 th:text="#{specialization}"></h6>
-                    <p class="font-weight-bold" th:text="${doctor.specialization.name}"></p>
-                </div>
-                <div class="col-md-7 offset-top-41 offset-md-top-0">
-                    <h6 th:text="#{education}"></h6>
-                    <p class="font-weight-bold" th:text="${doctor.education}"></p>
-                </div>
-            </div>
-            <div class="offset-top-66 text-left">
-                <h6 th:text="#{info}"></h6>
-                <hr class="text-subline">
-                <p th:text="${doctor.info}"></p>
-            </div>
-            <div class="offset-top-66">
-                <h6 class="text-left" th:text="#{rating}"></h6>
-                <hr class="text-subline">
-                <div class="offset-top-30 progress-wrap">
-                    <div class="progress-linear" data-to="50">
-                        <div class="progress-header clearfix">
-                            <h6 class="text-gray-dark pull-left"></h6>
-                            <h6 class="text-primary offset-top-0 pull-right progress-value progress-linear-counter"
-                                th:text="${doctor.rating}"></h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="section-60 section-sm-top-34 section-sm-bottom-110 novi-background bg-cover">
         <div class="group-lg offset-top-20 offset-md-top-30">
-            <form action="/newAppointment" method="post">
-                <input type="hidden" name="doctorId" th:value="${doctor.id}">
-                <input type="datetime-local" name="appointmentDate">
-                <input type="submit" th:value="#{make.appointment}">
+            <h2 th:text="#{leave.new.testimonial}"></h2>
+            <form action="/testimonial" method="post">
+                <textarea name="testimonial" cols="30" rows="10"></textarea>
+                <input type="submit" th:value="#{add.testimonial}">
             </form>
         </div>
     </section>
-    <br>
-    <br>
-    
-    <section class="section-60 section-sm-top-34 section-sm-bottom-110 novi-background bg-cover">
-        <div class="group-lg offset-top-20 offset-md-top-30">
-            <form th:action="@{/rate(doctorId=${doctor.id})}" method="post">
-                <select name="rate">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                </select>
-                <input type="submit" th:value="#{rate}">
-            </form>
-        </div>
-    </section>
+
+
+
 
 
     <!-- Page Footer-->
@@ -288,40 +202,28 @@
                             <div class="text-center text-xl-left">
                                 <address class="contact-info d-md-inline-block text-left">
                                     <div class="p unit unit-spacing-xxs flex-row">
-                                        <div class="unit-left"><span
-                                                class="icon icon-xxs mdi mdi-phone text-primary novi-icon"></span></div>
-                                        <div class="unit-body"><a class="text-gray-darker"
-                                                                  href="tel:#">+(374)93-77-66-94</a><span
-                                                class="text-gray-darker">, </span><a class="text-gray-darker"
-                                                                                     href="tel:#">+(374)98-97-96-17</a>
-                                        </div>
+                                        <div class="unit-left"><span class="icon icon-xxs mdi mdi-phone text-primary novi-icon"></span></div>
+                                        <div class="unit-body"><a class="text-gray-darker" href="tel:#">+(374)93-77-66-94</a><span class="text-gray-darker">, </span><a class="text-gray-darker" href="tel:#">+(374)98-97-96-17</a></div>
                                     </div>
                                     <div class="p unit flex-row unit-spacing-xxs">
-                                        <div class="unit-left"><span
-                                                class="icon icon-xxs mdi mdi-map-marker text-primary novi-icon"></span>
-                                        </div>
-                                        <div class="unit-body"><a class="text-gray-darker" href="#">2130 Fulton Street
-                                            San
-                                            Diego, CA 94117-1080 USA</a></div>
+                                        <div class="unit-left"><span class="icon icon-xxs mdi mdi-map-marker text-primary novi-icon"></span></div>
+                                        <div class="unit-body"><a class="text-gray-darker" href="#">2130 Fulton Street San Diego, CA 94117-1080 USA</a></div>
                                     </div>
                                     <div class="p unit unit-spacing-xxs flex-row offset-top-16">
-                                        <div class="unit-left"><span
-                                                class="icon icon-xxs mdi mdi-email-outline text-primary novi-icon"></span>
-                                        </div>
-                                        <div class="unit-body"><a class="text-primary"
-                                                                  href="mailto:#">info@demolink.org</a>
-                                        </div>
+                                        <div class="unit-left"><span class="icon icon-xxs mdi mdi-email-outline text-primary novi-icon"></span></div>
+                                        <div class="unit-body"><a class="text-primary" href="mailto:#">info@demolink.org</a></div>
                                     </div>
                                 </address>
                             </div>
                         </div>
 
 
+
+
+
                         <div class="col-sm-10 col-lg-4 order-lg-1">
                             <!-- Footer brand-->
-                            <div class="footer-brand"><a href="index.html"><img src="images/logo-inverse-404x92.png"
-                                                                                alt=""
-                                                                                width="202" height="46"/></a></div>
+                            <div class="footer-brand"><a href="index.html"><img src="images/logo-inverse-404x92.png" alt="" width="202" height="46"/></a></div>
                         </div>
                     </div>
                 </div>
@@ -348,5 +250,8 @@
 <!-- Java script-->
 <script src="js/core.min.js"></script>
 <script src="js/script.js"></script>
+</div>
+
+
 </body>
 </html>

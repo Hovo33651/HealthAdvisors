@@ -17,18 +17,14 @@ public class RatingService {
     private final RatingRepository ratingRepository;
 
 
-    public double getDoctorRating(int doctorId){
+    public double getDoctorRating(int doctorId) {
         List<Rating> ratingsByDoctor_id = ratingRepository.findRatingsByDoctor_Id(doctorId);
         List<Integer> ratings = new ArrayList<>();
         for (Rating rating : ratingsByDoctor_id) {
             ratings.add(rating.getRating());
         }
-        Stream<Integer> stream = ratings.stream();
-        OptionalDouble average = stream.mapToDouble(r -> r).average();
-        if(average.isPresent()){
-            return average.getAsDouble();
-        }
-        return 0;
+        OptionalDouble average = ratings.stream().mapToDouble(r -> r).average();
+        return average.isPresent() ? average.getAsDouble() : 0;
     }
 
 

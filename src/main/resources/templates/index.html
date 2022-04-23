@@ -110,6 +110,8 @@
                                     </li>
                                     <li th:if="${currentUser.user.type.name().equals('ADMIN')}"><a href="/addSpecialization"><span th:text="#{add.specialization}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
+                                    <li th:if="${currentUser.user.type.name().equals('PATIENT')}"><a href="/testimonial"><span th:text="#{add.testimonial}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
+                                    </li>
                                     <li><a href="/logout"><span th:text="#{log.out}"></span><span class="rd-navbar-label text-middle label-custom label-danger label-xs-custom label-rounded-custom label"></span></a>
                                     </li>
                                 </ul>
@@ -240,19 +242,21 @@
             <div class="offset-top-40 offset-md-top-66">
                 <div class="owl-carousel owl-carousel-default" data-autoplay="true" data-items="1" data-dots="true" data-lg-items="2" data-nav="false">
                     <!-- sik revyunern e, divy kdnenq foreachi mej or verji revyunery cuyc ta -->
-                    <div class="owl-item">
+                    <div class="owl-item" th:if="${testimonials != null && !testimonials.isEmpty()}" th:each="testomonial: ${testimonials}">
                         <blockquote class="quote quote-classic">
                             <div class="quote-body">
                                 <p class="font-italic text-gray-dark">
-                                    <q>Been coming here for 5 years, since 2015. As long as you call a week ahead of when you need in, its normally no issue to get an appointment. And they offer many walk in services as well.</q>
+                                    <q th:text="${testomonial.testimonial}"></q>
                                 </p>
                                 <div class="quote-meta unit flex-row unit-spacing-sm align-items-center">
-                                    <div class="unit-left unit-item-narrow"><img class="rounded-circle quote-img" width="60" height="60" src="images/users/user-bryan-green-60x60.jpg" alt=""/></div>
+                                    <div class="unit-left unit-item-narrow">
+                                        <img th:if="${testomonial.user.picUrl == null}" class="rounded-circle quote-img" width="60" height="60" src="images/no-image.male.jpg" alt=""/>
+                                        <img th:if="${testomonial.user.picUrl != null}" class="rounded-circle quote-img" width="60" height="60" th:src="@{/getPatientImage(picName=${testomonial.user.picUrl})}" alt=""/>
+                                    </div>
                                     <div class="unit-body unit-item-wide">
                                         <h5 class="quote-author text-capitalize font-weight-bold">
-                                            <cite class="text-normal">Andrew Diaz</cite>
+                                            <cite class="text-normal" th:text="${testomonial.user.name + ' ' + testomonial.user.surname}"></cite>
                                         </h5>
-                                        <p class="quote-desc">Patient</p>
                                     </div>
                                 </div>
                             </div>

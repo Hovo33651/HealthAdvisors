@@ -13,5 +13,4 @@ public class CreateTestimonialRequest {
 
     @NotBlank(message = "Please don't send us an empty testimonial")
     private String testimonial;
-    private int userId;
 }

@@ -196,12 +196,23 @@ public class PatientController {
     }
 
 
+    /**
+     * accepts Principal
+     * removes user's profile
+     * redirects to /
+     */
     @GetMapping("/deleteAccount")
-    public String deleteAccount(@RequestParam int userId) {
-        userService.deleteUserById(userId);
+    public String deleteAccount(@AuthenticationPrincipal CurrentUser currentUser) {
+        userService.deleteUserById(currentUser.getUser().getId());
         return "redirect:/";
     }
 
+    /**
+     * accepts doctor id and rate
+     * creates Rating instance
+     * saves in database
+     * redirects to the same doctor page
+     */
     @PostMapping("/rate")
     public String rate(@RequestParam("doctorId") int doctorId,
                        @RequestParam("rate") int rate){
@@ -214,11 +225,21 @@ public class PatientController {
         return "redirect:/doctor?doctorId=" + doctorId;
     }
 
+    /**
+     * redirects to writeTestimonialPage.html
+     */
     @GetMapping("/testimonial")
     public String redirectToTestimonialPage(){
         return "writeTestimonialPage";
     }
 
+    /**
+     * accepts Principal
+     * accepts Testimonial DTO
+     * creates Testimonial instance by ModelMapper
+     * saves in database
+     * redirects to /
+     */
     @PostMapping("/testimonial")
     public String addTestimonial(@AuthenticationPrincipal CurrentUser currentUser,
                                  @ModelAttribute CreateTestimonialRequest createTestimonialRequest){

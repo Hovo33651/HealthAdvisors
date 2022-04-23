@@ -31,6 +31,11 @@ public class DoctorController {
     String path;
 
 
+    /**
+     * accepts the Principal
+     * accepts pagination
+     * sends patient pagination list to viewAllPatients.html
+     */
     @GetMapping("/viewAllPatients")
     public String viewAllPatients(@RequestParam(value = "page", defaultValue = "0") int page,
                                   @RequestParam(value = "size", defaultValue = "5") int size,
@@ -51,12 +56,21 @@ public class DoctorController {
     }
 
 
+    /**
+     * accepts doctor picture name
+     * sends picture in byte[]
+     */
     @GetMapping(value = "/getDoctorImage", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody
     byte[] getImage(@RequestParam("picName") String picName) throws IOException {
         return fileUploadDownLoadUtils.getImage(path,picName);
     }
 
+    /**
+     * accepts patient id
+     * finds the patient from database
+     * sends patient instance to patientViewPage.html
+     */
     @GetMapping("/patient{id}")
     public String singlePatient(@PathVariable int id, ModelMap map){
         map.addAttribute("patient",patientService.findPatientById(id));

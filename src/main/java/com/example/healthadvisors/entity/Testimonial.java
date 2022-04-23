@@ -18,7 +18,7 @@ public class Testimonial {
     private int id;
     private String testimonial;
     @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
+    @JoinColumn(name = "user_id")
+    private User user;
 
 }

@@ -251,7 +251,28 @@
             </form>
         </div>
     </section>
-
+    <br>
+    <br>
+    
+    <section class="section-60 section-sm-top-34 section-sm-bottom-110 novi-background bg-cover">
+        <div class="group-lg offset-top-20 offset-md-top-30">
+            <form th:action="@{/rate(doctorId=${doctor.id})}" method="post">
+                <select name="rate">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+                <input type="submit" th:value="#{rate}">
+            </form>
+        </div>
+    </section>
 
 
     <!-- Page Footer-->

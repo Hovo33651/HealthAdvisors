@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testDb
+    username: sa
+    password: password
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 2021JavaForTest@gmail.com
+    password: forTest2021
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+
+
+health:
+  advisors:
+    patient:
+      pictures:
+        upload:
+          path: "C:/Users/Hovhanes Gevorgyan/IdeaProjects/HealthAdvisors/upload/patients/"
+    doctor:
+      pictures:
+        upload:
+          path: "C:/Users/Hovhanes Gevorgyan/IdeaProjects/HealthAdvisors/upload/doctors/"
+    analysis:
+      files:
+        upload:
+          path: "C:/Users/Hovhanes Gevorgyan/IdeaProjects/HealthAdvisors/upload/analysisFiles/"
+    specialization:
+      icons:
+        path: "C:/Users/Hovhanes Gevorgyan/IdeaProjects/HealthAdvisors/src/main/resources/static/images/specializationIcons/"
+
+
+
+

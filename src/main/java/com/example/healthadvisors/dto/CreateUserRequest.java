@@ -1,10 +1,7 @@
 package com.example.healthadvisors.dto;
 
 import com.example.healthadvisors.entity.UserType;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.NumberFormat;
 
@@ -13,10 +10,12 @@ import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.validation.Constraint;
 import javax.validation.constraints.*;
+import javax.xml.bind.annotation.XmlAttribute;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class CreateUserRequest {
 
     @NotBlank(message = "What is your name?")
@@ -41,10 +40,5 @@ public class CreateUserRequest {
     @NotBlank(message = "You forgot to fill the phone number field")
     private String phone;
 
-    private String picUrl;
-
-    @JoinColumn(name = "type")
-    @Enumerated(EnumType.STRING)
-    private UserType type;
 }
 

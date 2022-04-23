@@ -2,10 +2,14 @@ package com.example.healthadvisors.service;
 
 
 import com.example.healthadvisors.entity.Appointment;
+import com.example.healthadvisors.entity.Doctor;
+import com.example.healthadvisors.entity.Patient;
+import com.example.healthadvisors.entity.User;
 import com.example.healthadvisors.repository.AppointmentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -13,10 +17,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AppointmentService {
     private final AppointmentRepository appointmentRepository;
+    private final DoctorService doctorService;
+    private final MailService mailService;
 
-    public void saveAppointment(Appointment appointment) {
-        appointmentRepository.save(appointment);
-    }
 
     List<Appointment> findAppointmentsByDoctorId(int id) {
 
@@ -36,4 +39,19 @@ public class AppointmentService {
     }
 
 
+    public void newAppointment(int doctorId, String appointmentDate, User user) {
+        Doctor doctor = doctorService.findDoctorById(doctorId);
+        Patient patient = user.getPatient();
+        Appointment newAppointment = Appointment.builder()
+                .patient(patient)
+                .doctor(doctor)
+                .appointmentDate(LocalDateTime.parse(appointmentDate))
+                .build();
+        newAppointment.setPatient(patient);
+        newAppointment.setDoctor(doctor);
+
+        appointmentRepository.save(newAppointment);
+
+        mailService.sendAppointmentEmail(doctor, patient, newAppointment);
+    }
 }

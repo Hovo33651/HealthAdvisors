@@ -30,40 +30,62 @@ public class AdminController {
     private final SpecializationService specializationService;
 
 
+    /**
+     * redirects the page to registerDoctor.html
+     */
     @GetMapping("/addDoctor")
     public String addPatientPage(ModelMap map) {
-        map.addAttribute("specializations",specializationService.findAll());
+        map.addAttribute("specializations", specializationService.findAll());
         return "registerDoctor";
     }
 
 
-
+    /**
+     * controller works only for ADMIN
+     * accepts User dto data
+     * accepts Doctor dto data
+     * accepts User's picture
+     * creates instances by ModelMapper
+     * saves in database
+     */
     @PostMapping("/addDoctor")
     public String addUser(@ModelAttribute CreateUserRequest createUserRequest,
                           @ModelAttribute CreateDoctorRequest createDoctorRequest,
                           @RequestParam("picture") MultipartFile[] uploadedFiles) throws IOException {
 
-        User newUser = userService.saveUserAsDoctor(modelMapper.map(createUserRequest,User.class),uploadedFiles);
+        User newUser = userService.saveUserAsDoctor(modelMapper.map(createUserRequest, User.class), uploadedFiles);
         Doctor doctor = modelMapper.map(createDoctorRequest, Doctor.class);
+        newUser.setActive(true);
         doctor.setUser(newUser);
-
         doctorService.save(doctor);
 
-        return "redirect:/loginPage";
+        return "redirect:/login";
     }
 
 
+
+    /**
+     * redirects the page to addSpecialization page(for ADMIN only)
+     */
     @GetMapping("/addSpecialization")
-    public String addSpecialization(){
+    public String addSpecialization() {
         return "addSpecialization";
     }
 
+
+
+    /**
+     * accepts Specialization dto data
+     * accepts icon for Specialization
+     * saves in database by making an instance by ModelMapper
+     */
     @PostMapping("/addSpecialization")
     public String addSpecialization(@ModelAttribute CreateSpecializationRequest createSpecializationRequest,
                                     @RequestParam("icon") MultipartFile[] uploadedFiles) throws IOException {
-        specializationService.save(createSpecializationRequest,uploadedFiles);
+        specializationService.save(createSpecializationRequest, uploadedFiles);
         return "addSpecialization";
     }
+
 
 
 }

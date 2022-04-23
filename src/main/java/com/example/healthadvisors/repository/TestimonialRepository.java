@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface TestimonialRepository extends JpaRepository<Testimonial,Integer> {
 
-    List<Testimonial> findTestimonialsByPatient_Id(int patientId);
+    List<Testimonial> findTestimonialsByUser_Id(int userId);
 
-    void deleteTestimonialsByPatient_Id(int patientId);
+    void deleteTestimonialsByUser_Id(int userId);
 
 }

@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface AnalysisFileRepository extends JpaRepository<AnalysisFile, Integer> {
 
-    List<AnalysisFile> findAnalysisFilesByMedReport_Patient_User_Id(int userId);
+
+    List<AnalysisFile> findAnalysisFilesByMedReport_Id(int medReportId);
 
 }

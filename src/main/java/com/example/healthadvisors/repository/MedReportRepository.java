@@ -8,12 +8,5 @@ import java.util.List;
 
 public interface MedReportRepository extends JpaRepository<MedReport, Integer> {
 
-    List<MedReport> findAllByPatient_User_Id(int userId);
-
-
-    List<MedReport> findMedReportsByDoctor_Id(int doctorId, Pageable pageable);
-
-
-
 
 }

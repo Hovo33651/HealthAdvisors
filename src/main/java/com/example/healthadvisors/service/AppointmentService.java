@@ -21,16 +21,15 @@ public class AppointmentService {
     private final MailService mailService;
 
 
-    List<Appointment> findAppointmentsByDoctorId(int id) {
-
-        return appointmentRepository.findAllByDoctor_Id(id);
+   public List<Appointment> findActiveAppointmentsByDoctorId(int id) {
+      return appointmentRepository.findAppointmentByActiveIsTrueAndDoctor_Id(id);
     }
 
-    List<Appointment>findAppointmentByPatientId(int id){
+    public List<Appointment>findAppointmentByPatientId(int id){
 
         return appointmentRepository.findAllByPatientId(id);
     }
-    List<Appointment>findAppointmentByDate(Date date){
+    public List<Appointment>findAppointmentByDate(Date date){
         return appointmentRepository.findAppointmentsByAppointmentDate(date);
     }
 
@@ -46,6 +45,7 @@ public class AppointmentService {
                 .patient(patient)
                 .doctor(doctor)
                 .appointmentDate(LocalDateTime.parse(appointmentDate))
+                .active(true)
                 .build();
         newAppointment.setPatient(patient);
         newAppointment.setDoctor(doctor);
@@ -53,5 +53,11 @@ public class AppointmentService {
         appointmentRepository.save(newAppointment);
 
         mailService.sendAppointmentEmail(doctor, patient, newAppointment);
+    }
+
+    public void setAppointmentActiveFalse(int appointmentId) {
+        Appointment appointment = appointmentRepository.getById(appointmentId);
+        appointment.setActive(false);
+        appointmentRepository.save(appointment);
     }
 }

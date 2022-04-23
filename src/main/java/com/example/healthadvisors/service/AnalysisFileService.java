@@ -14,7 +14,7 @@ public class AnalysisFileService {
     private final AnalysisFileRepository analysisFileRepository;
 
 
-    public List<AnalysisFile> findAnalysisFilesByUserId(int id) {
-        return analysisFileRepository.findAnalysisFilesByMedReport_Patient_User_Id(id);
+    public List<AnalysisFile> findAnalysisFilesByMedReportId(int medReportId) {
+        return analysisFileRepository.findAnalysisFilesByMedReport_Id(medReportId);
     }
 }

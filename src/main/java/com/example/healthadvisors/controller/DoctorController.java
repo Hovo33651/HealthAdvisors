@@ -2,6 +2,7 @@ package com.example.healthadvisors.controller;
 
 import com.example.healthadvisors.entity.Patient;
 import com.example.healthadvisors.security.CurrentUser;
+import com.example.healthadvisors.service.AppointmentService;
 import com.example.healthadvisors.service.MedReportService;
 import com.example.healthadvisors.service.PatientService;
 import com.example.healthadvisors.util.FileUploadDownLoadUtils;
@@ -27,6 +28,7 @@ public class DoctorController {
     private final MedReportService medReportService;
     private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
     private final PatientService patientService;
+    private final AppointmentService appointmentService;
     @Value("${health.advisors.doctor.pictures.upload.path}")
     String path;
 
@@ -77,6 +79,26 @@ public class DoctorController {
         return "patientViewPage";
     }
 
+    /**
+     * finds doctor's active appointments
+     * redirects to viewNewAppointments.html
+     */
+    @GetMapping("/appointments")
+    public String getActiveAppointments(@AuthenticationPrincipal CurrentUser currentUser,
+                                        ModelMap map){
+        map.addAttribute("appointments",appointmentService.
+                findActiveAppointmentsByDoctorId(currentUser.getUser().getDoctor().getId()));
+        return "viewNewAppointments";
+    }
+
+    @GetMapping("/medReport")
+    public String createMedReport(@RequestParam("appointmentId") int appointmentId,
+                                  @RequestParam("patientId") int patientId,
+                                  ModelMap map){
+        appointmentService.setAppointmentActiveFalse(appointmentId);
+        map.addAttribute("patient",patientService.findPatientById(patientId));
+        return "createMedReport";
+    }
 }
 
 

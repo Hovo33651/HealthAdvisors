@@ -28,7 +28,7 @@ public class Doctor {
     @JoinColumn(name = "user_id")
     private User user;
     @OneToMany(mappedBy = "doctor")
-    private List<MedReport> medReports;
+    private List<PatientReceiptDischarge> patientReceiptDischarges;
     @Transient
     private int rating;
 

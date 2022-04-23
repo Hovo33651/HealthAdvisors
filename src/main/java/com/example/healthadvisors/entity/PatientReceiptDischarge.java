@@ -1,23 +1,22 @@
 package com.example.healthadvisors.entity;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "appointment")
-public class Appointment {
+@Table(name = "patient_receipt_discharge")
+public class PatientReceiptDischarge {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -27,7 +26,11 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "patient_id")
     private Patient patient;
-    @DateTimeFormat(pattern = "dd.MM.yyyy HH:MM")
-    private LocalDateTime appointmentDate;
-    private boolean active;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date receiptDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date dischargeDate;
+    @OneToMany(mappedBy = "patientReceiptDischarge")
+    private List<MedReport> medReports;
+
 }

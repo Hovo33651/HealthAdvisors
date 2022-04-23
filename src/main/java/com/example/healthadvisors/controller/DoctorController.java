@@ -91,6 +91,13 @@ public class DoctorController {
         return "viewNewAppointments";
     }
 
+    /**
+     * accepts appointment id
+     * accepts patient id
+     * sets appointment active false
+     * finds patient by id, adds as attribute in ModelMap
+     * redirects to createMedReport.html
+     */
     @GetMapping("/medReport")
     public String createMedReport(@RequestParam("appointmentId") int appointmentId,
                                   @RequestParam("patientId") int patientId,

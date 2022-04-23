@@ -21,6 +21,8 @@ public class MainController {
 
     private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
     private final RatingService ratingService;
+    private final TestimonialService testimonialService;
+    private final DoctorService doctorService;
     @Value("${health.advisors.analysis.files.upload.path}")
     private String analysisFilesPath;
     @Value("${health.advisors.specialization.icons.path}")
@@ -31,7 +33,8 @@ public class MainController {
      * redirects the open site request to index.html
      */
     @GetMapping("/")
-    public String index() {
+    public String index(ModelMap map) {
+        map.addAttribute("testimonials", testimonialService.getAllTestimonials());
         return "index";
     }
 
@@ -48,7 +51,7 @@ public class MainController {
             case "PATIENT":
                 return "patientHomePage";
             case "DOCTOR":
-                map.addAttribute("rating",ratingService.getDoctorRating(currentUser.getUser().getDoctor().getId()));
+                currentUser.getUser().getDoctor().setRating(ratingService.getDoctorRating(currentUser.getUser().getDoctor().getId()));
                 return "doctorHomePage";
             default:
                 return "redirect:/";
@@ -63,7 +66,7 @@ public class MainController {
     public String login(@AuthenticationPrincipal CurrentUser currentUser) {
         if (currentUser == null) {
             return "login";
-        }else{
+        } else {
             return "redirect:/home";
         }
     }

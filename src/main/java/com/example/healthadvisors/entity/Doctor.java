@@ -29,8 +29,8 @@ public class Doctor {
     private User user;
     @OneToMany(mappedBy = "doctor")
     private List<MedReport> medReports;
-    @ManyToOne
-    private Rating rating;
+    @Transient
+    private double rating;
 
 
 

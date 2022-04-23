@@ -2,14 +2,17 @@ package com.example.healthadvisors.controller;
 
 import com.example.healthadvisors.dto.CreateAddressRequest;
 import com.example.healthadvisors.dto.CreatePatientRequest;
+import com.example.healthadvisors.dto.CreateTestimonialRequest;
 import com.example.healthadvisors.dto.CreateUserRequest;
 import com.example.healthadvisors.entity.Doctor;
 import com.example.healthadvisors.entity.Rating;
+import com.example.healthadvisors.entity.Testimonial;
 import com.example.healthadvisors.entity.User;
 import com.example.healthadvisors.security.CurrentUser;
 import com.example.healthadvisors.service.*;
 import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -42,6 +45,8 @@ public class PatientController {
     private final AppointmentService appointmentService;
     private final DoctorService doctorService;
     private final RatingService ratingService;
+    private final TestimonialService testimonialService;
+    private final ModelMapper modelMapper;
 
 
     @Value("${health.advisors.patient.pictures.upload.path}")
@@ -184,8 +189,9 @@ public class PatientController {
     @GetMapping("/doctor")
     public String makeAppointment(@RequestParam("doctorId") int doctorId,
                                   ModelMap map) {
-        map.addAttribute("doctor", doctorService.findDoctorById(doctorId));
-        map.addAttribute("rating", ratingService.getDoctorRating(doctorId));
+        Doctor doctorById = doctorService.findDoctorById(doctorId);
+        doctorById.setRating(ratingService.getDoctorRating(doctorId));
+        map.addAttribute("doctor",doctorById);
         return "viewDoctorPage";
     }
 
@@ -204,6 +210,21 @@ public class PatientController {
                 .doctor(doctorService.findDoctorById(doctorId))
                 .build();
         ratingService.save(rating);
+
+        return "redirect:/doctor?doctorId=" + doctorId;
+    }
+
+    @GetMapping("/testimonial")
+    public String redirectToTestimonialPage(){
+        return "writeTestimonialPage";
+    }
+
+    @PostMapping("/testimonial")
+    public String addTestimonial(@AuthenticationPrincipal CurrentUser currentUser,
+                                 @ModelAttribute CreateTestimonialRequest createTestimonialRequest){
+        Testimonial newTestimonial = modelMapper.map(createTestimonialRequest, Testimonial.class);
+        newTestimonial.setUser(currentUser.getUser());
+        testimonialService.save(newTestimonial);
         return "redirect:/";
     }
 

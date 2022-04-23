@@ -20,16 +20,9 @@ public class MedReport {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
-    private Doctor doctor;
-    @ManyToOne
-    @JoinColumn(name = "patient_id")
-    private Patient patient;
     private String report;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date receiptDate;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private Date dischargeDate;
+    @ManyToOne
+    private PatientReceiptDischarge patientReceiptDischarge;
+
 
 }

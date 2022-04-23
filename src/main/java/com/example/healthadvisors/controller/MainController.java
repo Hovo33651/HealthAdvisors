@@ -22,7 +22,8 @@ public class MainController {
     private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
     private final RatingService ratingService;
     private final TestimonialService testimonialService;
-    private final DoctorService doctorService;
+    private final AppointmentService appointmentService;
+
     @Value("${health.advisors.analysis.files.upload.path}")
     private String analysisFilesPath;
     @Value("${health.advisors.specialization.icons.path}")

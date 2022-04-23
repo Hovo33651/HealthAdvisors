@@ -174,48 +174,43 @@
     </header>
 
 
-
     <section class="novi-background bg-cover">
         <div class="container-fluid inset-left-0 inset-right-0" style="margin-top: 50px">
-            <h3 th:text="#{patients}"></h3>
+            <h3 th:text="#{new.appointments}"></h3>
             <hr class="divider divider-lg bg-java">
             <div class="offset-top-41 offset-lg-top-60">
                 <div class="thumbnail-josip-wrap-big">
                     <!-- Thumbnail Josip-->
-                    <figure th:if="${patients!=null && !patients.isEmpty()}" th:each="patient: ${patients.content}"
+                    <figure th:if="${appointments!=null && !appointments.isEmpty()}"
+                            th:each="appointment: ${appointments}"
                             class="thumbnail-josip thumbnail-big odd"><a th:href="@{'/patient' + ${patient.id}}">
-                        <img th:if="${patient.user.picUrl!=null}"
-                             th:src="@{/getPatientImage(picName=${patient.user.picUrl})}" width="384" height="410"
+                        <img th:if="${appointment.patient.user.picUrl!=null}"
+                             th:src="@{/getPatientImage(picName=${appointment.patient.user.picUrl})}" width="384"
+                             height="410"
                              alt=""/>
-                        <img th:if="${patient.user.picUrl == null && patient.gender.name.equals('FEMALE')}"
+                        <img th:if="${appointment.patient.user.picUrl == null && appointment.patient.gender.name.equals('FEMALE')}"
                              src="images/no-image.female.jpg" width="384" height="410" alt=""/>
-                        <img th:if="${patient.user.picUrl == null && patient.gender.name.equals('MALE')}"
+                        <img th:if="${appointment.patient.user.picUrl == null && appointment.patient.gender.name.equals('MALE')}"
                              src="images/no-image.male.jpg" width="384" height="410" alt=""/>
                     </a>
                         <div class="thumbnail-desc">
                             <h5 class="thumbnail-josip-title"
-                                th:text="${patient.user.name + ' ' + patient.user.surname}"></h5>
-                            <p class="d-none d-lg-block offset-top-0" th:text="${patient.user.phone}"></p>
-                            <p class="d-none d-lg-block offset-top-0" th:text="${patient.user.email}"></p>
+                                th:text="${appointment.patient.user.name + ' ' + appointment.patient.user.surname}"></h5>
+                            <p class="d-none d-lg-block offset-top-0" th:text="${appointment.patient.user.phone}"></p>
+                            <p class="d-none d-lg-block offset-top-0" th:text="${appointment.patient.user.email}"></p>
+                        </div>
+                        <div class="thumbnail-desc">
+                            <h5 class="thumbnail-josip-title"
+                                th:text="${#calendars.format(appointment.appointmentDate, 'dd.MM.yy HH:mm')}"></h5>
                         </div>
                         <figcaption><a class="btn-primary btn btn-block btn-rect text-lg-left"
-                                       th:href="@{'/patient' + ${patient.id}}" th:text="#{view.full.profile}"></a>
+                                       th:href="@{/medReport(appointmentId=${appointment.id},patientId=${appointment.patient.id})}" th:text="#{view.full.profile}"></a>
                         </figcaption>
                     </figure>
                 </div>
             </div>
         </div>
     </section>
-
-    <section style="margin-top: 25px; margin-bottom: 35px">
-        <div th:if="${patients.totalPages > 0}"
-             th:each="pageNumber : ${pageNumbers}" class="newPagination">
-            <a class="page-link" th:href="@{/viewAllPatients(size=${patients.size}, page=${pageNumber})}"
-               th:text="${pageNumber + 1}"
-               th:class="${pageNumber==patients.number}?active"></a>
-        </div>
-    </section>
-
 
     <!-- Page Footer-->
     <!-- Default footer-->

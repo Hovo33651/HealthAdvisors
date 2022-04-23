@@ -39,7 +39,7 @@ public class Patient {
     @JoinColumn(name = "user_id")
     private User user;
     @OneToMany(mappedBy = "patient")
-    private List<MedReport> medReports;
+    private List<PatientReceiptDischarge> patientReceiptDischarges;
 
 
 

@@ -30,7 +30,7 @@ public class Doctor {
     @OneToMany(mappedBy = "doctor")
     private List<MedReport> medReports;
     @Transient
-    private double rating;
+    private int rating;
 
 
 

@@ -7,6 +7,7 @@ import com.example.healthadvisors.service.MedReportService;
 import com.example.healthadvisors.service.PatientService;
 import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +24,7 @@ import java.util.stream.IntStream;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class DoctorController {
 
     private final MedReportService medReportService;
@@ -43,17 +45,19 @@ public class DoctorController {
                                   @RequestParam(value = "size", defaultValue = "5") int size,
                                   @AuthenticationPrincipal CurrentUser currentUser,
                                   ModelMap map) {
+        log.info("viewAllPatients: request from {} to see all patients", currentUser.getUser().getEmail());
         PageRequest pageRequest = PageRequest.of(page, size);
         Page<Patient> patientsByDoctorId = medReportService.findPatientsByDoctorId(currentUser.getUser().getDoctor().getId(), pageRequest);
-        map.addAttribute("patients",patientsByDoctorId);
+        map.addAttribute("patients", patientsByDoctorId);
 
         int totalPages = patientsByDoctorId.getTotalPages();
-        if(totalPages > 0){
-            List<Integer> pageNumbers = IntStream.rangeClosed(0,totalPages)
+        if (totalPages > 0) {
+            List<Integer> pageNumbers = IntStream.rangeClosed(0, totalPages)
                     .boxed()
                     .collect(Collectors.toList());
-            map.addAttribute("pageNumbers",pageNumbers);
+            map.addAttribute("pageNumbers", pageNumbers);
         }
+        log.info("viewAllPatients: response to {} to see all patients", currentUser.getUser().getEmail());
         return "viewAllPatients";
     }
 
@@ -65,7 +69,7 @@ public class DoctorController {
     @GetMapping(value = "/getDoctorImage", produces = MediaType.IMAGE_JPEG_VALUE)
     public @ResponseBody
     byte[] getImage(@RequestParam("picName") String picName) throws IOException {
-        return fileUploadDownLoadUtils.getImage(path,picName);
+        return fileUploadDownLoadUtils.getImage(path, picName);
     }
 
     /**
@@ -74,8 +78,8 @@ public class DoctorController {
      * sends patient instance to patientViewPage.html
      */
     @GetMapping("/patient{id}")
-    public String singlePatient(@PathVariable int id, ModelMap map){
-        map.addAttribute("patient",patientService.findPatientById(id));
+    public String singlePatient(@PathVariable int id, ModelMap map) {
+        map.addAttribute("patient", patientService.findPatientById(id));
         return "patientViewPage";
     }
 
@@ -85,9 +89,11 @@ public class DoctorController {
      */
     @GetMapping("/appointments")
     public String getActiveAppointments(@AuthenticationPrincipal CurrentUser currentUser,
-                                        ModelMap map){
-        map.addAttribute("appointments",appointmentService.
+                                        ModelMap map) {
+        log.info("getActiveAppointments: request from {} to see active appointments", currentUser.getUser().getEmail());
+        map.addAttribute("appointments", appointmentService.
                 findActiveAppointmentsByDoctorId(currentUser.getUser().getDoctor().getId()));
+        log.info("getActiveAppointments: response to {} to see active appointments", currentUser.getUser().getEmail());
         return "viewNewAppointments";
     }
 
@@ -99,11 +105,15 @@ public class DoctorController {
      * redirects to createMedReport.html
      */
     @GetMapping("/medReport")
-    public String createMedReport(@RequestParam("appointmentId") int appointmentId,
+    public String createMedReport(@AuthenticationPrincipal CurrentUser currentUser,
+                                  @RequestParam("appointmentId") int appointmentId,
                                   @RequestParam("patientId") int patientId,
-                                  ModelMap map){
+                                  ModelMap map) {
+        Patient patient = patientService.findPatientById(patientId);
+        log.info("createMedReport: request from {} to create a new medical report for the patient {}",
+                currentUser.getUser().getEmail(),patient.getUser().getEmail());
         appointmentService.setAppointmentActiveFalse(appointmentId);
-        map.addAttribute("patient",patientService.findPatientById(patientId));
+        map.addAttribute("patient", patient);
         return "createMedReport";
     }
 }

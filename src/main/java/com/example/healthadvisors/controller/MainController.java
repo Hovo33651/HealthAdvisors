@@ -4,6 +4,7 @@ import com.example.healthadvisors.security.CurrentUser;
 import com.example.healthadvisors.service.*;
 import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,6 +18,7 @@ import java.io.IOException;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class MainController {
 
     private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
@@ -46,15 +48,19 @@ public class MainController {
      * if principal is not a DOCTOR or PATIENT, then request is redirected to main page
      */
     @GetMapping("/home")
-    public String login(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
+    public String redirectToHomePage(@AuthenticationPrincipal CurrentUser currentUser) {
+       log.info("Request from {} to redirect to home page",currentUser.getUser().getEmail());
         String userType = currentUser.getUser().getType().name();
         switch (userType) {
             case "PATIENT":
+                log.info("Patient {} redirected to home page",currentUser.getUser().getEmail());
                 return "patientHomePage";
             case "DOCTOR":
+                log.info("Doctor {} redirected to home page",currentUser.getUser().getEmail());
                 currentUser.getUser().getDoctor().setRating(ratingService.getDoctorRating(currentUser.getUser().getDoctor().getId()));
                 return "doctorHomePage";
             default:
+                log.info("Principal {} redirected to main page",currentUser.getUser().getEmail());
                 return "redirect:/";
         }
     }

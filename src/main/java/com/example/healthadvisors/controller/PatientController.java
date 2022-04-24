@@ -12,6 +12,7 @@ import com.example.healthadvisors.security.CurrentUser;
 import com.example.healthadvisors.service.*;
 import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -37,6 +38,7 @@ import java.util.stream.IntStream;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class PatientController {
 
     private final PatientService patientService;
@@ -71,24 +73,28 @@ public class PatientController {
      */
     @PostMapping("/register")
     public String registerAsPatient(@ModelAttribute @Valid CreateUserRequest createUserRequest,
-                          BindingResult bindingResult,
-                          @ModelAttribute @Valid CreatePatientRequest createPatientRequest,
-                          @ModelAttribute @Valid CreateAddressRequest createAddressRequest,
-                          @RequestParam("picture") MultipartFile[] uploadedFiles,
-                          ModelMap map,
-                          Locale locale) throws IOException, MessagingException {
-
+                                    BindingResult bindingResult,
+                                    @ModelAttribute @Valid CreatePatientRequest createPatientRequest,
+                                    @ModelAttribute @Valid CreateAddressRequest createAddressRequest,
+                                    @RequestParam("picture") MultipartFile[] uploadedFiles,
+                                    ModelMap map,
+                                    Locale locale) throws IOException, MessagingException {
+        log.info("registerAsPatient: request from {} to create a new account",
+                createUserRequest.getEmail());
         if (bindingResult.hasErrors()) {
             List<String> errors = new ArrayList<>();
             for (ObjectError allError : bindingResult.getAllErrors()) {
                 errors.add(allError.getDefaultMessage());
             }
             map.addAttribute("errors", errors);
+            log.error("registerAsPatient: rejected request to create a new account: email {}. Wrong data!",
+                    createUserRequest.getEmail());
             return "register";
         }
         patientService.registerPatient(createUserRequest, createPatientRequest,
                 createAddressRequest, uploadedFiles, locale);
-
+        log.info("registerAsPatient: a new non-active account created for {}",
+                createUserRequest.getEmail());
         return "redirect:/home";
     }
 
@@ -105,18 +111,23 @@ public class PatientController {
     @GetMapping("/user/activate")
     public String activateUser(ModelMap map,
                                @RequestParam(name = "token") String token) {
-
         Optional<User> user = userService.findByToken(token);
+        log.info("activateUser: request to activate the account");
         if (!user.isPresent()) {
+            log.warn("activateUser: request to activate the account: user doesn't exist");
             map.addAttribute("message", "User does not exists");
             return "activateUser";
         }
         User userFromDb = user.get();
         if (userFromDb.isActive()) {
+            log.warn("activateUser: request to activate the account: account is already active, email: {}",
+                    userFromDb.getEmail());
             map.addAttribute("message", "Your account is activated");
             return "activateUser";
         }
         userService.activateUser(userFromDb);
+        log.info("activateUser: request to activate the account: account has been activated, email: {}",
+                userFromDb.getEmail());
         map.addAttribute("message", "Your account has been activated. \n Please sign in");
         return "redirect:/login";
     }
@@ -138,8 +149,11 @@ public class PatientController {
      */
     @GetMapping("/makeAppointment")
     public String chooseDoctor(ModelMap map,
+                               @AuthenticationPrincipal CurrentUser currentUser,
                                @RequestParam(value = "page", defaultValue = "0") int page,
                                @RequestParam(value = "size", defaultValue = "5") int size) {
+        log.info("chooseDoctor: request to choose a doctor for appointment, email: {}",
+                currentUser.getUser().getEmail());
         PageRequest pageRequest = PageRequest.of(page, size);
         Page<Doctor> allDoctors = doctorService.findAllDoctors(pageRequest);
         map.addAttribute("doctors", allDoctors);
@@ -151,7 +165,6 @@ public class PatientController {
                     .collect(Collectors.toList());
             map.addAttribute("pageNumbers", pageNumbers);
         }
-
         return "viewAllDoctors";
     }
 
@@ -165,7 +178,11 @@ public class PatientController {
     public String makeAppointment(@RequestParam("doctorId") int doctorId,
                                   @RequestParam("appointmentDate") String appointmentDate,
                                   @AuthenticationPrincipal CurrentUser currentUser) {
+        log.info("makeAppointment: request to make an appointment, email: {}",
+                currentUser.getUser().getEmail());
         appointmentService.newAppointment(doctorId, appointmentDate, currentUser.getUser());
+        log.info("chooseDoctor: a new appointment is made, email: {}",
+                currentUser.getUser().getEmail());
         return "redirect:/home";
     }
 
@@ -175,8 +192,13 @@ public class PatientController {
      * removes appointment from database
      */
     @PostMapping("/discardAppointment/{appointmentId}")
-    public String discardAppointment(@PathVariable int appointmentId) {
+    public String discardAppointment(@PathVariable int appointmentId,
+                                     @AuthenticationPrincipal CurrentUser currentUser) {
+        log.info("discardAppointment: request to remove an appointment, email: {}",
+                currentUser.getUser().getEmail());
         appointmentService.deleteAppointmentById(appointmentId);
+        log.info("discardAppointment: appointment has been removed, email: {}",
+                currentUser.getUser().getEmail());
         return "redirect:/home";
     }
 
@@ -187,11 +209,16 @@ public class PatientController {
      * finds doctor's average rating from database
      */
     @GetMapping("/doctor")
-    public String makeAppointment(@RequestParam("doctorId") int doctorId,
+    public String makeAppointment(@AuthenticationPrincipal CurrentUser currentUser,
+                                  @RequestParam("doctorId") int doctorId,
                                   ModelMap map) {
+        log.info("makeAppointment: request to see doctor's profile, email: {}",
+                currentUser.getUser().getEmail());
         Doctor doctorById = doctorService.findDoctorById(doctorId);
         doctorById.setRating(ratingService.getDoctorRating(doctorId));
-        map.addAttribute("doctor",doctorById);
+        log.info("makeAppointment: redirected to /{}/ doctor's page, email: {}",
+                doctorById.getUser().getEmail(), currentUser.getUser().getEmail());
+        map.addAttribute("doctor", doctorById);
         return "viewDoctorPage";
     }
 
@@ -203,7 +230,10 @@ public class PatientController {
      */
     @GetMapping("/deleteAccount")
     public String deleteAccount(@AuthenticationPrincipal CurrentUser currentUser) {
+        String email  = currentUser.getUser().getEmail();
+        log.info("deleteAccount: request to remove the account, email: {}",email);
         userService.deleteUserById(currentUser.getUser().getId());
+        log.info("deleteAccount: account {} has been removed", email);
         return "redirect:/";
     }
 
@@ -215,13 +245,12 @@ public class PatientController {
      */
     @PostMapping("/rate")
     public String rate(@RequestParam("doctorId") int doctorId,
-                       @RequestParam("rate") int rate){
+                       @RequestParam("rate") int rate) {
         Rating rating = Rating.builder()
                 .rating(rate)
                 .doctor(doctorService.findDoctorById(doctorId))
                 .build();
         ratingService.save(rating);
-
         return "redirect:/doctor?doctorId=" + doctorId;
     }
 
@@ -229,7 +258,7 @@ public class PatientController {
      * redirects to writeTestimonialPage.html
      */
     @GetMapping("/testimonial")
-    public String redirectToTestimonialPage(){
+    public String redirectToTestimonialPage() {
         return "writeTestimonialPage";
     }
 
@@ -242,10 +271,14 @@ public class PatientController {
      */
     @PostMapping("/testimonial")
     public String addTestimonial(@AuthenticationPrincipal CurrentUser currentUser,
-                                 @ModelAttribute CreateTestimonialRequest createTestimonialRequest){
+                                 @ModelAttribute CreateTestimonialRequest createTestimonialRequest) {
+        log.info("addTestimonial: request to leave a testimonial, email: {}",
+                currentUser.getUser().getEmail());
         Testimonial newTestimonial = modelMapper.map(createTestimonialRequest, Testimonial.class);
         newTestimonial.setUser(currentUser.getUser());
         testimonialService.save(newTestimonial);
+        log.info("addTestimonial: a new testimonial has been added, email: {}",
+                currentUser.getUser().getEmail());
         return "redirect:/";
     }
 

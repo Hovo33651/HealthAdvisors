@@ -24,7 +24,7 @@ public class MainController {
     private final FileUploadDownLoadUtils fileUploadDownLoadUtils;
     private final RatingService ratingService;
     private final TestimonialService testimonialService;
-    private final AppointmentService appointmentService;
+
 
     @Value("${health.advisors.analysis.files.upload.path}")
     private String analysisFilesPath;
@@ -48,7 +48,8 @@ public class MainController {
      * if principal is not a DOCTOR or PATIENT, then request is redirected to main page
      */
     @GetMapping("/home")
-    public String redirectToHomePage(@AuthenticationPrincipal CurrentUser currentUser) {
+    public String redirectToHomePage(@AuthenticationPrincipal CurrentUser currentUser, ModelMap map) {
+        map.addAttribute("user",currentUser.getUser());
        log.info("Request from {} to redirect to home page",currentUser.getUser().getEmail());
         String userType = currentUser.getUser().getType().name();
         switch (userType) {

@@ -48,6 +48,7 @@ public class UserService {
 
     public User saveUserAsDoctor(User user, MultipartFile[] uploadedFiles) throws IOException {
         user.setType(UserType.DOCTOR);
+        user.setActive(true);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         String picUrl = fileUploadUtils.uploadImage(uploadedFiles,doctorPicturePath);
         user.setPicUrl(picUrl);

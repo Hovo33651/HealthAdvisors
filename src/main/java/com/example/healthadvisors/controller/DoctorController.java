@@ -15,7 +15,10 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
 import java.util.List;
@@ -60,8 +63,6 @@ public class DoctorController {
         log.info("viewAllPatients: response to {} to see all patients", currentUser.getUser().getEmail());
         return "viewAllPatients";
     }
-
-
     /**
      * accepts doctor picture name
      * sends picture in byte[]

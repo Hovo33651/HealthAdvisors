@@ -34,6 +34,7 @@ public class DoctorService {
     }
 
     public Doctor findDoctorById(int doctorId) {
+
         return doctorRepository.findById(doctorId).orElse(null);
     }
 

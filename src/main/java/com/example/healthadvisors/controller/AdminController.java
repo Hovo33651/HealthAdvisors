@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Currency;
 
 @Controller
 @RequiredArgsConstructor
@@ -61,7 +60,6 @@ public class AdminController {
         log.info("Admin: {} wants to add a new doctor", currentUser.getUser().getEmail());
         User newUser = userService.saveUserAsDoctor(modelMapper.map(createUserRequest, User.class), uploadedFiles);
         Doctor doctor = modelMapper.map(createDoctorRequest, Doctor.class);
-        newUser.setActive(true);
         doctor.setUser(newUser);
         doctorService.save(doctor);
         log.info("New doctor has been registered. Email: {}", newUser.getEmail());

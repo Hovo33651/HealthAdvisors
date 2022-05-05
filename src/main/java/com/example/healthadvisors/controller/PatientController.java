@@ -6,14 +6,12 @@ import com.example.healthadvisors.dto.CreateTestimonialRequest;
 import com.example.healthadvisors.dto.CreateUserRequest;
 import com.example.healthadvisors.entity.Doctor;
 import com.example.healthadvisors.entity.Rating;
-import com.example.healthadvisors.entity.Testimonial;
 import com.example.healthadvisors.entity.User;
 import com.example.healthadvisors.security.CurrentUser;
 import com.example.healthadvisors.service.*;
 import com.example.healthadvisors.util.FileUploadDownLoadUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -48,7 +46,7 @@ public class PatientController {
     private final DoctorService doctorService;
     private final RatingService ratingService;
     private final TestimonialService testimonialService;
-    private final ModelMapper modelMapper;
+
 
 
     @Value("${health.advisors.patient.pictures.upload.path}")
@@ -259,6 +257,7 @@ public class PatientController {
      */
     @GetMapping("/testimonial")
     public String redirectToTestimonialPage() {
+
         return "writeTestimonialPage";
     }
 
@@ -274,9 +273,7 @@ public class PatientController {
                                  @ModelAttribute CreateTestimonialRequest createTestimonialRequest) {
         log.info("addTestimonial: request to leave a testimonial, email: {}",
                 currentUser.getUser().getEmail());
-        Testimonial newTestimonial = modelMapper.map(createTestimonialRequest, Testimonial.class);
-        newTestimonial.setUser(currentUser.getUser());
-        testimonialService.save(newTestimonial);
+        testimonialService.saveFromDTO(createTestimonialRequest,currentUser);
         log.info("addTestimonial: a new testimonial has been added, email: {}",
                 currentUser.getUser().getEmail());
         return "redirect:/";

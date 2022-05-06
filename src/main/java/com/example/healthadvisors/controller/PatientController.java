@@ -48,7 +48,6 @@ public class PatientController {
     private final TestimonialService testimonialService;
 
 
-
     @Value("${health.advisors.patient.pictures.upload.path}")
     String path;
 
@@ -228,8 +227,8 @@ public class PatientController {
      */
     @GetMapping("/deleteAccount")
     public String deleteAccount(@AuthenticationPrincipal CurrentUser currentUser) {
-        String email  = currentUser.getUser().getEmail();
-        log.info("deleteAccount: request to remove the account, email: {}",email);
+        String email = currentUser.getUser().getEmail();
+        log.info("deleteAccount: request to remove the account, email: {}", email);
         userService.deleteUserById(currentUser.getUser().getId());
         log.info("deleteAccount: account {} has been removed", email);
         return "redirect:/";
@@ -273,10 +272,20 @@ public class PatientController {
                                  @ModelAttribute CreateTestimonialRequest createTestimonialRequest) {
         log.info("addTestimonial: request to leave a testimonial, email: {}",
                 currentUser.getUser().getEmail());
-        testimonialService.saveFromDTO(createTestimonialRequest,currentUser);
+        testimonialService.saveFromDTO(createTestimonialRequest, currentUser);
         log.info("addTestimonial: a new testimonial has been added, email: {}",
                 currentUser.getUser().getEmail());
         return "redirect:/";
     }
 
+    @GetMapping("/patient/appointment")
+    public String viewAppointments(@AuthenticationPrincipal CurrentUser currentUser,
+                                  ModelMap map) {
+
+        log.info("viewAppointment: request to see patient`s all appointment, email: {}",
+                currentUser.getUser().getEmail());
+        map.addAttribute("appointments",appointmentService.findPatientActiveAppointment(currentUser.getUser().getPatient().getId()));
+
+        return "viewAppointmentsPage";
+    }
 }

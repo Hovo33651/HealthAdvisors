@@ -10,5 +10,7 @@ public interface DoctorRepository extends JpaRepository<Doctor,Integer> {
 
     List<Doctor> findDoctorsBySpecialization_Id(int specId);
 
+
+
     Optional<Doctor> findById(int doctorId);
 }

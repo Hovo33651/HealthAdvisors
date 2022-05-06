@@ -38,6 +38,10 @@ public class AppointmentService {
     }
 
 
+    public List<Appointment> findPatientActiveAppointment(int id){
+       return appointmentRepository.findAppointmentByActiveIsTrueAndPatientId(id);
+    }
+
     public void newAppointment(int doctorId, String appointmentDate, User user) {
         Doctor doctor = doctorService.findDoctorById(doctorId);
         Patient patient = user.getPatient();

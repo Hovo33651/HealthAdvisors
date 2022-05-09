@@ -28,4 +28,13 @@ public class UserSchedulingService {
             }
         }
     }
+    @Scheduled(cron = "0 0 0 * * *")
+    public void removeNotActivatedUser(){
+        List<User> allUser = userService.findAll();
+        for (User user : allUser) {
+            if (user.getTokenCreatedDate().plusDays(1).isAfter(LocalDateTime.now())){
+                userService.deleteUserById(user.getId());
+            }
+        }
+    }
 }

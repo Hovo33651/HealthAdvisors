@@ -45,14 +45,15 @@ public class AppointmentService {
     public void newAppointment(int doctorId, String appointmentDate, User user) {
         Doctor doctor = doctorService.findDoctorById(doctorId);
         Patient patient = user.getPatient();
+
         Appointment newAppointment = Appointment.builder()
                 .patient(patient)
                 .doctor(doctor)
                 .appointmentDate(LocalDateTime.parse(appointmentDate))
                 .active(true)
                 .build();
-        newAppointment.setPatient(patient);
-        newAppointment.setDoctor(doctor);
+//        newAppointment.setPatient(patient);
+//        newAppointment.setDoctor(doctor);
 
         appointmentRepository.save(newAppointment);
 

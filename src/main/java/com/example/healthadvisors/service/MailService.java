@@ -25,7 +25,6 @@ import java.util.concurrent.Future;
 public class MailService {
 
     private final MailSender mailSender;
-
     private final TemplateEngine templateEngine;
     private final JavaMailSender javaMailSender;
 
